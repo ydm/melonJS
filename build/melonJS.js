@@ -9875,6 +9875,7 @@ THE SOFTWARE.
 
         /**
          * function called when added to the game world or a container
+         * @ignore
          */
         onActivateEvent : function () {
             // register pointer events
@@ -9887,6 +9888,7 @@ THE SOFTWARE.
 
         /**
          * function called when removed from the game world or a container
+         * @ignore
          */
         onDeactivateEvent : function () {
             // release pointer events
