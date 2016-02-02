@@ -207,6 +207,38 @@
                 }
             });
 
+            /*
+            // patch font.js
+            me.plugin.patch(me.Font, "draw", function (renderer, text, x, y) {
+                // call the original me.Sprite.draw function
+                this._patched(renderer, text, x, y);
+
+                // draw the font rectangle
+                if (me.debug.renderHitBox) {
+                    renderer.save();
+                    renderer.setColor("orange");
+                    renderer.drawShape(this.getBounds());
+                    _this.counters.inc("bounds");
+                    renderer.restore();
+                }
+            });
+
+            // patch font.js
+            me.plugin.patch(me.Font, "drawStroke", function (renderer, text, x, y) {
+                // call the original me.Sprite.draw function
+                this._patched(renderer, text, x, y);
+
+                // draw the font rectangle
+                if (me.debug.renderHitBox) {
+                    renderer.save();
+                    renderer.setColor("orange");
+                    renderer.drawShape(this.getBounds());
+                    _this.counters.inc("bounds");
+                    renderer.restore();
+                }
+            });
+            */
+            
             // patch entities.js
             me.plugin.patch(me.Entity, "draw", function (renderer) {
                 // call the original me.Entity.draw function
@@ -294,11 +326,13 @@
         show : function () {
             if (!this.visible) {
                 // register a mouse event for the checkboxes
-                me.input.registerPointerEvent("pointerdown", this, this.onClick.bind(this), true);
+                me.input.registerPointerEvent("pointerdown", this, this.onClick.bind(this));
                 // add the debug panel to the game world
                 me.game.world.addChild(this, Infinity);
                 // mark it as visible
                 this.visible = true;
+                // force repaint
+                me.game.repaint();
             }
         },
 
@@ -314,6 +348,8 @@
                 me.game.world.removeChild(this);
                 // mark it as invisible
                 this.visible = false;
+                // force repaint
+                me.game.repaint();
             }
         },
 

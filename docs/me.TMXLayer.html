@@ -682,7 +682,7 @@ Tiled QT 0.7.x format
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 341
+    TMXLayer.js, line 352
 	</dd>
 	
 
@@ -824,6 +824,89 @@ Set to zero if you do not wish an object to be drawn
         
             
 <dt>
+    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        a reference to the Container object that contains this renderable,
+or undefined if it has not been added to one.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="me.Container.html">me.Container</a></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="me.Renderable.html#ancestor">me.Renderable#ancestor</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>undefined</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 122
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name toc-target" id="animatedTilesets"><span class="type-signature">&lt;private> </span>animatedTilesets<span class="type-signature"> :Array</span></h4>
 
     
@@ -872,7 +955,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 378
+    TMXLayer.js, line 389
 	</dd>
 	
 
@@ -938,7 +1021,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 386
+    TMXLayer.js, line 397
 	</dd>
 	
 
@@ -1004,7 +1087,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 355
+    TMXLayer.js, line 366
 	</dd>
 	
 
@@ -1086,7 +1169,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">X coordinate</td>
+            <td class="description last">X coordinate (in map coordinates: row/column)</td>
         </tr>
 
 	
@@ -1109,7 +1192,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">Y coordinate</td>
+            <td class="description last">Y coordinate (in map coordinates: row/column)</td>
         </tr>
 
 	
@@ -1143,7 +1226,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 560
+    TMXLayer.js, line 571
 	</dd>
 	
 
@@ -1229,7 +1312,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">X coordinate</td>
+            <td class="description last">X coordinate (in world/pixels coordinates)</td>
         </tr>
 
 	
@@ -1252,7 +1335,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">Y coordinate</td>
+            <td class="description last">Y coordinate (in world/pixels coordinates)</td>
         </tr>
 
 	
@@ -1286,7 +1369,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 522
+    TMXLayer.js, line 533
 	</dd>
 	
 
@@ -1395,7 +1478,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">X coordinate</td>
+            <td class="description last">X coordinate (in world/pixels coordinates)</td>
         </tr>
 
 	
@@ -1418,7 +1501,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">Y coordinate</td>
+            <td class="description last">Y coordinate (in world/pixels coordinates)</td>
         </tr>
 
 	
@@ -1452,7 +1535,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 507
+    TMXLayer.js, line 518
 	</dd>
 	
 
@@ -1561,7 +1644,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">X coordinate</td>
+            <td class="description last">X coordinate (in map coordinates: row/column)</td>
         </tr>
 
 	
@@ -1584,7 +1667,7 @@ Set to zero if you do not wish an object to be drawn
 
             
 
-            <td class="description last">Y coordinate</td>
+            <td class="description last">Y coordinate (in map coordinates: row/column)</td>
         </tr>
 
 	
@@ -1641,7 +1724,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 536
+    TMXLayer.js, line 547
 	</dd>
 	
 
@@ -1709,13 +1792,13 @@ Set to zero if you do not wish an object to be drawn
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a>
-		on 2015-09-24T23:00:24-07:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+		on 2016-02-02T09:54:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

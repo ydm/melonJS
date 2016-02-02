@@ -2,12 +2,12 @@
  * melonJS Game Engine v3.0.0
  * http://www.melonjs.org
  * @license {@link http://www.opensource.org/licenses/mit-license.php|MIT}
- * @copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * @copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  */
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -228,7 +228,7 @@
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -304,7 +304,7 @@ Function.prototype.defer = function () {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -625,7 +625,7 @@ if (!Object.assign) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -651,7 +651,7 @@ me.Error = me.Object.extend.bind(Error)({
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -680,7 +680,7 @@ if (!Math.sign) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -837,7 +837,7 @@ Number.prototype.radToDeg = function (angle) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -941,7 +941,7 @@ String.prototype.toHex = function () {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -1085,7 +1085,7 @@ window.Uint32Array = window.Uint32Array || me.TypedArray;
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -1146,9 +1146,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+/* jshint -W003 */
 /* jshint -W013 */
 /* jshint -W015 */
+/* jshint -W030 */
+/* jshint -W035 */
 /* jshint -W040 */
+/* jshint -W058 */
 /* jshint -W108 */
 /* jshint -W116 */
 
@@ -1157,6 +1161,82 @@ THE SOFTWARE.
   var i;
   //shortcuts
   var defineProperty = Object.defineProperty, is = Object.is;
+
+
+  //Polyfill global objects
+  if (typeof WeakMap == 'undefined') {
+    exports.WeakMap = createCollection({
+      // WeakMap#delete(key:void*):boolean
+      'delete': sharedDelete,
+      // WeakMap#clear():
+      clear: sharedClear,
+      // WeakMap#get(key:void*):void*
+      get: sharedGet,
+      // WeakMap#has(key:void*):boolean
+      has: mapHas,
+      // WeakMap#set(key:void*, value:void*):void
+      set: sharedSet
+    }, true);
+  }
+
+  if (typeof Map == 'undefined' || typeof ((new Map).values) !== 'function' || !(new Map).values().next) {
+    exports.Map = createCollection({
+      // WeakMap#delete(key:void*):boolean
+      'delete': sharedDelete,
+      //:was Map#get(key:void*[, d3fault:void*]):void*
+      // Map#has(key:void*):boolean
+      has: mapHas,
+      // Map#get(key:void*):boolean
+      get: sharedGet,
+      // Map#set(key:void*, value:void*):void
+      set: sharedSet,
+      // Map#keys(void):Iterator
+      keys: sharedKeys,
+      // Map#values(void):Iterator
+      values: sharedValues,
+      // Map#entries(void):Iterator
+      entries: mapEntries,
+      // Map#forEach(callback:Function, context:void*):void ==> callback.call(context, key, value, mapObject) === not in specs`
+      forEach: sharedForEach,
+      // Map#clear():
+      clear: sharedClear
+    });
+  }
+
+  if (typeof Set == 'undefined' || typeof ((new Set).values) !== 'function' || !(new Set).values().next) {
+    exports.Set = createCollection({
+      // Set#has(value:void*):boolean
+      has: setHas,
+      // Set#add(value:void*):boolean
+      add: sharedAdd,
+      // Set#delete(key:void*):boolean
+      'delete': sharedDelete,
+      // Set#clear():
+      clear: sharedClear,
+      // Set#keys(void):Iterator
+      keys: sharedValues, // specs actually say "the same function object as the initial value of the values property"
+      // Set#values(void):Iterator
+      values: sharedValues,
+      // Set#entries(void):Iterator
+      entries: setEntries,
+      // Set#forEach(callback:Function, context:void*):void ==> callback.call(context, value, index) === not in specs
+      forEach: sharedForEach
+    });
+  }
+
+  if (typeof WeakSet == 'undefined') {
+    exports.WeakSet = createCollection({
+      // WeakSet#delete(key:void*):boolean
+      'delete': sharedDelete,
+      // WeakSet#add(value:void*):boolean
+      add: sharedAdd,
+      // WeakSet#clear():
+      clear: sharedClear,
+      // WeakSet#has(value:void*):boolean
+      has: setHas
+    }, true);
+  }
+
 
   /**
    * ES6 collection constructor
@@ -1167,7 +1247,7 @@ THE SOFTWARE.
       if (!this || this.constructor !== Collection) return new Collection(a);
       this._keys = [];
       this._values = [];
-      this._hash = {};
+      this._itp = []; // iteration pointers
       this.objectOnly = objectOnly;
 
       //parse initial iterable argument passed
@@ -1192,47 +1272,35 @@ THE SOFTWARE.
   /** parse initial iterable argument passed */
   function init(a){
     //init Set argument, like `[1,2,3,{}]`
-    if (this.add) {
+    if (this.add)
       a.forEach(this.add, this);
-    }
     //init Map argument like `[[1,2], [{}, 4]]`
-    else {
-      a.forEach(function (a) {
-        this.set(a[0], a[1]);
-      }, this);
-    }
+    else
+      a.forEach(function(a){this.set(a[0],a[1]);}, this);
   }
 
 
+  /** delete */
   function sharedDelete(key) {
     if (this.has(key)) {
-      if (typeof(key) === "string" || typeof(key) === "number") {
-        this._hash[key] = undefined;
-        return true;
-      }
-      else {
-        this._keys.splice(i, 1);
-        this._values.splice(i, 1);
-      }
+      this._keys.splice(i, 1);
+      this._values.splice(i, 1);
+      // update iteration pointers
+      this._itp.forEach(function(p) { if (i < p[0]) p[0]--; });
     }
     // Aurora here does it while Canary doesn't
     return -1 < i;
   }
 
   function sharedGet(key) {
-    if (typeof(key) === "string" || typeof(key) === "number")
-      return this._hash[key];
     return this.has(key) ? this._values[i] : undefined;
   }
 
   function has(list, key) {
     if (this.objectOnly && key !== Object(key))
       throw new TypeError("Invalid value used as weak collection key");
-    if (typeof(key) === "string" || typeof(key) === "number") {
-      return this._hash.hasOwnProperty(key);
-    }
-    //NaN passed
-    if (key != key) for (i = list.length; i-- && !is(list[i], key););
+    //NaN or 0 passed
+    if (key != key || key === 0) for (i = list.length; i-- && !is(list[i], key);){}
     else i = list.indexOf(key);
     return -1 < i;
   }
@@ -1247,15 +1315,11 @@ THE SOFTWARE.
 
   /** @chainable */
   function sharedSet(key, value) {
-    if (typeof(key) === "string" || typeof(key) === "number") {
-      this._hash[key] = value;
-    }
-    else if (this.has(key)) {
-      this._values[i] = value;
-    }
-    else {
-      this._values[this._keys.push(key) - 1] = value;
-    }
+    this.has(key) ?
+      this._values[i] = value
+      :
+      this._values[this._keys.push(key) - 1] = value
+      ;
     return this;
   }
 
@@ -1266,20 +1330,43 @@ THE SOFTWARE.
   }
 
   function sharedClear() {
+    (this._keys || 0).length =
     this._values.length = 0;
-    this._hash = {};
   }
 
   /** keys, values, and iterate related methods */
-  function sharedValues() {
-    var self = this;
-    return this._values.slice().concat(Object.keys(this._hash).map(function (k) {
-      return self._hash[k];
-    }));
+  function sharedKeys() {
+    return sharedIterator(this._itp, this._keys);
   }
 
-  function sharedKeys() {
-    return this._keys.slice().concat(Object.keys(this._hash));
+  function sharedValues() {
+    return sharedIterator(this._itp, this._values);
+  }
+
+  function mapEntries() {
+    return sharedIterator(this._itp, this._keys, this._values);
+  }
+
+  function setEntries() {
+    return sharedIterator(this._itp, this._values, this._values);
+  }
+
+  function sharedIterator(itp, array, array2) {
+    var p = [0], done = false;
+    itp.push(p);
+    return {
+      next: function() {
+        var v, k = p[0];
+        if (!done && k < array.length) {
+          v = array2 ? [array[k], array2[k]]: array[k];
+          p[0]++;
+        } else {
+          done = true;
+          itp.splice(itp.indexOf(p), 1);
+        }
+        return { done: done, value: v };
+      }
+    };
   }
 
   function sharedSize() {
@@ -1287,94 +1374,19 @@ THE SOFTWARE.
   }
 
   function sharedForEach(callback, context) {
-    var self = this;
-    var values = self.values();
-    self.keys().forEach(function(key, n){
-      callback.call(context, values[n], key, self);
-    });
+    var it = this.entries();
+    for (;;) {
+      var r = it.next();
+      if (r.done) break;
+      callback.call(context, r.value[1], r.value[0], this);
+    }
   }
 
-  function sharedSetIterate(callback, context) {
-    var self = this;
-    self._values.slice().forEach(function(value){
-      callback.call(context, value, value, self);
-    });
-  }
-
-
-  //Polyfill global objects
-  if (typeof WeakMap == 'undefined') {
-    exports.WeakMap = createCollection({
-      // WeakMap#delete(key:void*):boolean
-      'delete': sharedDelete,
-      // WeakMap#clear():
-      clear: sharedClear,
-      // WeakMap#get(key:void*):void*
-      get: sharedGet,
-      // WeakMap#has(key:void*):boolean
-      has: mapHas,
-      // WeakMap#set(key:void*, value:void*):void
-      set: sharedSet
-    }, true);
-  }
-
-  if (typeof Map == 'undefined') {
-    exports.Map = createCollection({
-      // WeakMap#delete(key:void*):boolean
-      'delete': sharedDelete,
-      //:was Map#get(key:void*[, d3fault:void*]):void*
-      // Map#has(key:void*):boolean
-      has: mapHas,
-      // Map#get(key:void*):boolean
-      get: sharedGet,
-      // Map#set(key:void*, value:void*):void
-      set: sharedSet,
-      // Map#keys(void):Array === not in specs
-      keys: sharedKeys,
-      // Map#values(void):Array === not in specs
-      values: sharedValues,
-      // Map#forEach(callback:Function, context:void*):void ==> callback.call(context, key, value, mapObject) === not in specs`
-      forEach: sharedForEach,
-      // Map#clear():
-      clear: sharedClear
-    });
-  }
-
-  if (typeof Set == 'undefined') {
-    exports.Set = createCollection({
-      // Set#has(value:void*):boolean
-      has: setHas,
-      // Set#add(value:void*):boolean
-      add: sharedAdd,
-      // Set#delete(key:void*):boolean
-      'delete': sharedDelete,
-      // Set#clear():
-      clear: sharedClear,
-      // Set#values(void):Array === not in specs
-      values: sharedValues,
-      // Set#forEach(callback:Function, context:void*):void ==> callback.call(context, value, index) === not in specs
-      forEach: sharedSetIterate
-    });
-  }
-
-  if (typeof WeakSet == 'undefined') {
-    exports.WeakSet = createCollection({
-      // WeakSet#delete(key:void*):boolean
-      'delete': sharedDelete,
-      // WeakSet#add(value:void*):boolean
-      add: sharedAdd,
-      // WeakSet#clear():
-      clear: sharedClear,
-      // WeakSet#has(value:void*):boolean
-      has: setHas
-    }, true);
-  }
-
-})(typeof exports != 'undefined' && typeof global != 'undefined' ? global : window);
+})(typeof exports != 'undefined' && typeof global != 'undefined' ? global : window );
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -1605,7 +1617,7 @@ THE SOFTWARE.
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -1764,6 +1776,7 @@ THE SOFTWARE.
                 // the root object of our world is an entity container
                 api.world = new me.Container(0, 0, width, height);
                 api.world.name = "rootContainer";
+                api.world._root = true;
 
                 // initialize the collision system (the quadTree mostly)
                 me.collision.init();
@@ -1946,7 +1959,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -2038,7 +2051,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -2760,7 +2773,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3029,7 +3042,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3223,7 +3236,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3691,7 +3704,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3736,7 +3749,7 @@ THE SOFTWARE.
         set : function (x, y, z) {
             if (x !== +x || y !== +y || z !== +z) {
                 throw new me.Vector3d.Error(
-                    "invalid x,y parameters (not a number)"
+                    "invalid x, y, z parameters (not a number)"
                 );
             }
 
@@ -4176,7 +4189,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -4613,7 +4626,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5125,7 +5138,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5400,7 +5413,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5663,7 +5676,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5967,7 +5980,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -6304,7 +6317,7 @@ THE SOFTWARE.
 })();
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -6420,7 +6433,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -6960,7 +6973,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * A QuadTree implementation in JavaScript, a 2d spatial subdivision algorithm.
@@ -7129,11 +7142,14 @@ THE SOFTWARE.
 
         for (var i = container.children.length, child; i--, (child = container.children[i]);) {
             if (child instanceof me.Container) {
-                // recursivly insert childs
+                if (child.name !== "rootContainer") {
+                    this.insert(child);
+                }
+                // recursivly insert all childs
                 this.insertContainer(child);
             } else {
-                // only insert object with a "physic body"
-                if (typeof (child.body) !== "undefined") {
+                // only insert object with a bounding box
+                if (typeof (child.getBounds) === "function") {
                     this.insert(child);
                 }
             }
@@ -7194,9 +7210,10 @@ THE SOFTWARE.
      * @memberOf me.QuadTree
      * @function
      * @param {Object} object object to be checked against
+     * @param {Object} [function] a sorting function for the returned array
      * @return {Object[]} array with all detected objects
      */
-    Quadtree.prototype.retrieve = function (item) {
+    Quadtree.prototype.retrieve = function (item, fn) {
 
         var returnObjects = this.objects;
 
@@ -7216,6 +7233,10 @@ THE SOFTWARE.
             }
         }
 
+        if (typeof(fn) === "function") {
+            returnObjects.sort(fn);
+        }
+
         return returnObjects;
     };
 
@@ -7228,7 +7249,7 @@ THE SOFTWARE.
      */
     Quadtree.prototype.clear = function (bounds) {
 
-        this.objects = [];
+        this.objects.length = 0;
 
         for (var i = 0; i < this.nodes.length; i = i + 1) {
             this.nodes[i].clear();
@@ -7251,7 +7272,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Separating Axis Theorem implementation, based on the SAT.js library by Jim Riecken <jimr@jimr.ca>
@@ -8038,7 +8059,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -8156,6 +8177,16 @@ THE SOFTWARE.
              * @name me.Renderable#alpha
              */
             this.alpha = 1.0;
+
+            /**
+             * a reference to the Container object that contains this renderable,
+             * or undefined if it has not been added to one.
+             * @public
+             * @type me.Container
+             * @default undefined
+             * @name me.Renderable#ancestor
+             */
+            this.ancestor = undefined;
 
             /**
              * The bounding rectangle for this renderable
@@ -8364,7 +8395,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -8385,7 +8416,7 @@ THE SOFTWARE.
      * @param {Number} [settings.rotation] Initial rotation angle in radians.
      * @param {Boolean} [settings.flipX] Initial flip for X-axis.
      * @param {Boolean} [settings.flipY] Initial flip for Y-axis.
-     * @param {me.Vector2d} [settings.anchorPoint] Anchor point.
+     * @param {me.Vector2d} [settings.anchorPoint={x:0.5, y:0.5}] Anchor point to draw the frame at (defaults to the center of the frame).
      * @example
      * // create a static Sprite Object
      * mySprite = new me.Sprite (100, 100, {
@@ -8452,9 +8483,9 @@ THE SOFTWARE.
             // Used by the game engine to adjust visibility as the
             // sprite moves in and out of the viewport
             this.isSprite = true;
-            
+
             var image = settings.image;
-            
+
             if (typeof (settings.region) !== "undefined") {
                 if ((typeof (image) === "object") && image.getRegion) {
                     // use a texture atlas
@@ -8486,7 +8517,7 @@ THE SOFTWARE.
                 settings.framewidth  || image.width,
                 settings.frameheight || image.height
             ]);
-            
+
             // update anchorPoint
             if (settings.anchorPoint) {
                 this.anchorPoint.set(settings.anchorPoint.x, settings.anchorPoint.y);
@@ -8588,6 +8619,9 @@ THE SOFTWARE.
             }
             // set the scaleFlag
             this.scaleFlag = this._scale.x !== 1.0 || this._scale.y !== 1.0;
+
+            // resize the bounding box
+            this.resizeBounds(this.width * x, this.height * y);
 
         },
 
@@ -8728,7 +8762,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -8746,7 +8780,7 @@ THE SOFTWARE.
      * @param {Image|String} settings.image Image to use for the animation
      * @param {Number} [settings.framewidth] Width of a single frame within the spritesheet
      * @param {Number} [settings.frameheight] Height of a single frame within the spritesheet
-     * @param {me.Vector2d} [settings.anchorPoint] Anchor point to draw the frame at
+     * @param {me.Vector2d} [settings.anchorPoint={x:0.5, y:0.5}] Anchor point to draw the frame at (defaults to the center of the frame).
      * @example
      * // standalone image, with anchor in the center
      * var animationSheet = new me.AnimationSheet(0, 0, {
@@ -9074,7 +9108,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -9295,7 +9329,7 @@ THE SOFTWARE.
             if (target instanceof me.Entity) {
                 this.target = target.pos;
             }
-            else if (target instanceof me.Vector2d) {
+            else if ((target instanceof me.Vector2d) || (target instanceof me.Vector3d))  {
                 this.target = target;
             }
             else {
@@ -9601,7 +9635,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -9682,7 +9716,7 @@ THE SOFTWARE.
              * @name me.GUI_Object#isHoldable
              */
             this.isHoldable = false;
-            
+
             /**
              * true if the pointer is over the object
              * @public
@@ -9727,6 +9761,7 @@ THE SOFTWARE.
             // Check if left mouse button is pressed OR if device has touch
             if ((event.which === 1 || me.device.touch) && this.isClickable) {
                 this.updated = true;
+                this.released = false;
                 if (this.isHoldable) {
                     if (this.holdTimeout !== null) {
                         me.timer.clearTimeout(this.holdTimeout);
@@ -9751,7 +9786,7 @@ THE SOFTWARE.
         onClick : function (/* event */) {
             return false;
         },
-        
+
         /**
          * function callback for the pointerEnter event
          * @ignore
@@ -9760,7 +9795,7 @@ THE SOFTWARE.
             this.hover = true;
             return this.onOver(event);
         },
-        
+
         /**
          * function called when the pointer is over the object
          * @name onOver
@@ -9770,7 +9805,7 @@ THE SOFTWARE.
          * @param {Event} event the event object
          */
         onOver : function (/* event */) {},
-        
+
         /**
          * function callback for the pointerLeave event
          * @ignore
@@ -9780,7 +9815,7 @@ THE SOFTWARE.
             this.release.call(this, event);
             return this.onOut(event);
         },
-        
+
         /**
          * function called when the pointer is leaving the object area
          * @name onOut
@@ -9790,7 +9825,7 @@ THE SOFTWARE.
          * @param {Event} event the event object
          */
         onOut : function (/* event */) {},
-        
+
         /**
          * function callback for the pointerup event
          * @ignore
@@ -9848,7 +9883,6 @@ THE SOFTWARE.
             me.input.registerPointerEvent("pointercancel", this, this.release.bind(this));
             me.input.registerPointerEvent("pointerenter", this, this.enter.bind(this));
             me.input.registerPointerEvent("pointerleave", this, this.leave.bind(this));
-            
         },
 
         /**
@@ -9880,7 +9914,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -9931,6 +9965,13 @@ THE SOFTWARE.
              * @memberOf me.Container
              */
             this.transform = new me.Matrix2d();
+
+            /**
+             * whether the container is the root of the scene
+             * @private
+             * @ignore
+             */
+            this._root = false;
 
             // call the _super constructor
             me.Renderable.prototype.init.apply(this,
@@ -10019,6 +10060,9 @@ THE SOFTWARE.
                 }
             }
 
+            child.ancestor = this;
+            this.children.push(child);
+
             // set the child z value if required
             if (typeof(child.pos) !== "undefined") {
                 if (typeof(z) === "number") {
@@ -10028,13 +10072,11 @@ THE SOFTWARE.
                 }
             }
 
-            child.ancestor = this;
-            this.children.push(child);
             if (this.autoSort === true) {
                 this.sort();
             }
 
-            if (typeof child.onActivateEvent === "function") {
+            if (typeof child.onActivateEvent === "function" && this.isAttachedToRoot()) {
                 child.onActivateEvent();
             }
 
@@ -10068,7 +10110,7 @@ THE SOFTWARE.
 
                 this.children.splice(index, 0, child);
 
-                if (typeof child.onActivateEvent === "function") {
+                if (typeof child.onActivateEvent === "function" && this.isAttachedToRoot()) {
                     child.onActivateEvent();
                 }
 
@@ -10281,6 +10323,29 @@ THE SOFTWARE.
         },
 
         /**
+         * Checks if this container is root or if ti's attached to the root container.
+         * @private
+         * @name isAttachedToRoot
+         * @memberOf me.Container
+         * @function
+         * @returns Boolean
+         */
+        isAttachedToRoot : function () {
+            if (this._root) {
+                return true;
+            } else {
+                var ancestor = this.ancestor;
+                while (ancestor) {
+                    if (ancestor._root === true) {
+                        return true;
+                    }
+                    ancestor = ancestor.ancestor;
+                }
+                return false;
+            }
+        },
+
+        /**
          * update the renderable's bounding rect (private)
          * @private
          * @name updateBoundsPos
@@ -10304,6 +10369,15 @@ THE SOFTWARE.
             }
 
             return this._bounds;
+        },
+
+        onActivateEvent : function () {
+          for (var i = this.children.length, obj; i--, (obj = this.children[i]);) {
+              var child = this.children[i];
+              if (typeof child.onActivateEvent === "function") {
+                  child.onActivateEvent();
+              }
+          }
         },
 
         /**
@@ -10469,6 +10543,15 @@ THE SOFTWARE.
                     // make sure we redraw everything
                     me.game.repaint();
                 }.defer(this, this);
+            }
+        },
+
+        onDeactivateEvent : function () {
+            for (var i = this.children.length, obj; i--, (obj = this.children[i]);) {
+                var child = this.children[i];
+                if (typeof child.onDeactivateEvent === "function") {
+                    child.onDeactivateEvent();
+                }
             }
         },
 
@@ -10646,7 +10729,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -10957,14 +11040,16 @@ THE SOFTWARE.
         },
 
         /**
-         * OnDestroy Notification function<br>
+         * onDeactivateEvent Notification function<br>
          * Called by engine before deleting the object
-         * @name onDestroyEvent
+         * @name onDeactivateEvent
          * @memberOf me.Entity
          * @function
          */
-        onDestroyEvent : function () {
-            // to be extended !
+        onDeactivateEvent : function () {
+          if (this.renderable && this.renderable.onDeactivateEvent) {
+              this.renderable.onDeactivateEvent();
+          }
         },
 
         /**
@@ -10978,132 +11063,6 @@ THE SOFTWARE.
          * @return {Boolean} true if the object should respond to the collision (its position and velocity will be corrected)
          */
         onCollision : function () {
-            return false;
-        }
-    });
-
-    /*
-     * A Collectable entity
-     */
-
-    /**
-     * @class
-     * @extends me.Entity
-     * @memberOf me
-     * @constructor
-     * @param {Number} x the x coordinates of the entity object
-     * @param {Number} y the y coordinates of the entity object
-     * @param {Object} settings See {@link me.Entity}
-     */
-    me.CollectableEntity = me.Entity.extend(
-    /** @scope me.CollectableEntity.prototype */
-    {
-        /** @ignore */
-        init : function (x, y, settings) {
-            // call the super constructor
-            me.Entity.prototype.init.apply(this, [x, y, settings]);
-            this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
-        }
-    });
-
-    /*
-     * A level entity
-     */
-
-    /**
-     * @class
-     * @extends me.Entity
-     * @memberOf me
-     * @constructor
-     * @param {Number} x the x coordinates of the object
-     * @param {Number} y the y coordinates of the object
-     * @param {Object} settings See {@link me.Entity}
-     * @param {String} [settings.duration] Fade duration (in ms)
-     * @param {String|me.Color} [settings.color] Fade color
-     * @param {String} [settings.to] TMX level to load
-     * @param {String|me.Container} [settings.container] Target container. See {@link me.levelDirector.loadLevel}
-     * @param {Function} [settings.onLoaded] Level loaded callback. See {@link me.levelDirector.loadLevel}
-     * @param {Boolean} [settings.flatten] Flatten all objects into the target container. See {@link me.levelDirector.loadLevel}
-     * @param {Boolean} [settings.setViewportBounds] Resize the viewport to match the level. See {@link me.levelDirector.loadLevel}
-     * @example
-     * me.game.world.addChild(new me.LevelEntity(
-     *     x, y, {
-     *         "duration" : 250,
-     *         "color" : "#000",
-     *         "to" : "mymap2"
-     *     }
-     * ));
-     */
-    me.LevelEntity = me.Entity.extend(
-    /** @scope me.LevelEntity.prototype */
-    {
-        /** @ignore */
-        init : function (x, y, settings) {
-            me.Entity.prototype.init.apply(this, [x, y, settings]);
-
-            this.nextlevel = settings.to;
-
-            this.fade = settings.fade;
-            this.duration = settings.duration;
-            this.fading = false;
-
-            this.name = "levelEntity";
-
-            // a temp variable
-            this.gotolevel = settings.to;
-
-            // Collect the defined level settings
-            this.loadLevelSettings = {};
-            [ "container", "onLoaded", "flatten", "setViewportBounds" ].forEach(function (v) {
-                if (typeof(settings[v]) !== "undefined") {
-                    this.loadLevelSettings[v] = settings[v];
-                }
-            }.bind(this));
-
-            // Lookup container name
-            if (typeof(this.loadLevelSettings.container) === "string") {
-                this.loadLevelSettings.container = me.game.world.getChildByName(this.loadLevelSettings.container)[0];
-            }
-
-            this.body.collisionType = me.collision.types.ACTION_OBJECT;
-        },
-
-        /**
-         * @ignore
-         */
-        onFadeComplete : function () {
-            me.levelDirector.loadLevel(this.gotolevel, this.loadLevelSettings);
-            me.game.viewport.fadeOut(this.fade, this.duration);
-        },
-
-        /**
-         * go to the specified level
-         * @name goTo
-         * @memberOf me.LevelEntity
-         * @function
-         * @param {String} [level=this.nextlevel] name of the level to load
-         * @protected
-         */
-        goTo : function (level) {
-            this.gotolevel = level || this.nextlevel;
-            // load a level
-            //console.log("going to : ", to);
-            if (this.fade && this.duration) {
-                if (!this.fading) {
-                    this.fading = true;
-                    me.game.viewport.fadeIn(this.fade, this.duration,
-                            this.onFadeComplete.bind(this));
-                }
-            } else {
-                me.levelDirector.loadLevel(this.gotolevel, this.loadLevelSettings);
-            }
-        },
-
-        /** @ignore */
-        onCollision : function () {
-            if (this.name === "levelEntity") {
-                this.goTo();
-            }
             return false;
         }
     });
@@ -11126,7 +11085,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Screens objects & State machine
@@ -11804,7 +11763,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -11828,7 +11787,7 @@ THE SOFTWARE.
             this.progress = ~~(progress * this.width);
             this.invalidate = true;
         },
-       
+
         // make sure the screen is refreshed every frame
         update : function () {
             if (this.invalidate === true) {
@@ -11931,10 +11890,8 @@ THE SOFTWARE.
     me.DefaultLoadingScreen = me.ScreenObject.extend({
         // call when the loader is resetted
         onResetEvent : function () {
-            me.game.reset();
-
             // background color
-            me.game.world.addChild(new me.ColorLayer("background", "#202020", 0));
+            me.game.world.addChild(new me.ColorLayer("background", "#202020", 0), 0);
 
             // progress bar
             var progressBar = new ProgressBar(
@@ -11942,17 +11899,17 @@ THE SOFTWARE.
                 me.video.renderer.getWidth(),
                 me.video.renderer.getHeight()
             );
-            
+
             this.loaderHdlr = me.event.subscribe(
                 me.event.LOADER_PROGRESS,
                 progressBar.onProgressUpdate.bind(progressBar)
             );
-            
+
             this.resizeHdlr = me.event.subscribe(
                 me.event.VIEWPORT_ONRESIZE,
                 progressBar.resize.bind(progressBar)
             );
-            
+
             me.game.world.addChild(progressBar, 1);
             this.iconCanvas = me.video.createCanvas(me.game.viewport.width, me.game.viewport.height, false);
             // melonJS text & logo
@@ -11977,7 +11934,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -12638,7 +12595,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Font / Bitmap font
@@ -12650,6 +12607,10 @@ THE SOFTWARE.
  * -> first char " " 32d (0x20);
  */
 (function () {
+
+    var runits = ["ex", "em", "pt", "px"];
+    var toPX = [12, 24, 0.75, 1];
+
     /**
      * a generic system font object.
      * @class
@@ -12765,7 +12726,7 @@ THE SOFTWARE.
          * @function
          * @param {String} font a CSS font name
          * @param {Number|String} size size, or size + suffix (px, em, pt)
-         * @param {me.Color|String} fillStyle a CSS color value
+         * @param {me.Color|String} [fillStyle] a CSS color value
          * @param {String} [textAlign="left"] horizontal alignment
          * @example
          * font.setFont("Arial", 20, "white");
@@ -12779,13 +12740,23 @@ THE SOFTWARE.
                     !/(^".*"$)|(^'.*'$)/.test(value)
                 ) ? "\"" + value + "\"" : value;
             });
-
-            this.fontSize.y = +size;
+           
+            if (typeof size === "number") {
+                this.fontSize.y = size;
+                size += "px";
+            } else /* string */ {
+                // extract the units and convert if necessary
+                var CSSval =  size.match(/([-+]?[\d.]*)(.*)/);
+                this.fontSize.y = parseFloat(CSSval[1]);
+                if (CSSval[2]) {
+                    this.fontSize.y *= toPX[runits.indexOf(CSSval[2])];                    
+                } else {
+                    // no unit define, assume px
+                    size += "px";
+                }
+            }
             this.height = this.fontSize.y;
 
-            if (typeof size === "number") {
-                size += "px";
-            }
             this.font = size + " " + font_names.join(",");
             if (typeof(fillStyle) !== "undefined") {
                 this.fillStyle.copy(fillStyle);
@@ -12838,17 +12809,13 @@ THE SOFTWARE.
          */
 
         draw : function (renderer, text, x, y) {
-            x = ~~x;
-            y = ~~y;
-
             // save the previous global alpha value
             var _alpha = renderer.globalAlpha();
+
             renderer.setGlobalAlpha(_alpha * this.getOpacity());
 
-            // update initial position
-            this.pos.set(x, y, this.pos.z);  // TODO: z ?
             // draw the text
-            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, x, y, false));
+            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, ~~x, ~~y, false));
 
             // restore the previous global alpha value
             renderer.setGlobalAlpha(_alpha);
@@ -12867,17 +12834,13 @@ THE SOFTWARE.
          * @param {Number} y
          */
         drawStroke : function (renderer, text, x, y) {
-            x = ~~x;
-            y = ~~y;
-
             // save the previous global alpha value
             var _alpha = renderer.globalAlpha();
+            
             renderer.setGlobalAlpha(_alpha * this.getOpacity());
 
-            // update initial position
-            this.pos.set(x, y, this.pos.z); // TODO: z ?
             // draw the text
-            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, x, y, true));
+            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, ~~x, ~~y, true));
 
             // restore the previous global alpha value
             renderer.setGlobalAlpha(_alpha);
@@ -12911,6 +12874,7 @@ THE SOFTWARE.
             }
 
             // compute bounds
+            // TODO : memoize me !
             var dx = (this.textAlign === "right" ? x - dw : (
                 this.textAlign === "center" ? x - ~~(dw / 2) : x
             ));
@@ -12918,19 +12882,20 @@ THE SOFTWARE.
                 this.textBaseline === "middle" ? dy - ~~(lineHeight / 2) : dy - lineHeight
             );
 
-            return {
-                x: ~~dx,
-                y: ~~dy,
-                w: ~~(dw + 0.5),
-                h: ~~(strings.length * lineHeight + 0.5)
-            };
+            // update the renderable bounds
+            return this._bounds.setShape(
+                ~~dx,
+                ~~dy,
+                ~~(dw + 0.5),
+                ~~(strings.length * lineHeight + 0.5)
+            );
         }
     });
 })();
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Font / Bitmap font
@@ -12964,7 +12929,7 @@ THE SOFTWARE.
             // #char per row
             this.charCount = 0;
             // font name and type
-            me.Font.prototype.init.apply(this, [font, size, "#000000"]);
+            me.Font.prototype.init.apply(this, [font, size.x || size, "#000000"]);
             // first char in the ascii table
             this.firstChar = firstChar || 0x20;
 
@@ -13130,7 +13095,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Audio Mngt Objects
@@ -13238,16 +13203,6 @@ THE SOFTWARE.
             audioFormat = typeof audioFormat === "string" ? audioFormat : "mp3";
             // convert it into an array
             this.audioFormats = audioFormat.split(",");
-
-            // XXX: workaround https://github.com/goldfire/howler.js/issues/328
-            if (me.device.ua.includes("OPR/")) {
-                this.audioFormats = this.audioFormats.filter(function (f) {
-                    return f !== "mp3";
-                });
-                if (!this.audioFormats.length) {
-                    this.audioFormats.push("ogg");
-                }
-            }
 
             return !Howler.noAudio;
         };
@@ -13410,6 +13365,31 @@ THE SOFTWARE.
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
                 sound.pause(instance_id);
+            }
+        };
+
+        /**
+         * resume the specified sound on all channels<br>
+         * @name resume
+         * @memberOf me.audio
+         * @public
+         * @function
+         * @param {String} sound_name audio clip name - case sensitive
+         * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will resume.
+         * @example
+         * // play a audio clip
+         * var id = me.audio.play("myClip");
+         * ...
+         * // pause it
+         * me.audio.pause("myClip", id);
+         * ...
+         * // resume
+         * me.audio.resume("myClip", id);
+         */
+        api.resume = function (sound_name, instance_id) {
+            var sound = audioTracks[sound_name];
+            if (sound && typeof sound !== "undefined") {
+                sound.play(instance_id);
             }
         };
 
@@ -13638,7 +13618,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -14107,7 +14087,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -14390,7 +14370,7 @@ THE SOFTWARE.
 
 /*
 * MelonJS Game Engine
-* Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+* Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
 * http://www.melonjs.org
 *
 */
@@ -14482,7 +14462,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -15043,7 +15023,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -15399,7 +15379,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -15601,7 +15581,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -15716,7 +15696,6 @@ THE SOFTWARE.
                 }]
             }, img);
 
-            this.cache.put(img, this.fillTexture);
             this.compositor.uploadTexture(
                 this.fillTexture,
                 1,
@@ -15762,7 +15741,6 @@ THE SOFTWARE.
                 }]
             }, img);
 
-            this.cache.put(img, this.fontTexture);
             this.compositor.uploadTexture(this.fontTexture);
         },
 
@@ -15796,7 +15774,6 @@ THE SOFTWARE.
             }, image);
 
             // FIXME: Remove old cache entry and texture when changing the repeat mode
-            this.cache.put(image, texture);
             this.compositor.uploadTexture(texture);
 
             return texture;
@@ -15850,14 +15827,14 @@ THE SOFTWARE.
             this.compositor.uploadTexture(this.fontTexture, 0, 0, 0, true);
 
             // Add the new quad
-            var key = bounds.x + "," + bounds.y + "," + bounds.w + "," + bounds.h;
+            var key = bounds.pos.x + "," + bounds.pos.y + "," + bounds.width + "," + bounds.height;
             this.compositor.addQuad(
                 this.fontTexture,
                 key,
-                bounds.x,
-                bounds.y,
-                bounds.w,
-                bounds.h
+                bounds.pos.x,
+                bounds.pos.y,
+                bounds.width,
+                bounds.height
             );
 
             // Clear font context2D
@@ -16297,7 +16274,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -16421,7 +16398,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -16492,7 +16469,7 @@ THE SOFTWARE.
              *
              * 24 = 2^4 + 2^3
              *
-             * As of July 2015, approximately 1.5% of all WebGL-enabled UAs
+             * As of October 2015, approximately 4.2% of all WebGL-enabled UAs
              * support more than 24 max textures, according to
              * http://webglstats.com/
              */
@@ -16855,6 +16832,7 @@ THE SOFTWARE.
          * Draw a line
          * @name drawLine
          * @memberOf me.WebGLRenderer.Compositor
+         * @function
          * @param {me.Vector2d[]} points Line vertices
          * @param {Boolean} [open=false] Whether the line is open (true) or closed (false)
          */
@@ -16937,7 +16915,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -16999,20 +16977,17 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
-(function () {
+(function (api) {
     /*
      * PRIVATE STUFF
      */
 
-    // Reference to base class
-    var obj = me.input;
-
     // list of binded keys
-    obj._KeyBinding = {};
+    api._KeyBinding = {};
 
     // corresponding actions
     var keyStatus = {};
@@ -17035,10 +17010,10 @@ THE SOFTWARE.
      * enable keyboard event
      * @ignore
      */
-    obj._enableKeyboardEvent = function () {
+    api._enableKeyboardEvent = function () {
         if (!keyboardInitialized) {
-            window.addEventListener("keydown", obj._keydown, false);
-            window.addEventListener("keyup", obj._keyup, false);
+            window.addEventListener("keydown", api._keydown, false);
+            window.addEventListener("keyup", api._keyup, false);
             keyboardInitialized = true;
         }
     };
@@ -17047,10 +17022,10 @@ THE SOFTWARE.
      * key down event
      * @ignore
      */
-    obj._keydown = function (e, keyCode, mouseButton) {
+    api._keydown = function (e, keyCode, mouseButton) {
 
         keyCode = keyCode || e.keyCode || e.which;
-        var action = obj._KeyBinding[keyCode];
+        var action = api._KeyBinding[keyCode];
 
         // publish a message for keydown event
         me.event.publish(me.event.KEYDOWN, [
@@ -17069,7 +17044,7 @@ THE SOFTWARE.
             }
             // prevent event propagation
             if (preventDefaultForKeys[keyCode]) {
-                return obj._preventDefault(e);
+                return api._preventDefault(e);
             }
             else {
                 return true;
@@ -17084,9 +17059,9 @@ THE SOFTWARE.
      * key up event
      * @ignore
      */
-    obj._keyup = function (e, keyCode, mouseButton) {
+    api._keyup = function (e, keyCode, mouseButton) {
         keyCode = keyCode || e.keyCode || e.which;
-        var action = obj._KeyBinding[keyCode];
+        var action = api._KeyBinding[keyCode];
 
         // publish a message for keydown event
         me.event.publish(me.event.KEYUP, [ action, keyCode ]);
@@ -17103,7 +17078,7 @@ THE SOFTWARE.
 
             // prevent event propagation
             if (preventDefaultForKeys[keyCode]) {
-                return obj._preventDefault(e);
+                return api._preventDefault(e);
             }
             else {
                 return true;
@@ -17127,7 +17102,7 @@ THE SOFTWARE.
      * @name KEY
      * @memberOf me.input
      */
-    obj.KEY = {
+    api.KEY = {
         "BACKSPACE" : 8,
         "TAB" : 9,
         "ENTER" : 13,
@@ -17247,7 +17222,7 @@ THE SOFTWARE.
      * }
      *
      */
-    obj.isKeyPressed = function (action) {
+    api.isKeyPressed = function (action) {
         if (keyStatus[action] && !keyLocked[action]) {
             if (keyLock[action]) {
                 keyLocked[action] = true;
@@ -17266,7 +17241,7 @@ THE SOFTWARE.
      * @param {String} action user defined corresponding action
      * @return {Boolean} down (true) or up(false)
      */
-    obj.keyStatus = function (action) {
+    api.keyStatus = function (action) {
         return (keyStatus[action] > 0);
     };
 
@@ -17284,12 +17259,12 @@ THE SOFTWARE.
      * me.input.triggerKeyEvent(me.input.KEY.LEFT, true);
      */
 
-    obj.triggerKeyEvent = function (keycode, status) {
+    api.triggerKeyEvent = function (keycode, status) {
         if (status) {
-            obj._keydown({}, keycode);
+            api._keydown({}, keycode);
         }
         else {
-            obj._keyup({}, keycode);
+            api._keyup({}, keycode);
         }
     };
 
@@ -17311,15 +17286,15 @@ THE SOFTWARE.
      * me.input.bindKey(me.input.KEY.X,     "jump", true);
      * me.input.bindKey(me.input.KEY.F1,    "options", true, true);
      */
-    obj.bindKey = function (keycode, action, lock, preventDefault) {
+    api.bindKey = function (keycode, action, lock, preventDefault) {
         // make sure the keyboard is enable
-        obj._enableKeyboardEvent();
+        api._enableKeyboardEvent();
 
         if (typeof preventDefault !== "boolean") {
-            preventDefault = obj.preventDefault;
+            preventDefault = api.preventDefault;
         }
 
-        obj._KeyBinding[keycode] = action;
+        api._KeyBinding[keycode] = action;
         preventDefaultForKeys[keycode] = preventDefault;
 
         keyStatus[action] = 0;
@@ -17341,7 +17316,7 @@ THE SOFTWARE.
      *     me.input.unlockKey("jump");
      * }
      */
-    obj.unlockKey = function (action) {
+    api.unlockKey = function (action) {
         keyLocked[action] = false;
     };
 
@@ -17355,25 +17330,25 @@ THE SOFTWARE.
      * @example
      * me.input.unbindKey(me.input.KEY.LEFT);
      */
-    obj.unbindKey = function (keycode) {
+    api.unbindKey = function (keycode) {
         // clear the event status
-        var keybinding = obj._KeyBinding[keycode];
+        var keybinding = api._KeyBinding[keycode];
         keyStatus[keybinding] = 0;
         keyLock[keybinding] = false;
         keyRefs[keybinding] = {};
         // remove the key binding
-        obj._KeyBinding[keycode] = null;
+        api._KeyBinding[keycode] = null;
         preventDefaultForKeys[keycode] = null;
     };
-})();
+})(me.input);
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
-(function () {
+(function (api) {
     /**
      * The built in Event Object
      * @external Event
@@ -17397,32 +17372,46 @@ THE SOFTWARE.
      */
 
     /**
-     * Event X coordinate relative to the viewport<br>
+     * Event X coordinate relative to the viewport
      * @memberof! external:Event#
      * @name external:Event#gameScreenX
      * @type {Number}
      */
 
     /**
-     * Event Y coordinate relative to the viewport<br>
+     * Event Y coordinate relative to the viewport
      * @memberof! external:Event#
      * @name external:Event#gameScreenY
      * @type {Number}
      */
 
     /**
-     * Event X coordinate relative to the map<br>
+     * Event X coordinate relative to the map
      * @memberof! external:Event#
      * @name external:Event#gameWorldX
      * @type {Number}
      */
 
     /**
-     * Event Y coordinate relative to the map<br>
+     * Event Y coordinate relative to the map
      * @memberof! external:Event#
      * @name external:Event#gameWorldY
      * @type {Number}
      */
+
+     /**
+      * Event X coordinate relative to the holding container
+      * @memberof! external:Event#
+      * @name external:Event#gameLocalX
+      * @type {Number}
+      */
+
+     /**
+      * Event Y coordinate relative to the holding container
+      * @memberof! external:Event#
+      * @name external:Event#gameLocalY
+      * @type {Number}
+      */
 
     /**
      * The unique identifier of the contact for a touch, mouse or pen <br>
@@ -17437,11 +17426,18 @@ THE SOFTWARE.
      * PRIVATE STUFF
      */
 
-    // Reference to base class
-    var obj = me.input;
+    /**
+     * A pool of `Vector` objects to cache pointer/touch event coordinates.
+     * @type {Array.<Vector>}
+     */
+    var T_VECTORS = [];
+    for (var v = 0; v < 10; v++) { T_VECTORS.push(new me.Vector2d()); }
 
     // list of registered Event handlers
     var evtHandlers = new Map();
+
+    // current pointer
+    var currentPointer = new me.Rect(0, 0, 1, 1);
 
     // some useful flags
     var pointerInitialized = false;
@@ -17524,7 +17520,7 @@ THE SOFTWARE.
      * cache value for the offset of the canvas position within the page
      * @ignore
      */
-    obj._offset = null;
+    api._offset = null;
 
     /**
      * addEventListerner for the specified event list and callback
@@ -17544,15 +17540,12 @@ THE SOFTWARE.
      */
     function enablePointerEvent() {
         if (!pointerInitialized) {
-            // initialize mouse pos (0,0)
-            changedTouches.push({ x: 0, y: 0 });
-            obj.pointer.pos.set(0, 0);
             // get relative canvas position in the page
-            obj._offset = me.video.getPos();
+            api._offset = me.video.getPos();
             // Automatically update relative canvas position on scroll
             window.addEventListener("scroll", throttle(100, false,
                 function (e) {
-                    obj._offset = me.video.getPos();
+                    api._offset = me.video.getPos();
                     me.event.publish(me.event.WINDOW_ONSCROLL, [ e ]);
                 }
             ), false);
@@ -17579,12 +17572,12 @@ THE SOFTWARE.
             window.addEventListener(wheeltype, onMouseWheel, false);
 
             // set the PointerMove/touchMove/MouseMove event
-            if (typeof(obj.throttlingInterval) === "undefined") {
+            if (typeof(api.throttlingInterval) === "undefined") {
                 // set the default value
-                obj.throttlingInterval = ~~(1000 / me.sys.fps);
+                api.throttlingInterval = ~~(1000 / me.sys.fps);
             }
             // if time interval <= 16, disable the feature
-            if (obj.throttlingInterval < 17) {
+            if (api.throttlingInterval < 17) {
                 me.video.renderer.getScreenCanvas().addEventListener(
                     activeEventList[POINTER_MOVE],
                     onMoveEvent,
@@ -17595,7 +17588,7 @@ THE SOFTWARE.
                 me.video.renderer.getScreenCanvas().addEventListener(
                     activeEventList[POINTER_MOVE],
                     throttle(
-                        obj.throttlingInterval,
+                        api.throttlingInterval,
                         false,
                         function (e) {
                             onMoveEvent(e);
@@ -17632,105 +17625,142 @@ THE SOFTWARE.
     function dispatchEvent(e) {
         var handled = false;
 
-        evtHandlers.forEach(function (handlers) {
-            // get the current screen to world offset
-            me.game.viewport.localToWorld(0, 0, viewportOffset);
-            for (var t = 0, tl = changedTouches.length; t < tl; t++) {
-                // Do not fire older events
-                if (typeof(e.timeStamp) !== "undefined") {
-                    if (e.timeStamp < lastTimeStamp) {
-                        continue;
+        // get the current screen to world offset
+        me.game.viewport.localToWorld(0, 0, viewportOffset);
+
+        while (changedTouches.length > 0) {
+
+            // keep a reference to the last item
+            var changedTouch = changedTouches.pop();
+            // and put it back into our cache
+            T_VECTORS.push(changedTouch);
+
+            // Do not fire older events
+            if (typeof(e.timeStamp) !== "undefined") {
+                if (e.timeStamp < lastTimeStamp) {
+                    continue;
+                }
+                lastTimeStamp = e.timeStamp;
+            }
+
+            // if PointerEvent is not supported
+            if (!me.device.pointerEnabled) {
+                // -> define pointerId to simulate the PointerEvent standard
+                e.pointerId = changedTouch.id;
+            }
+
+            /* Initialize the two coordinate space properties. */
+            e.gameScreenX = changedTouch.x;
+            e.gameScreenY = changedTouch.y;
+            e.gameWorldX = e.gameScreenX + viewportOffset.x;
+            e.gameWorldY = e.gameScreenY + viewportOffset.y;
+
+            currentPointer.setShape(
+                e.gameWorldX,
+                e.gameWorldY,
+                e.width || 1,
+                e.height || 1
+            );
+
+            var candidates = me.collision.quadTree.retrieve(currentPointer, me.Container._sortZ);
+
+            // add the viewport to the list of candidates
+            candidates.push ( me.game.viewport );
+
+            for (var c = candidates.length, candidate; c--, (candidate = candidates[c]);) {
+
+                if (evtHandlers.has(candidate)) {
+                    var handlers = evtHandlers.get(candidate);
+                    var region = handlers.region;
+                    var ancestor = region.ancestor;
+                    var bounds = region.getBounds();
+
+                    if (region.floating === true) {
+                        e.gameX = e.gameLocalX = e.gameScreenX;
+                        e.gameY = e.gameLocalY = e.gameScreenY;
+                    } else {
+                        e.gameX = e.gameLocalX = e.gameWorldX;
+                        e.gameY = e.gameLocalY = e.gameWorldY;
                     }
-                    lastTimeStamp = e.timeStamp;
-                }
+                    // adjust gameLocalX to specify coordinates
+                    // within the region ancestor container
+                    if (typeof ancestor !== "undefined") {
+                        var parentPos = ancestor.getBounds().pos;
+                        e.gameLocalX = e.gameX - parentPos.x;
+                        e.gameLocalY = e.gameY - parentPos.y;
+                    }
 
-                // if PointerEvent is not supported
-                if (!me.device.pointerEnabled) {
-                    // -> define pointerId to simulate the PointerEvent standard
-                    e.pointerId = changedTouches[t].id;
-                }
+                    var eventInBounds =
+                        // check the shape bounding box first
+                        bounds.containsPoint(e.gameX, e.gameY) &&
+                        // then check more precisely if needed
+                        (bounds === region || region.containsPoint(e.gameLocalX, e.gameLocalY));
 
-                /* Initialize the two coordinate space properties. */
-                e.gameScreenX = changedTouches[t].x;
-                e.gameScreenY = changedTouches[t].y;
-                e.gameWorldX = e.gameScreenX + viewportOffset.x;
-                e.gameWorldY = e.gameScreenY + viewportOffset.y;
-                if (handlers.region.floating === true) {
-                    e.gameX = e.gameScreenX;
-                    e.gameY = e.gameScreenY;
-                } else {
-                    e.gameX = e.gameWorldX;
-                    e.gameY = e.gameWorldY;
-                }
+                    switch (activeEventList.indexOf(e.type)) {
+                        case POINTER_MOVE:
+                            // moved out of bounds: trigger the POINTER_LEAVE callbacks
+                            if (handlers.pointerId === e.pointerId && !eventInBounds) {
+                                if (triggerEvent(handlers, activeEventList[POINTER_LEAVE], e, null)) {
+                                    handled = true;
+                                    break;
+                                }
+                            }
+                            // no pointer & moved inside of bounds: trigger the POINTER_ENTER callbacks
+                            else if (handlers.pointerId === null && eventInBounds) {
+                                if (triggerEvent(handlers, activeEventList[POINTER_ENTER], e, e.pointerId)) {
+                                    handled = true;
+                                    break;
+                                }
+                            }
 
-                var region = handlers.region;
-                var bounds = region.getBounds();
-                var eventInBounds =
-                    // check the shape bounding box first
-                    bounds.containsPoint(e.gameX, e.gameY) &&
-                    // then check more precisely if needed
-                    (bounds === region || region.containsPoint(e.gameX, e.gameY));
-
-                switch (activeEventList.indexOf(e.type)) {
-                    case POINTER_MOVE:
-                        // moved out of bounds: trigger the POINTER_LEAVE callbacks
-                        if (handlers.pointerId === e.pointerId && !eventInBounds) {
-                            if (triggerEvent(handlers, activeEventList[POINTER_LEAVE], e, null)) {
+                            // trigger the POINTER_MOVE callbacks
+                            if (eventInBounds && triggerEvent(handlers, e.type, e, e.pointerId)) {
                                 handled = true;
                                 break;
                             }
-                        }
-                        // no pointer & moved inside of bounds: trigger the POINTER_ENTER callbacks
-                        else if (handlers.pointerId === null && eventInBounds) {
-                            if (triggerEvent(handlers, activeEventList[POINTER_ENTER], e, e.pointerId)) {
-                                handled = true;
-                                break;
-                            }
-                        }
-
-                        // trigger the POINTER_MOVE callbacks
-                        if (eventInBounds && triggerEvent(handlers, e.type, e, e.pointerId)) {
-                            handled = true;
                             break;
-                        }
-                        break;
 
-                    case POINTER_UP:
-                        // pointer defined & inside of bounds: trigger the POINTER_UP callback
-                        if (handlers.pointerId === e.pointerId && eventInBounds) {
-                            // trigger the corresponding callback
-                            if (triggerEvent(handlers, e.type, e, null)) {
-                                handled = true;
-                                break;
+                        case POINTER_UP:
+                            // pointer defined & inside of bounds: trigger the POINTER_UP callback
+                            if (handlers.pointerId === e.pointerId && eventInBounds) {
+                                // trigger the corresponding callback
+                                if (triggerEvent(handlers, e.type, e, null)) {
+                                    handled = true;
+                                    break;
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case POINTER_CANCEL:
-                        // pointer defined: trigger the POINTER_CANCEL callback
-                        if (handlers.pointerId === e.pointerId) {
-                            // trigger the corresponding callback
-                            if (triggerEvent(handlers, e.type, e, null)) {
-                                handled = true;
-                                break;
+                        case POINTER_CANCEL:
+                            // pointer defined: trigger the POINTER_CANCEL callback
+                            if (handlers.pointerId === e.pointerId) {
+                                // trigger the corresponding callback
+                                if (triggerEvent(handlers, e.type, e, null)) {
+                                    handled = true;
+                                    break;
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    default:
-                        // event inside of bounds: trigger the POINTER_DOWN or MOUSE_WHEEL callback
-                        if (eventInBounds) {
-                            // trigger the corresponding callback
-                            if (triggerEvent(handlers, e.type, e, e.pointerId)) {
-                                handled = true;
-                                break;
+                        default:
+                            // event inside of bounds: trigger the POINTER_DOWN or MOUSE_WHEEL callback
+                            if (eventInBounds) {
+
+                                // trigger the corresponding callback
+                                if (triggerEvent(handlers, e.type, e, e.pointerId)) {
+                                    handled = true;
+                                    break;
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
+                }
+                if (handled === true) {
+                    // stop iterating through this list of candidates
+                    break;
                 }
             }
-        });
-
+        }
         return handled;
     }
 
@@ -17739,22 +17769,19 @@ THE SOFTWARE.
      * @ignore
      */
     function updateCoordFromEvent(event) {
-        var local;
-
-        // reset the touch array cache
-        changedTouches.length = 0;
+        var local = T_VECTORS.pop();
 
         // PointerEvent or standard Mouse event
         if (!event.touches) {
-            local = obj.globalToLocal(event.clientX, event.clientY);
-            local.id =  event.pointerId || 1;
+            api.globalToLocal(event.clientX, event.clientY, local);
+            local.id = event.pointerId || 1;
             changedTouches.push(local);
         }
         // iOS/Android like touch event
         else {
             for (var i = 0, l = event.changedTouches.length; i < l; i++) {
                 var t = event.changedTouches[i];
-                local = obj.globalToLocal(t.clientX, t.clientY);
+                api.globalToLocal(t.clientX, t.clientY, local);
                 local.id = t.identifier;
                 changedTouches.push(local);
             }
@@ -17765,15 +17792,15 @@ THE SOFTWARE.
         }
 
         // Else use the first entry to simulate mouse event
-        obj.pointer.pos.set(
+        api.pointer.pos.set(
             changedTouches[0].x,
             changedTouches[0].y
         );
 
         if (typeof(event.width) === "number") {
             // resize the pointer object if necessary
-            if (event.width !== obj.pointer.width || event.height !== obj.pointer.height) {
-                obj.pointer.resize(event.width || 1, event.height || 1);
+            if (event.width !== api.pointer.width || event.height !== api.pointer.height) {
+                api.pointer.resize(event.width || 1, event.height || 1);
             }
         }
     }
@@ -17802,7 +17829,7 @@ THE SOFTWARE.
             // dispatch mouse event to registered object
             if (dispatchEvent(_event)) {
                 // prevent default action
-                return obj._preventDefault(e);
+                return api._preventDefault(e);
             }
         }
         return true;
@@ -17819,7 +17846,7 @@ THE SOFTWARE.
         // dispatch mouse event to registered object
         if (dispatchEvent(e)) {
             // prevent default action
-            return obj._preventDefault(e);
+            return api._preventDefault(e);
         }
         return true;
     }
@@ -17835,20 +17862,20 @@ THE SOFTWARE.
         // dispatch event to registered objects
         if (dispatchEvent(e)) {
             // prevent default action
-            return obj._preventDefault(e);
+            return api._preventDefault(e);
         }
 
         // in case of touch event button is undefined
         var button = e.button || 0;
-        var keycode = obj.pointer.bind[button];
+        var keycode = api.pointer.bind[button];
 
         // check if mapped to a key
         if (keycode) {
             if (e.type === activeEventList[POINTER_DOWN]) {
-                return obj._keydown(e, keycode, button + 1);
+                return api._keydown(e, keycode, button + 1);
             }
             else { // 'mouseup' or 'touchend'
-                return obj._keyup(e, keycode, button + 1);
+                return api._keyup(e, keycode, button + 1);
             }
         }
 
@@ -17870,15 +17897,15 @@ THE SOFTWARE.
      * @name pointer
      * @memberOf me.input
      */
-    obj.pointer = new me.Rect(0, 0, 1, 1);
+    api.pointer = new me.Rect(0, 0, 1, 1);
 
     // bind list for mouse buttons
-    obj.pointer.bind = [ 0, 0, 0 ];
+    api.pointer.bind = [ 0, 0, 0 ];
 
     // W3C button constants
-    obj.pointer.LEFT = 0;
-    obj.pointer.MIDDLE = 1;
-    obj.pointer.RIGHT = 2;
+    api.pointer.LEFT = 0;
+    api.pointer.MIDDLE = 1;
+    api.pointer.RIGHT = 2;
 
     /**
      * time interval for event throttling in milliseconds<br>
@@ -17889,7 +17916,7 @@ THE SOFTWARE.
      * @name throttlingInterval
      * @memberOf me.input
      */
-    obj.throttlingInterval = undefined;
+    api.throttlingInterval = undefined;
 
     /**
      * Translate the specified x and y values from the global (absolute)
@@ -17900,6 +17927,7 @@ THE SOFTWARE.
      * @function
      * @param {Number} x the global x coordinate to be translated.
      * @param {Number} y the global y coordinate to be translated.
+     * @param {Number} [v] an optional vector object where to set the
      * @return {me.Vector2d} A vector object with the corresponding translated coordinates.
      * @example
      * onMouseEvent : function (e) {
@@ -17908,8 +17936,9 @@ THE SOFTWARE.
      *    // do something with pos !
      * };
      */
-    obj.globalToLocal = function (x, y) {
-        var offset = obj._offset;
+    api.globalToLocal = function (x, y, v) {
+        v = v || new me.Vector2d();
+        var offset = api._offset;
         var pixelRatio = me.device.getPixelRatio();
         x -= offset.left;
         y -= offset.top;
@@ -17918,7 +17947,7 @@ THE SOFTWARE.
             x /= scale.x;
             y /= scale.y;
         }
-        return new me.Vector2d(x * pixelRatio, y * pixelRatio);
+        return v.set(x * pixelRatio, y * pixelRatio);
     };
 
     /**
@@ -17940,19 +17969,19 @@ THE SOFTWARE.
      * // map the right button click on the X key
      * me.input.bindPointer(me.input.pointer.RIGHT, me.input.KEY.X);
      */
-    obj.bindPointer = function () {
-        var button = (arguments.length < 2) ? obj.pointer.LEFT : arguments[0];
+    api.bindPointer = function () {
+        var button = (arguments.length < 2) ? api.pointer.LEFT : arguments[0];
         var keyCode = (arguments.length < 2) ? arguments[0] : arguments[1];
 
         // make sure the mouse is initialized
         enablePointerEvent();
 
         // throw an exception if no action is defined for the specified keycode
-        if (!obj._KeyBinding[keyCode]) {
+        if (!api._KeyBinding[keyCode]) {
             throw new me.Error("no action defined for keycode " + keyCode);
         }
         // map the mouse button to the keycode
-        obj.pointer.bind[button] = keyCode;
+        api.pointer.bind[button] = keyCode;
     };
     /**
      * unbind the defined keycode
@@ -17964,11 +17993,11 @@ THE SOFTWARE.
      * @example
      * me.input.unbindPointer(me.input.pointer.LEFT);
      */
-    obj.unbindPointer = function (button) {
+    api.unbindPointer = function (button) {
         // clear the event status
-        obj.pointer.bind[
+        api.pointer.bind[
             typeof(button) === "undefined" ?
-            obj.pointer.LEFT : button
+            api.pointer.LEFT : button
         ] = null;
     };
 
@@ -17999,7 +18028,7 @@ THE SOFTWARE.
      * // register on the 'pointerdown' event
      * me.input.registerPointerEvent('pointerdown', this, this.pointerDown.bind(this));
      */
-    obj.registerPointerEvent = function (eventType, region, callback) {
+    api.registerPointerEvent = function (eventType, region, callback) {
         // make sure the mouse/touch events are initialized
         enablePointerEvent();
 
@@ -18045,7 +18074,7 @@ THE SOFTWARE.
      * // release the registered region on the 'pointerdown' event
      * me.input.releasePointerEvent('pointerdown', this);
      */
-    obj.releasePointerEvent = function (eventType, region, callback) {
+    api.releasePointerEvent = function (eventType, region, callback) {
         if (pointerEventList.indexOf(eventType) === -1) {
             throw new me.Error("invalid event type : " + eventType);
         }
@@ -18074,14 +18103,14 @@ THE SOFTWARE.
      * @ignore
      * @function
      */
-    obj._translatePointerEvents = function () {
+    api._translatePointerEvents = function () {
         // listen to mouse move (and touch move) events on the viewport
         // and convert them to a system event by default
-        obj.registerPointerEvent("pointermove", me.game.viewport, function (e) {
+        api.registerPointerEvent("pointermove", me.game.viewport, function (e) {
             me.event.publish(me.event.POINTERMOVE, [e]);
         });
     };
-})();
+})(me.input);
 
 /*
  * MelonJS Game Engine
@@ -18514,7 +18543,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -18822,13 +18851,15 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
     var rgbaRx = /^rgba?\((\d+), ?(\d+), ?(\d+)(, ?([\d\.]+))?\)$/;
     var hex3Rx = /^#([\da-fA-F])([\da-fA-F])([\da-fA-F])$/;
+    var hex4Rx = /^#([\da-fA-F])([\da-fA-F])([\da-fA-F])([\da-fA-F])$/;
     var hex6Rx = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
+    var hex8Rx = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
 
     var cssToRGB = new Map();
 
@@ -19195,7 +19226,7 @@ THE SOFTWARE.
         },
 
         /**
-         * Parse a Hex color ("#RGB" or "#RRGGBB" format) and set this color to
+         * Parse a Hex color ("#RGB", "#ARGB" or "#RRGGBB", "#AARRGGBB" format) and set this color to
          * the corresponding r,g,b values
          * @name parseHex
          * @memberOf me.Color
@@ -19207,14 +19238,37 @@ THE SOFTWARE.
             // TODO : Memoize this function by caching its input
 
             var match;
+            if ((match = hex8Rx.exec(hexColor))) {
+                // #AARRGGBB
+                return this.setColor(
+                    parseInt(match[2], 16),
+                    parseInt(match[3], 16),
+                    parseInt(match[4], 16),
+                    (parseInt(match[1], 16).clamp(0, 255) / 255.0).toFixed(1)
+                );
+            }
+
             if ((match = hex6Rx.exec(hexColor))) {
+                // #RRGGBB
                 return this.setColor(
                     parseInt(match[1], 16),
                     parseInt(match[2], 16),
                     parseInt(match[3], 16)
                 );
             }
+
+            if ((match = hex4Rx.exec(hexColor))) {
+                // #ARGB
+                return this.setColor(
+                    parseInt(match[2] + match[2], 16),
+                    parseInt(match[3] + match[3], 16),
+                    parseInt(match[4] + match[4], 16),
+                    (parseInt(match[1] + match[1], 16).clamp(0, 255) / 255.0).toFixed(1)
+                );
+            }
+
             if ((match = hex3Rx.exec(hexColor))) {
+                // #RGB
                 return this.setColor(
                     parseInt(match[1] + match[1], 16),
                     parseInt(match[2] + match[2], 16),
@@ -19361,7 +19415,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -19494,7 +19548,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -19594,7 +19648,8 @@ THE SOFTWARE.
         */
         api.decode = function (data, encoding, compression) {
             compression = compression || "none";
-            encoding = encoding || "none";
+            // When no encoding is given, the tiles are stored as individual XML tile elements.
+            encoding = encoding || "xml";
 
             switch (encoding) {
                 case "csv":
@@ -19610,6 +19665,9 @@ THE SOFTWARE.
 
                 case "none":
                     return data;
+
+                case "xml":
+                    throw new me.Error("XML encoding is deprecated, use base64 instead");
 
                 default:
                     throw new me.Error("Unknown layer encoding: " + encoding);
@@ -19767,7 +19825,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -20173,7 +20231,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -20288,13 +20346,18 @@ THE SOFTWARE.
                 this.transform.translate(0, this.height - this.width);
             }
             if (this.flippedX) {
-                this.transform.translate((this.flippedAD ? this.height : this.width), 0);
+                this.transform.translate(
+                    (this.flippedAD ? 0 : this.width),
+                    (this.flippedAD ? this.height : 0)
+                );
                 a[0] *= -1;
                 a[3] *= -1;
-
             }
             if (this.flippedY) {
-                this.transform.translate(0, (this.flippedAD ? this.width : this.height));
+                this.transform.translate(
+                    (this.flippedAD ? this.width : 0),
+                    (this.flippedAD ? 0 : this.height)
+                );
                 a[1] *= -1;
                 a[4] *= -1;
             }
@@ -20366,7 +20429,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -20473,7 +20536,7 @@ THE SOFTWARE.
             this.atlas = this.texture.getAtlas();
 
             // calculate the number of tiles per horizontal line
-            var hTileCount = ~~(this.image.width / (this.tilewidth + this.spacing));
+            var hTileCount = +tileset.columns || ~~(this.image.width / (this.tilewidth + this.spacing));
             var vTileCount = ~~(this.image.height / (this.tileheight + this.spacing));
             // compute the last gid value in the tileset
             this.lastgid = this.firstgid + (((hTileCount * vTileCount) - 1) || 0);
@@ -20671,7 +20734,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -21007,7 +21070,7 @@ THE SOFTWARE.
             var columnItr = rowItr.clone();
 
             // main drawing loop
-            for (var y = startPos.y; y - this.tileheight < rectEnd.y; y += this.hTileheight) {
+            for (var y = startPos.y * 2 ; y - this.tileheight * 2 < rectEnd.y * 2; y += this.tileheight) {
                 columnItr.setV(rowItr);
                 for (var x = startPos.x; x < rectEnd.x; x += this.tilewidth) {
                     //check if it's valid tile, if so render
@@ -21026,7 +21089,7 @@ THE SOFTWARE.
                             tileset.drawTile(
                                 renderer,
                                 offset.x + x,
-                                offset.y + y - tileset.tileheight,
+                                offset.y + y / 2 - tileset.tileheight,
                                 tmxTile
                             );
                         }
@@ -21131,14 +21194,14 @@ THE SOFTWARE.
 
             // Start with the coordinates of a grid-aligned tile
             var referencePoint = me.pool.pull("me.Vector2d",
-                Math.floor(x / (this.tilewidth + this.sidelengthx)),
-                Math.floor((y / (this.tileheight + this.sidelengthy)))
+                Math.floor(x / (this.columnwidth * 2)),
+                Math.floor((y / (this.rowheight * 2)))
             );
 
             // Relative x and y position on the base square of the grid-aligned tile
             var rel = me.pool.pull("me.Vector2d",
-                x - referencePoint.x * (this.tilewidth + this.sidelengthx),
-                y - referencePoint.y * (this.tileheight + this.sidelengthy)
+                x - referencePoint.x * (this.columnwidth * 2),
+                y - referencePoint.y * (this.rowheight * 2)
             );
 
             // Adjust the reference point to the correct tile coordinates
@@ -21326,7 +21389,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -21350,9 +21413,20 @@ THE SOFTWARE.
 
             // apply given parameters
             this.name = name;
-            this.color = color;
             this.pos.z = z;
             this.floating = true;
+
+            // parse the given color
+            if (color instanceof me.Color) {
+                this.color = color.toRGBA();
+            } else {
+                // string (#RGB, #ARGB, #RRGGBB, #AARRGGBB)
+                var _col = me.pool.pull("me.Color");
+                this.color = _col.parseCSS(color).toRGBA();
+                me.pool.push(_col);
+            }
+
+
         },
 
         /**
@@ -21836,8 +21910,8 @@ THE SOFTWARE.
          * @memberOf me.TMXLayer
          * @public
          * @function
-         * @param {Number} x X coordinate
-         * @param {Number} y Y coordinate
+         * @param {Number} x X coordinate (in world/pixels coordinates)
+         * @param {Number} y Y coordinate (in world/pixels coordinates)
          * @return {Number} TileId
          */
         getTileId : function (x, y) {
@@ -21851,8 +21925,8 @@ THE SOFTWARE.
          * @memberOf me.TMXLayer
          * @public
          * @function
-         * @param {Number} x X coordinate
-         * @param {Number} y Y coordinate
+         * @param {Number} x X coordinate (in world/pixels coordinates)
+         * @param {Number} y Y coordinate (in world/pixels coordinates)
          * @return {me.Tile} Tile Object
          */
         getTile : function (x, y) {
@@ -21865,8 +21939,8 @@ THE SOFTWARE.
          * @memberOf me.TMXLayer
          * @public
          * @function
-         * @param {Number} x X coordinate
-         * @param {Number} y Y coordinate
+         * @param {Number} x X coordinate (in map coordinates: row/column)
+         * @param {Number} y Y coordinate (in map coordinates: row/column)
          * @param {Number} tileId tileId
          * @return {me.Tile} the corresponding newly created tile object
          */
@@ -21889,8 +21963,8 @@ THE SOFTWARE.
          * @memberOf me.TMXLayer
          * @public
          * @function
-         * @param {Number} x X coordinate
-         * @param {Number} y Y coordinate
+         * @param {Number} x X coordinate (in map coordinates: row/column)
+         * @param {Number} y Y coordinate (in map coordinates: row/column)
          */
         clearTile : function (x, y) {
             // clearing tile
@@ -21954,7 +22028,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT +0.7.x format
@@ -22449,7 +22523,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -24032,25 +24106,22 @@ THE SOFTWARE.
 })();
 
 /*!
- *  howler.js v2.0.0-beta
+ *  howler.js v2.0.0-beta7
  *  howlerjs.com
  *
- *  (c) 2013-2015, James Simpson of GoldFire Studios
+ *  (c) 2013-2016, James Simpson of GoldFire Studios
  *  goldfirestudios.com
  *
  *  MIT License
  */
 
 /* jshint -W003 */
-/* jshint -W013 */
-/* jshint -W015 */
+/* jshint -W004 */
 /* jshint -W030 */
 /* jshint -W031 */
 /* jshint -W083 */
 /* jshint -W084 */
-/* jshint -W098 */
 /* jshint -W108 */
-/* jshint -W116 */
 
 (function() {
 
@@ -24060,14 +24131,9 @@ THE SOFTWARE.
   var ctx = null;
   var usingWebAudio = true;
   var noAudio = false;
+  var masterGain = null;
+  var canPlayEvent = 'canplaythrough';
   setupAudioContext();
-
-  // Create a master gain node.
-  if (usingWebAudio) {
-    var masterGain = (typeof ctx.createGain === 'undefined') ? ctx.createGainNode() : ctx.createGain();
-    masterGain.gain.value = 1;
-    masterGain.connect(ctx.destination);
-  }
 
   /** Global Methods **/
   /***************************************************************************/
@@ -24093,8 +24159,15 @@ THE SOFTWARE.
       self._muted = false;
       self._volume = 1;
 
+      // Keeps track of the suspend/resume state of the AudioContext.
+      self.state = ctx ? ctx.state || 'running' : 'running';
+      self.autoSuspend = true;
+
+      // Automatically begin the 30-second suspend process
+      self._autoSuspend();
+
       // Set to false to disable the auto iOS enabler.
-      self.iOSAutoEnable = true;
+      self.mobileAutoEnable = true;
 
       // No audio is available on this system if this is set to true.
       self.noAudio = noAudio;
@@ -24188,6 +24261,28 @@ THE SOFTWARE.
     },
 
     /**
+     * Unload and destroy all currently loaded Howl objects.
+     * @return {Howler}
+     */
+    unload: function() {
+      var self = this || Howler;
+
+      for (var i=self._howls.length-1; i>=0; i--) {
+        self._howls[i].unload();
+      }
+
+      // Create a new AudioContext to make sure it is fully reset.
+      if (self.usingWebAudio && typeof ctx.close !== 'undefined') {
+        self.ctx = null;
+        ctx.close();
+        setupAudioContext();
+        self.ctx = ctx;
+      }
+
+      return self;
+    },
+
+    /**
      * Check for codec support of specific extension.
      * @param  {String} ext Audio file extention.
      * @return {Boolean}
@@ -24204,42 +24299,47 @@ THE SOFTWARE.
       var self = this || Howler;
       var audioTest = new Audio();
       var mpegTest = audioTest.canPlayType('audio/mpeg;').replace(/^no$/, '');
-      
+      var isOpera = /OPR\//.test(navigator.userAgent);
+
       self._codecs = {
-        mp3: !!(mpegTest || audioTest.canPlayType('audio/mp3;').replace(/^no$/, '')),
+        mp3: !!(!isOpera && (mpegTest || audioTest.canPlayType('audio/mp3;').replace(/^no$/, ''))),
         mpeg: !!mpegTest,
         opus: !!audioTest.canPlayType('audio/ogg; codecs="opus"').replace(/^no$/, ''),
         ogg: !!audioTest.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/, ''),
+        oga: !!audioTest.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/, ''),
         wav: !!audioTest.canPlayType('audio/wav; codecs="1"').replace(/^no$/, ''),
         aac: !!audioTest.canPlayType('audio/aac;').replace(/^no$/, ''),
         m4a: !!(audioTest.canPlayType('audio/x-m4a;') || audioTest.canPlayType('audio/m4a;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
         mp4: !!(audioTest.canPlayType('audio/x-mp4;') || audioTest.canPlayType('audio/mp4;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
         weba: !!audioTest.canPlayType('audio/webm; codecs="vorbis"').replace(/^no$/, ''),
-        webm: !!audioTest.canPlayType('audio/webm; codecs="vorbis"').replace(/^no$/, '')
+        webm: !!audioTest.canPlayType('audio/webm; codecs="vorbis"').replace(/^no$/, ''),
+        dolby: !!audioTest.canPlayType('audio/mp4; codecs="ec-3"').replace(/^no$/, '')
       };
 
       return self;
     },
 
     /**
-     * iOS will only allow audio to be played after a user interaction.
+     * Mobile browsers will only allow audio to be played after a user interaction.
      * Attempt to automatically unlock audio on the first user interaction.
      * Concept from: http://paulbakaus.com/tutorials/html5/web-audio-on-ios/
      * @return {Howler}
      */
-    _enableiOSAudio: function() {
+    _enableMobileAudio: function() {
       var self = this || Howler;
 
       // Only run this on iOS if audio isn't already eanbled.
-      if (ctx && (self._iOSEnabled || !/iPhone|iPad|iPod/i.test(navigator.userAgent))) {
+      var isMobile = /iPhone|iPad|iPod|Android|BlackBerry|BB10|Silk/i.test(navigator.userAgent);
+      var isTouch = !!(('ontouchend' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+      if (ctx && (self._mobileEnabled || !isMobile || !isTouch)) {
         return;
       }
 
-      self._iOSEnabled = false;
+      self._mobileEnabled = false;
 
       // Call this method on touch start to create and play a buffer,
       // then check if the audio actually played to determine if
-      // audio has now been unlocked on iOS.
+      // audio has now been unlocked on iOS, Android, etc.
       var unlock = function() {
         // Create an empty buffer.
         var buffer = ctx.createBuffer(1, 1, 22050);
@@ -24255,20 +24355,95 @@ THE SOFTWARE.
         }
 
         // Setup a timeout to check that we are unlocked on the next event loop.
-        setTimeout(function() {
-          if ((source.playbackState === source.PLAYING_STATE || source.playbackState === source.FINISHED_STATE)) {
-            // Update the unlocked state and prevent this check from happening again.
-            self._iOSEnabled = true;
-            self.iOSAutoEnable = false;
+        source.onended = function() {
+          source.disconnect(0);
 
-            // Remove the touch start listener.
-            document.removeEventListener('touchend', unlock, false);
-          }
-        }, 0);
+          // Update the unlocked state and prevent this check from happening again.
+          self._mobileEnabled = true;
+          self.mobileAutoEnable = false;
+
+          // Remove the touch start listener.
+          document.removeEventListener('touchend', unlock, true);
+        };
       };
 
       // Setup a touch start listener to attempt an unlock in.
-      document.addEventListener('touchend', unlock, false);
+      document.addEventListener('touchend', unlock, true);
+
+      return self;
+    },
+
+    /**
+     * Automatically suspend the Web Audio AudioContext after no sound has played for 30 seconds.
+     * This saves processing/energy and fixes various browser-specific bugs with audio getting stuck.
+     * @return {Howler}
+     */
+    _autoSuspend: function() {
+      var self = this;
+
+      if (!self.autoSuspend || !ctx || typeof ctx.suspend === 'undefined' || !usingWebAudio) {
+        return;
+      }
+
+      // Check if any sounds are playing.
+      for (var i=0; i<self._howls.length; i++) {
+        if (self._howls[i]._webAudio) {
+          for (var j=0; j<self._howls[i]._sounds.length; j++) {
+            if (!self._howls[i]._sounds[j]._paused) {
+              return self;
+            }
+          }
+        }
+      }
+
+      // If no sound has played after 30 seconds, suspend the context.
+      self._suspendTimer = setTimeout(function() {
+        if (!self.autoSuspend) {
+          return;
+        }
+
+        self._suspendTimer = null;
+        self.state = 'suspending';
+        ctx.suspend().then(function() {
+          self.state = 'suspended';
+
+          if (self._resumeAfterSuspend) {
+            delete self._resumeAfterSuspend;
+            self._autoResume();
+          }
+        });
+      }, 30000);
+
+      return self;
+    },
+
+    /**
+     * Automatically resume the Web Audio AudioContext when a new sound is played.
+     * @return {Howler}
+     */
+    _autoResume: function() {
+      var self = this;
+
+      if (!ctx || typeof ctx.resume === 'undefined' || !usingWebAudio) {
+        return;
+      }
+
+      if (self.state === 'running' && self._suspendTimer) {
+        clearTimeout(self._suspendTimer);
+        self._suspendTimer = null;
+      } else if (self.state === 'suspended') {
+        self.state = 'resuming';
+        ctx.resume().then(function() {
+          self.state = 'running';
+        });
+
+        if (self._suspendTimer) {
+          clearTimeout(self._suspendTimer);
+          self._suspendTimer = null;
+        }
+      } else if (self.state === 'suspending') {
+        self._resumeAfterSuspend = true;
+      }
 
       return self;
     }
@@ -24306,7 +24481,7 @@ THE SOFTWARE.
 
       // Setup user-defined default properties.
       self._autoplay = o.autoplay || false;
-      self._ext = o.ext || null;
+      self._format = (typeof o.format !== 'string') ? o.format : [o.format];
       self._html5 = o.html5 || false;
       self._muted = o.mute || false;
       self._loop = o.loop || false;
@@ -24322,21 +24497,27 @@ THE SOFTWARE.
       self._loaded = false;
       self._sounds = [];
       self._endTimers = {};
+      self._queue = [];
 
       // Setup event listeners.
       self._onend = o.onend ? [{fn: o.onend}] : [];
-      self._onfaded = o.onfaded ? [{fn: o.onfaded}] : [];
+      self._onfade = o.onfade ? [{fn: o.onfade}] : [];
       self._onload = o.onload ? [{fn: o.onload}] : [];
       self._onloaderror = o.onloaderror ? [{fn: o.onloaderror}] : [];
       self._onpause = o.onpause ? [{fn: o.onpause}] : [];
       self._onplay = o.onplay ? [{fn: o.onplay}] : [];
+      self._onstop = o.onstop ? [{fn: o.onstop}] : [];
+      self._onmute = o.onmute ? [{fn: o.onmute}] : [];
+      self._onvolume = o.onvolume ? [{fn: o.onvolume}] : [];
+      self._onrate = o.onrate ? [{fn: o.onrate}] : [];
+      self._onseek = o.onseek ? [{fn: o.onseek}] : [];
 
       // Web Audio or HTML5 Audio?
       self._webAudio = usingWebAudio && !self._html5;
 
       // Automatically try to enable audio on iOS.
-      if (typeof ctx !== 'undefined' && ctx && Howler.iOSAutoEnable) {
-        Howler._enableiOSAudio();
+      if (typeof ctx !== 'undefined' && ctx && Howler.mobileAutoEnable) {
+        Howler._enableMobileAudio();
       }
 
       // Keep track of this Howl group in the global controller.
@@ -24360,7 +24541,7 @@ THE SOFTWARE.
 
       // If no audio is available, quit immediately.
       if (noAudio) {
-        self._emit('loaderror');
+        self._emit('loaderror', null, 'No audio support.');
         return;
       }
 
@@ -24373,9 +24554,9 @@ THE SOFTWARE.
       for (var i=0; i<self._src.length; i++) {
         var ext, str;
 
-        if (self._ext && self._ext[i]) {
+        if (self._format && self._format[i]) {
           // If an extension was specified, use that instead.
-          ext = self._ext[i];
+          ext = self._format[i];
         } else {
           // Extract the file extension from the URL or base64 data URI.
           str = self._src[i];
@@ -24397,11 +24578,18 @@ THE SOFTWARE.
       }
 
       if (!url) {
-        self._emit('loaderror');
+        self._emit('loaderror', null, 'No codec support for selected audio sources.');
         return;
       }
 
       self._src = url;
+
+      // If the hosting page is HTTPS and the source isn't,
+      // drop down to HTML5 Audio to avoid Mixed Content errors.
+      if (window.location.protocol === 'https:' && url.slice(0, 5) === 'http:') {
+        self._html5 = true;
+        self._webAudio = false;
+      }
 
       // Create a new sound object and add it to the pool.
       new Sound(self);
@@ -24465,9 +24653,13 @@ THE SOFTWARE.
       // If we have no sprite and the sound hasn't loaded, we must wait
       // for the sound to load to get our audio's duration.
       if (!self._loaded && !self._sprite[sprite]) {
-        self.once('load', function() {
-          self.play(self._soundById(sound._id) ? sound._id : undefined);
+        self._queue.push({
+          event: 'play',
+          action: function() {
+            self.play(self._soundById(sound._id) ? sound._id : undefined);
+          }
         });
+
         return sound._id;
       }
 
@@ -24476,48 +24668,20 @@ THE SOFTWARE.
         return sound._id;
       }
 
+      // Make sure the AudioContext isn't suspended, and resume it if it is.
+      if (self._webAudio) {
+        Howler._autoResume();
+      }
+
       // Determine how long to play for and where to start playing.
       var seek = sound._seek > 0 ? sound._seek : self._sprite[sprite][0] / 1000;
       var duration = ((self._sprite[sprite][0] + self._sprite[sprite][1]) / 1000) - seek;
 
       // Create a timer to fire at the end of playback or the start of a new loop.
-      var ended = function() {
-        // Should this sound loop?
-        var loop = !!(sound._loop || self._sprite[sprite][2]);
-
-        // Fire the ended event.
-        self._emit('end', sound._id);
-
-        // Restart the playback for HTML5 Audio loop.
-        if (!self._webAudio && loop) {
-          self.stop(sound._id).play(sound._id);
-        }
-
-        // Restart this timer if on a Web Audio loop.
-        if (self._webAudio && loop) {
-          self._emit('play', sound._id);
-          sound._seek = sound._start || 0;
-          sound._playStart = ctx.currentTime;
-          self._endTimers[sound._id] = setTimeout(ended, ((sound._stop - sound._start) * 1000) / Math.abs(self._rate));
-        }
-
-        // Mark the node as paused.
-        if (self._webAudio && !loop) {
-          sound._paused = true;
-          sound._ended = true;
-          sound._seek = sound._start || 0;
-          self._clearTimer(sound._id);
-
-          // Clean up the buffer source.
-          sound._node.bufferSource = null;
-        }
-
-        // When using a sprite, end the track.
-        if (!self._webAudio && !loop) {
-          self.stop(sound._id);
-        }
-      };
-      self._endTimers[sound._id] = setTimeout(ended, (duration * 1000) / Math.abs(self._rate));
+      var timeout = (duration * 1000) / Math.abs(sound._rate);
+      if (timeout !== Infinity) {
+        self._endTimers[sound._id] = setTimeout(self._ended.bind(self, sound), timeout);
+      }
 
       // Update the parameters of the sound
       sound._paused = false;
@@ -24548,8 +24712,8 @@ THE SOFTWARE.
           }
 
           // Start a new timer if none is present.
-          if (!self._endTimers[sound._id]) {
-            self._endTimers[sound._id] = setTimeout(ended, (duration * 1000) / Math.abs(self._rate));
+          if (!self._endTimers[sound._id] && timeout !== Infinity) {
+            self._endTimers[sound._id] = setTimeout(self._ended.bind(self, sound), timeout);
           }
 
           if (!args[1]) {
@@ -24563,7 +24727,7 @@ THE SOFTWARE.
           playWebAudio();
         } else {
           // Wait for the audio to load and then begin playback.
-          self.once('load', playWebAudio);
+          self.once('load', playWebAudio, sound._id);
 
           // Cancel the end timer.
           self._clearTimer(sound._id);
@@ -24574,7 +24738,7 @@ THE SOFTWARE.
           node.currentTime = seek;
           node.muted = sound._muted || self._muted || Howler._muted || node.muted;
           node.volume = sound._volume * Howler.volume();
-          node.playbackRate = self._rate;
+          node.playbackRate = sound._rate;
           setTimeout(function() {
             node.play();
             if (!args[1]) {
@@ -24589,15 +24753,17 @@ THE SOFTWARE.
         } else {
           var listener = function() {
             // Setup the new end timer.
-            self._endTimers[sound._id] = setTimeout(ended, (duration * 1000) / Math.abs(self._rate));
+            if (timeout !== Infinity) {
+              self._endTimers[sound._id] = setTimeout(self._ended.bind(self, sound), timeout);
+            }
 
             // Begin playback.
             playHtml5();
 
             // Clear this listener.
-            node.removeEventListener('canplaythrough', listener, false);
+            node.removeEventListener(canPlayEvent, listener, false);
           };
-          node.addEventListener('canplaythrough', listener, false);
+          node.addEventListener(canPlayEvent, listener, false);
 
           // Cancel the end timer.
           self._clearTimer(sound._id);
@@ -24615,10 +24781,13 @@ THE SOFTWARE.
     pause: function(id) {
       var self = this;
 
-      // Wait for the sound to begin playing before pausing it.
+      // If the sound hasn't loaded, add it to the load queue to pause when capable.
       if (!self._loaded) {
-        self.once('play', function() {
-          self.pause(id);
+        self._queue.push({
+          event: 'pause',
+          action: function() {
+            self.pause(id);
+          }
         });
 
         return self;
@@ -24639,22 +24808,27 @@ THE SOFTWARE.
           sound._seek = self.seek(ids[i]);
           sound._paused = true;
 
-          if (self._webAudio) {
-            // make sure the sound has been created
-            if (!sound._node.bufferSource) {
-              return self;
-            }
+          // Stop currently running fades.
+          self._stopFade(ids[i]);
 
-            if (typeof sound._node.bufferSource.stop === 'undefined') {
-              sound._node.bufferSource.noteOff(0);
-            } else {
-              sound._node.bufferSource.stop(0);
-            }
+          if (sound._node) {
+            if (self._webAudio) {
+              // make sure the sound has been created
+              if (!sound._node.bufferSource) {
+                return self;
+              }
 
-            // Clean up the buffer source.
-            sound._node.bufferSource = null;
-          } else if (!isNaN(sound._node.duration)) {
-            sound._node.pause();
+              if (typeof sound._node.bufferSource.stop === 'undefined') {
+                sound._node.bufferSource.noteOff(0);
+              } else {
+                sound._node.bufferSource.stop(0);
+              }
+
+              // Clean up the buffer source.
+              sound._node.bufferSource = null;
+            } else if (!isNaN(sound._node.duration) || sound._node.duration === Infinity) {
+              sound._node.pause();
+            }
           }
 
           // Fire the pause event, unless `true` is passed as the 2nd argument.
@@ -24675,11 +24849,14 @@ THE SOFTWARE.
     stop: function(id) {
       var self = this;
 
-      // Wait for the sound to begin playing before stopping it.
+      // If the sound hasn't loaded, add it to the load queue to stop when capable.
       if (!self._loaded) {
         if (typeof self._sounds[0]._sprite !== 'undefined') {
-          self.once('play', function() {
-            self.stop(id);
+          self._queue.push({
+            event: 'stop',
+            action: function() {
+              self.stop(id);
+            }
           });
         }
 
@@ -24702,24 +24879,31 @@ THE SOFTWARE.
           sound._paused = true;
           sound._ended = true;
 
-          if (self._webAudio && sound._node) {
-            // make sure the sound has been created
-            if (!sound._node.bufferSource) {
-              return self;
-            }
+          // Stop currently running fades.
+          self._stopFade(ids[i]);
 
-            if (typeof sound._node.bufferSource.stop === 'undefined') {
-              sound._node.bufferSource.noteOff(0);
-            } else {
-              sound._node.bufferSource.stop(0);
-            }
+          if (sound._node) {
+            if (self._webAudio) {
+              // make sure the sound has been created
+              if (!sound._node.bufferSource) {
+                return self;
+              }
 
-            // Clean up the buffer source.
-            sound._node.bufferSource = null;
-          } else if (sound._node && !isNaN(sound._node.duration)) {
-            sound._node.pause();
-            sound._node.currentTime = sound._start || 0;
+              if (typeof sound._node.bufferSource.stop === 'undefined') {
+                sound._node.bufferSource.noteOff(0);
+              } else {
+                sound._node.bufferSource.stop(0);
+              }
+
+              // Clean up the buffer source.
+              sound._node.bufferSource = null;
+            } else if (!isNaN(sound._node.duration) || sound._node.duration === Infinity) {
+              sound._node.pause();
+              sound._node.currentTime = sound._start || 0;
+            }
           }
+
+          self._emit('stop', sound._id);
         }
       }
 
@@ -24735,10 +24919,13 @@ THE SOFTWARE.
     mute: function(muted, id) {
       var self = this;
 
-      // Wait for the sound to begin playing before muting it.
+      // If the sound hasn't loaded, add it to the load queue to mute when capable.
       if (!self._loaded) {
-        self.once('play', function() {
-          self.mute(muted, id);
+        self._queue.push({
+          event: 'mute',
+          action: function() {
+            self.mute(muted, id);
+          }
         });
 
         return self;
@@ -24768,6 +24955,8 @@ THE SOFTWARE.
           } else if (sound._node) {
             sound._node.muted = Howler._muted ? true : muted;
           }
+
+          self._emit('mute', sound._id);
         }
       }
 
@@ -24800,7 +24989,7 @@ THE SOFTWARE.
         } else {
           vol = parseFloat(args[0]);
         }
-      } else if (args.length === 2) {
+      } else if (args.length >= 2) {
         vol = parseFloat(args[0]);
         id = parseInt(args[1], 10);
       }
@@ -24808,10 +24997,13 @@ THE SOFTWARE.
       // Update the volume or return the current volume.
       var sound;
       if (typeof vol !== 'undefined' && vol >= 0 && vol <= 1) {
-        // Wait for the sound to begin playing before changing the volume.
+        // If the sound hasn't loaded, add it to the load queue to change volume when capable.
         if (!self._loaded) {
-          self.once('play', function() {
-            self.volume.apply(self, args);
+          self._queue.push({
+            event: 'volume',
+            action: function() {
+              self.volume.apply(self, args);
+            }
           });
 
           return self;
@@ -24831,11 +25023,18 @@ THE SOFTWARE.
           if (sound) {
             sound._volume = vol;
 
-            if (self._webAudio && sound._node) {
+            // Stop currently running fades.
+            if (!args[2]) {
+              self._stopFade(id[i]);
+            }
+
+            if (self._webAudio && sound._node && !sound._muted) {
               sound._node.gain.setValueAtTime(vol * Howler.volume(), ctx.currentTime);
-            } else if (sound._node) {
+            } else if (sound._node && !sound._muted) {
               sound._node.volume = vol * Howler.volume();
             }
+
+            self._emit('volume', sound._id);
           }
         }
       } else {
@@ -24857,10 +25056,13 @@ THE SOFTWARE.
     fade: function(from, to, len, id) {
       var self = this;
 
-      // Wait for the sound to play before fading.
+      // If the sound hasn't loaded, add it to the load queue to fade when capable.
       if (!self._loaded) {
-        self.once('play', function() {
-          self.fade(from, to, len, id);
+        self._queue.push({
+          event: 'fade',
+          action: function() {
+            self.fade(from, to, len, id);
+          }
         });
 
         return self;
@@ -24877,7 +25079,12 @@ THE SOFTWARE.
 
         // Create a linear fade or fall back to timeouts with HTML5 Audio.
         if (sound) {
-          if (self._webAudio) {
+          // Stop the previous fade if no sprite is being used (otherwise, volume handles this).
+          if (!id) {
+            self._stopFade(ids[i]);
+          }
+
+          if (self._webAudio && !sound._muted) {
             var currentTime = ctx.currentTime;
             var end = currentTime + (len / 1000);
             sound._volume = from;
@@ -24885,10 +25092,11 @@ THE SOFTWARE.
             sound._node.gain.linearRampToValueAtTime(to, end);
 
             // Fire the event when complete.
-            setTimeout(function(id, sound) {
+            sound._timeout = setTimeout(function(id, sound) {
+              delete sound._timeout;
               setTimeout(function() {
                 sound._volume = to;
-                self._emit('faded', id);
+                self._emit('fade', id);
               }, end - ctx.currentTime > 0 ? Math.ceil((end - ctx.currentTime) * 1000) : 0);
             }.bind(self, ids[i], sound), len);
           } else {
@@ -24896,10 +25104,10 @@ THE SOFTWARE.
             var dir = from > to ? 'out' : 'in';
             var steps = diff / 0.01;
             var stepLen = len / steps;
-            
+
             (function() {
               var vol = from;
-              var interval = setInterval(function(id) {
+              sound._interval = setInterval(function(id, sound) {
                 // Update the volume amount.
                 vol += (dir === 'in' ? 0.01 : -0.01);
 
@@ -24911,17 +25119,42 @@ THE SOFTWARE.
                 vol = Math.round(vol * 100) / 100;
 
                 // Change the volume.
-                self.volume(vol, id);
+                self.volume(vol, id, true);
 
                 // When the fade is complete, stop it and fire event.
                 if (vol === to) {
-                  clearInterval(interval);
-                  self._emit('faded', id);
+                  clearInterval(sound._interval);
+                  delete sound._interval;
+                  self._emit('fade', id);
                 }
-              }.bind(self, ids[i]), stepLen);
+              }.bind(self, ids[i], sound), stepLen);
             })();
           }
         }
+      }
+
+      return self;
+    },
+
+    /**
+     * Internal method that stops the currently playing fade when
+     * a new fade starts, volume is changed or the sound is stopped.
+     * @param  {Number} id The sound id.
+     * @return {Howl}
+     */
+    _stopFade: function(id) {
+      var self = this;
+      var sound = self._soundById(id);
+
+      if (sound._interval) {
+        clearInterval(sound._interval);
+        delete sound._interval;
+        self._emit('fade', id);
+      } else if (sound._timeout) {
+        clearTimeout(sound._timeout);
+        delete sound._timeout;
+        sound._node.gain.cancelScheduledValues(ctx.currentTime);
+        self._emit('fade', id);
       }
 
       return self;
@@ -24965,10 +25198,96 @@ THE SOFTWARE.
 
         if (sound) {
           sound._loop = loop;
-          if (self._webAudio && sound._node) {
+          if (self._webAudio && sound._node && sound._node.bufferSource) {
             sound._node.bufferSource.loop = loop;
           }
         }
+      }
+
+      return self;
+    },
+
+    /**
+     * Get/set the playback rate of a sound. This method can optionally take 0, 1 or 2 arguments.
+     *   rate() -> Returns the first sound node's current playback rate.
+     *   rate(id) -> Returns the sound id's current playback rate.
+     *   rate(rate) -> Sets the playback rate of all sounds in this Howl group.
+     *   rate(rate, id) -> Sets the playback rate of passed sound id.
+     * @return {Howl/Number} Returns self or the current playback rate.
+     */
+    rate: function() {
+      var self = this;
+      var args = arguments;
+      var rate, id;
+
+      // Determine the values based on arguments.
+      if (args.length === 0) {
+        // We will simply return the current rate of the first node.
+        id = self._sounds[0]._id;
+      } else if (args.length === 1) {
+        // First check if this is an ID, and if not, assume it is a new rate value.
+        var ids = self._getSoundIds();
+        var index = ids.indexOf(args[0]);
+        if (index >= 0) {
+          id = parseInt(args[0], 10);
+        } else {
+          rate = parseFloat(args[0]);
+        }
+      } else if (args.length === 2) {
+        rate = parseFloat(args[0]);
+        id = parseInt(args[1], 10);
+      }
+
+      // Update the playback rate or return the current value.
+      var sound;
+      if (typeof rate === 'number') {
+        // If the sound hasn't loaded, add it to the load queue to change playback rate when capable.
+        if (!self._loaded) {
+          self._queue.push({
+            event: 'rate',
+            action: function() {
+              self.rate.apply(self, args);
+            }
+          });
+
+          return self;
+        }
+
+        // Set the group rate.
+        if (typeof id === 'undefined') {
+          self._rate = rate;
+        }
+
+        // Update one or all volumes.
+        id = self._getSoundIds(id);
+        for (var i=0; i<id.length; i++) {
+          // Get the sound.
+          sound = self._soundById(id[i]);
+
+          if (sound) {
+            sound._rate = rate;
+
+            // Change the playback rate.
+            if (self._webAudio && sound._node && sound._node.bufferSource) {
+              sound._node.bufferSource.playbackRate.value = rate;
+            } else if (sound._node) {
+              sound._node.playbackRate = rate;
+            }
+
+            // Reset the timers.
+            var seek = self.seek(id[i]);
+            var duration = ((self._sprite[sound._sprite][0] + self._sprite[sound._sprite][1]) / 1000) - seek;
+            var timeout = (duration * 1000) / Math.abs(sound._rate);
+
+            self._clearTimer(id[i]);
+            self._endTimers[id[i]] = setTimeout(self._ended.bind(self, sound), timeout);
+
+            self._emit('rate', sound._id);
+          }
+        }
+      } else {
+        sound = self._soundById(id);
+        return sound ? sound._rate : self._rate;
       }
 
       return self;
@@ -25011,10 +25330,13 @@ THE SOFTWARE.
         return self;
       }
 
-      // Wait for the sound to load before seeking it.
+      // If the sound hasn't loaded, add it to the load queue to seek when capable.
       if (!self._loaded) {
-        self.once('load', function() {
-          self.seek.apply(self, args);
+        self._queue.push({
+          event: 'seek',
+          action: function() {
+            self.seek.apply(self, args);
+          }
         });
 
         return self;
@@ -25039,9 +25361,11 @@ THE SOFTWARE.
           if (playing) {
             self.play(id, true);
           }
+
+          self._emit('seek', id);
         } else {
           if (self._webAudio) {
-            return (sound._seek + self.playing(id) ? ctx.currentTime - sound._playStart : 0);
+            return (sound._seek + (self.playing(id) ? ctx.currentTime - sound._playStart : 0));
           } else {
             return sound._node.currentTime;
           }
@@ -25094,7 +25418,7 @@ THE SOFTWARE.
 
           // Remove any event listeners.
           sounds[i]._node.removeEventListener('error', sounds[i]._errorFn, false);
-          sounds[i]._node.removeEventListener('canplaythrough', sounds[i]._loadFn, false);
+          sounds[i]._node.removeEventListener(canPlayEvent, sounds[i]._loadFn, false);
         }
 
         // Empty out all of the nodes.
@@ -25116,6 +25440,7 @@ THE SOFTWARE.
       }
 
       // Clear out `self`.
+      self._sounds = [];
       self = null;
 
       return null;
@@ -25126,21 +25451,22 @@ THE SOFTWARE.
      * @param  {String}   event Event name.
      * @param  {Function} fn    Listener to call.
      * @param  {Number}   id    (optional) Only listen to events for this sound.
+     * @param  {Number}   once  (INTERNAL) Marks event to fire only once.
      * @return {Howl}
      */
-    on: function(event, fn, id) {
+    on: function(event, fn, id, once) {
       var self = this;
       var events = self['_on' + event];
 
       if (typeof fn === 'function') {
-        events.push({id: id, fn: fn});
+        events.push(once ? {id: id, fn: fn, once: once} : {id: id, fn: fn});
       }
 
       return self;
     },
 
     /**
-     * Remove a custom event.
+     * Remove a custom event. Call without parameters to remove all events.
      * @param  {String}   event Event name.
      * @param  {Function} fn    Listener to remove. Leave empty to remove all.
      * @param  {Number}   id    (optional) Only remove events for this sound.
@@ -25158,9 +25484,17 @@ THE SOFTWARE.
             break;
           }
         }
-      } else {
+      } else if (event) {
         // Clear out all events of this type.
-        events = [];
+        self['_on' + event] = [];
+      } else {
+        // Clear out all events of every type.
+        var keys = Object.keys(self);
+        for (var i=0; i<keys.length; i++) {
+          if ((keys[i].indexOf('_on') === 0) && Array.isArray(self[keys[i]])) {
+            self[keys[i]] = [];
+          }
+        }
       }
 
       return self;
@@ -25176,17 +25510,8 @@ THE SOFTWARE.
     once: function(event, fn, id) {
       var self = this;
 
-      // Create the listener method.
-      var listener = function() {
-        // Call the passed function.
-        fn.apply(self, arguments);
-
-        // Clear the listener.
-        self.off(event, listener, id);
-      };
-
       // Setup the event listener.
-      self.on(event, listener, id);
+      self.on(event, fn, id, 1);
 
       return self;
     },
@@ -25201,14 +25526,95 @@ THE SOFTWARE.
     _emit: function(event, id, msg) {
       var self = this;
       var events = self['_on' + event];
-      
+
       // Loop through event store and fire all functions.
-      for (var i=0; i<events.length; i++) {
-        if (!events[i].id || events[i].id === id) {
+      for (var i=events.length-1; i>=0; i--) {
+        if (!events[i].id || events[i].id === id || event === 'load') {
           setTimeout(function(fn) {
             fn.call(this, id, msg);
           }.bind(self, events[i].fn), 0);
+
+          // If this event was setup with `once`, remove it.
+          if (events[i].once) {
+            self.off(event, events[i].fn, events[i].id);
+          }
         }
+      }
+
+      return self;
+    },
+
+    /**
+     * Queue of actions initiated before the sound has loaded.
+     * These will be called in sequence, with the next only firing
+     * after the previous has finished executing (even if async like play).
+     * @return {Howl}
+     */
+    _loadQueue: function() {
+      var self = this;
+
+      if (self._queue.length > 0) {
+        var task = self._queue[0];
+
+        // don't move onto the next task until this one is done
+        self.once(task.event, function() {
+          self._queue.shift();
+          self._loadQueue();
+        });
+
+        task.action();
+      }
+
+      return self;
+    },
+
+    /**
+     * Fired when playback ends at the end of the duration.
+     * @param  {Sound} sound The sound object to work with.
+     * @return {Howl}
+     */
+    _ended: function(sound) {
+      var self = this;
+      var sprite = sound._sprite;
+
+      // Should this sound loop?
+      var loop = !!(sound._loop || self._sprite[sprite][2]);
+
+      // Fire the ended event.
+      self._emit('end', sound._id);
+
+      // Restart the playback for HTML5 Audio loop.
+      if (!self._webAudio && loop) {
+        self.stop(sound._id).play(sound._id);
+      }
+
+      // Restart this timer if on a Web Audio loop.
+      if (self._webAudio && loop) {
+        self._emit('play', sound._id);
+        sound._seek = sound._start || 0;
+        sound._playStart = ctx.currentTime;
+
+        var timeout = ((sound._stop - sound._start) * 1000) / Math.abs(sound._rate);
+        self._endTimers[sound._id] = setTimeout(self._ended.bind(self, sound), timeout);
+      }
+
+      // Mark the node as paused.
+      if (self._webAudio && !loop) {
+        sound._paused = true;
+        sound._ended = true;
+        sound._seek = sound._start || 0;
+        self._clearTimer(sound._id);
+
+        // Clean up the buffer source.
+        sound._node.bufferSource = null;
+
+        // Attempt to auto-suspend AudioContext if no sounds are still playing.
+        Howler._autoSuspend();
+      }
+
+      // When using a sprite, end the track.
+      if (!self._webAudio && !loop) {
+        self.stop(sound._id);
       }
 
       return self;
@@ -25384,9 +25790,11 @@ THE SOFTWARE.
       self._loop = parent._loop;
       self._volume = parent._volume;
       self._muted = parent._muted;
+      self._rate = parent._rate;
       self._seek = 0;
       self._paused = true;
       self._ended = true;
+      self._sprite = '__default';
 
       // Generate a unique ID for this sound.
       self._id = Math.round(Date.now() * Math.random());
@@ -25424,7 +25832,7 @@ THE SOFTWARE.
 
         // Listen for 'canplaythrough' event to let us know the sound is ready.
         self._loadFn = self._loadListener.bind(self);
-        self._node.addEventListener('canplaythrough', self._loadFn, false);
+        self._node.addEventListener(canPlayEvent, self._loadFn, false);
 
         // Setup the new audio node.
         self._node.src = parent._src;
@@ -25451,10 +25859,11 @@ THE SOFTWARE.
       self._loop = parent._loop;
       self._volume = parent._volume;
       self._muted = parent._muted;
+      self._rate = parent._rate;
       self._seek = 0;
       self._paused = true;
       self._ended = true;
-      self._sprite = null;
+      self._sprite = '__default';
 
       // Generate a new ID so that it isn't confused with the previous sound.
       self._id = Math.round(Date.now() * Math.random());
@@ -25474,7 +25883,7 @@ THE SOFTWARE.
 
       // Fire an error event and pass back the code.
       self._parent._emit('loaderror', self._id, self._node.error ? self._node.error.code : 0);
-      
+
       // Clear the event listener.
       self._node.removeEventListener('error', self._errorListener, false);
     },
@@ -25497,6 +25906,7 @@ THE SOFTWARE.
       if (!parent._loaded) {
         parent._loaded = true;
         parent._emit('load');
+        parent._loadQueue();
       }
 
       if (parent._autoplay) {
@@ -25504,7 +25914,7 @@ THE SOFTWARE.
       }
 
       // Clear the event listener.
-      self._node.removeEventListener('canplaythrough', self._loadFn, false);
+      self._node.removeEventListener(canPlayEvent, self._loadFn, false);
     }
   };
 
@@ -25557,7 +25967,7 @@ THE SOFTWARE.
         for (var i=0; i<data.length; ++i) {
           dataView[i] = data.charCodeAt(i);
         }
-        
+
         decodeAudioData(dataView.buffer, self);
       } else {
         // Load the buffer from the URL.
@@ -25601,12 +26011,12 @@ THE SOFTWARE.
     var decodeAudioData = function(arraybuffer, self) {
       // Decode the buffer into an audio source.
       ctx.decodeAudioData(arraybuffer, function(buffer) {
-        if (buffer) {
+        if (buffer && self._sounds.length > 0) {
           cache[self._src] = buffer;
           loadSound(self, buffer);
         }
       }, function() {
-        self._emit('loaderror');
+        self._emit('loaderror', null, 'Decoding audio data failed.');
       });
     };
 
@@ -25630,6 +26040,7 @@ THE SOFTWARE.
       if (!self._loaded) {
         self._loaded = true;
         self._emit('load');
+        self._loadQueue();
       }
 
       // Begin playback if specified.
@@ -25659,7 +26070,12 @@ THE SOFTWARE.
     if (!usingWebAudio) {
       if (typeof Audio !== 'undefined') {
         try {
-          new Audio();
+          var test = new Audio();
+
+          // Check if the canplaythrough event is available.
+          if (typeof test.oncanplaythrough === 'undefined') {
+            canPlayEvent = 'canplay';
+          }
         } catch(e) {
           noAudio = true;
         }
@@ -25667,11 +26083,38 @@ THE SOFTWARE.
         noAudio = true;
       }
     }
+
+    // Test to make sure audio isn't disabled in Internet Explorer
+    try {
+      var test = new Audio();
+      if (test.muted) {
+        noAudio = true;
+      }
+    } catch (e) {}
+
+    // Check if a webview is being used on iOS8 or earlier (rather than the browser).
+    // If it is, disable Web Audio as it causes crashing.
+    var iOS = (/iP(hone|od|ad)/.test(navigator.platform));
+    var appVersion = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
+    var version = appVersion ? parseInt(appVersion[1], 10) : null;
+    if (iOS && version && version < 9) {
+      var safari = /safari/.test(window.navigator.userAgent.toLowerCase());
+      if (window.navigator.standalone && !safari || !window.navigator.standalone && !safari) {
+        usingWebAudio = false;
+      }
+    }
+
+    // Create a master gain node.
+    if (usingWebAudio) {
+      masterGain = (typeof ctx.createGain === 'undefined') ? ctx.createGainNode() : ctx.createGain();
+      masterGain.gain.value = 1;
+      masterGain.connect(ctx.destination);
+    }
   }
 
   // Add support for AMD (Asynchronous Module Definition) libraries such as require.js.
   if (typeof define === 'function' && define.amd) {
-    define('howler', function() {
+    define([], function() {
       return {
         Howler: Howler,
         Howl: Howl
@@ -25691,12 +26134,17 @@ THE SOFTWARE.
     window.Howler = Howler;
     window.Howl = Howl;
     window.Sound = Sound;
+  } else if (typeof global !== 'undefined') { // Add to global in Node.js (for testing, etc).
+    global.HowlerGlobal = HowlerGlobal;
+    global.Howler = Howler;
+    global.Howl = Howl;
+    global.Sound = Sound;
   }
 })();
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -25850,7 +26298,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -26001,7 +26449,7 @@ me.DraggableEntity = (function (Entity, Input, Event, Vector) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -26115,7 +26563,147 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
+ * http://www.melonjs.org
+ *
+ */
+
+/*
+ * A Collectable entity
+ */
+
+/**
+ * @class
+ * @extends me.Entity
+ * @memberOf me
+ * @constructor
+ * @param {Number} x the x coordinates of the entity object
+ * @param {Number} y the y coordinates of the entity object
+ * @param {Object} settings See {@link me.Entity}
+ */
+me.CollectableEntity = me.Entity.extend(
+/** @scope me.CollectableEntity.prototype */
+{
+    /** @ignore */
+    init : function (x, y, settings) {
+        // call the super constructor
+        me.Entity.prototype.init.apply(this, [x, y, settings]);
+        this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+    }
+});
+
+/*
+ * MelonJS Game Engine
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
+ * http://www.melonjs.org
+ *
+ */
+
+/*
+ * A level entity
+ */
+
+/**
+ * @class
+ * @extends me.Entity
+ * @memberOf me
+ * @constructor
+ * @param {Number} x the x coordinates of the object
+ * @param {Number} y the y coordinates of the object
+ * @param {Object} settings See {@link me.Entity}
+ * @param {String} [settings.duration] Fade duration (in ms)
+ * @param {String|me.Color} [settings.color] Fade color
+ * @param {String} [settings.to] TMX level to load
+ * @param {String|me.Container} [settings.container] Target container. See {@link me.levelDirector.loadLevel}
+ * @param {Function} [settings.onLoaded] Level loaded callback. See {@link me.levelDirector.loadLevel}
+ * @param {Boolean} [settings.flatten] Flatten all objects into the target container. See {@link me.levelDirector.loadLevel}
+ * @param {Boolean} [settings.setViewportBounds] Resize the viewport to match the level. See {@link me.levelDirector.loadLevel}
+ * @example
+ * me.game.world.addChild(new me.LevelEntity(
+ *     x, y, {
+ *         "duration" : 250,
+ *         "color" : "#000",
+ *         "to" : "mymap2"
+ *     }
+ * ));
+ */
+me.LevelEntity = me.Entity.extend(
+/** @scope me.LevelEntity.prototype */
+{
+    /** @ignore */
+    init : function (x, y, settings) {
+        me.Entity.prototype.init.apply(this, [x, y, settings]);
+
+        this.nextlevel = settings.to;
+
+        this.fade = settings.fade;
+        this.duration = settings.duration;
+        this.fading = false;
+
+        this.name = "levelEntity";
+
+        // a temp variable
+        this.gotolevel = settings.to;
+
+        // Collect the defined level settings
+        this.loadLevelSettings = {};
+        [ "container", "onLoaded", "flatten", "setViewportBounds" ].forEach(function (v) {
+            if (typeof(settings[v]) !== "undefined") {
+                this.loadLevelSettings[v] = settings[v];
+            }
+        }.bind(this));
+
+        // Lookup container name
+        if (typeof(this.loadLevelSettings.container) === "string") {
+            this.loadLevelSettings.container = me.game.world.getChildByName(this.loadLevelSettings.container)[0];
+        }
+
+        this.body.collisionType = me.collision.types.ACTION_OBJECT;
+    },
+
+    /**
+     * @ignore
+     */
+    onFadeComplete : function () {
+        me.levelDirector.loadLevel(this.gotolevel, this.loadLevelSettings);
+        me.game.viewport.fadeOut(this.fade, this.duration);
+    },
+
+    /**
+     * go to the specified level
+     * @name goTo
+     * @memberOf me.LevelEntity
+     * @function
+     * @param {String} [level=this.nextlevel] name of the level to load
+     * @protected
+     */
+    goTo : function (level) {
+        this.gotolevel = level || this.nextlevel;
+        // load a level
+        //console.log("going to : ", to);
+        if (this.fade && this.duration) {
+            if (!this.fading) {
+                this.fading = true;
+                me.game.viewport.fadeIn(this.fade, this.duration,
+                        this.onFadeComplete.bind(this));
+            }
+        } else {
+            me.levelDirector.loadLevel(this.gotolevel, this.loadLevelSettings);
+        }
+    },
+
+    /** @ignore */
+    onCollision : function () {
+        if (this.name === "levelEntity") {
+            this.goTo();
+        }
+        return false;
+    }
+});
+
+/*
+ * MelonJS Game Engine
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -26659,7 +27247,7 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -26767,7 +27355,7 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
