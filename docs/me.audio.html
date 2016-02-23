@@ -590,7 +590,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 129
+    audio.js, line 130
 	</dd>
 	
 
@@ -662,7 +662,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 115
+    audio.js, line 116
 	</dd>
 	
 
@@ -925,7 +925,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 218
+    audio.js, line 217
 	</dd>
 	
 
@@ -996,7 +996,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 383
+    audio.js, line 382
 	</dd>
 	
 
@@ -1090,7 +1090,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 407
+    audio.js, line 406
 	</dd>
 	
 
@@ -1141,7 +1141,7 @@ only useful if audio supported and previously disabled through
         
             
 <dt>
-    <h4 class="name toc-target" id="init"><span class="type-signature">&lt;static> </span>init<span class="signature">(audioFormat)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name toc-target" id="init"><span class="type-signature">&lt;static> </span>init<span class="signature">(<span class="optional">audioFormat</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 </dt>
@@ -1149,10 +1149,11 @@ only useful if audio supported and previously disabled through
 
     
     <div class="description">
-        initialize the audio engine<br>
-the melonJS loader will try to load audio files corresponding to the
-browser supported audio format<br>
-if no compatible audio codecs are found, audio will be disabled
+        configure and initialize the audio engine<br>
+melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>
+below is the list of supported file extentions : <br>
+<i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby" </i> <br>
+keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
     </div>
     
 
@@ -1174,7 +1175,11 @@ if no compatible audio codecs are found, audio will be disabled
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
+		
+		<th>Default</th>
 		
 
 		<th class="last">Description</th>
@@ -1199,10 +1204,26 @@ if no compatible audio codecs are found, audio will be disabled
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last">audio format provided ("mp3, ogg, m4a, wav")</td>
+            
+                <td class="default">
+                
+                    "mp3"
+                
+                </td>
+            
+
+            <td class="description last">audio format provided</td>
         </tr>
 
 	
@@ -1434,7 +1455,7 @@ if (!me.audio.init(&quot;mp3,ogg&quot;)) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 419
+    audio.js, line 418
 	</dd>
 	
 
@@ -1505,7 +1526,7 @@ if (!me.audio.init(&quot;mp3,ogg&quot;)) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 450
+    audio.js, line 449
 	</dd>
 	
 
@@ -1669,7 +1690,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 257
+    audio.js, line 256
 	</dd>
 	
 
@@ -1746,7 +1767,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 346
+    audio.js, line 345
 	</dd>
 	
 
@@ -2003,7 +2024,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 176
+    audio.js, line 175
 	</dd>
 	
 
@@ -2216,7 +2237,7 @@ and keep track of the current sound being played.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 301
+    audio.js, line 300
 	</dd>
 	
 
@@ -2408,7 +2429,7 @@ and keep track of the current sound being played.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 276
+    audio.js, line 275
 	</dd>
 	
 
@@ -2492,7 +2513,7 @@ me.audio.resume(&quot;myClip&quot;, id);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 362
+    audio.js, line 361
 	</dd>
 	
 
@@ -2623,7 +2644,7 @@ me.audio.resumeTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 395
+    audio.js, line 394
 	</dd>
 	
 
@@ -2786,7 +2807,7 @@ me.audio.resumeTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 237
+    audio.js, line 236
 	</dd>
 	
 
@@ -2863,7 +2884,7 @@ me.audio.resumeTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 325
+    audio.js, line 324
 	</dd>
 	
 
@@ -2999,7 +3020,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 472
+    audio.js, line 471
 	</dd>
 	
 
@@ -3099,7 +3120,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 501
+    audio.js, line 500
 	</dd>
 	
 
@@ -3268,7 +3289,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 437
+    audio.js, line 436
 	</dd>
 	
 
@@ -3339,7 +3360,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 461
+    audio.js, line 460
 	</dd>
 	
 
@@ -3390,7 +3411,7 @@ me.audio.stopTrack();</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-02-02T13:17:00+08:00 using the <a
+		on 2016-02-23T17:54:57+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
