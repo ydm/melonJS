@@ -126,6 +126,10 @@
 						</li>
 						
 						<li>
+							<a href="me.input.KEY.html">me.input.KEY</a>
+						</li>
+						
+						<li>
 							<a href="me.levelDirector.html">me.levelDirector</a>
 						</li>
 						
@@ -296,6 +300,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Object.html">me.Object</a>
+						</li>
+						
+						<li>
 							<a href="me.ObservableVector2d.html">me.ObservableVector2d</a>
 						</li>
 						
@@ -447,6 +455,24 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -589,7 +615,7 @@ Data passed:
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 216
+    minpubsub.src.js, line 226
 	</dd>
 	
 
@@ -658,7 +684,7 @@ Data passed:
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 204
+    minpubsub.src.js, line 214
 	</dd>
 	
 
@@ -743,6 +769,73 @@ Data passed : none <br>
         
             
 <dt>
+    <h4 class="name toc-target" id="GAME_RESET"><span class="type-signature">&lt;constant> </span>GAME_RESET<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Channel Constant for when the game manager is resetted <br>
+Data passed : none <br>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    minpubsub.src.js, line 79
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name toc-target" id="GAMEPAD_CONNECTED"><span class="type-signature">&lt;constant> </span>GAMEPAD_CONNECTED<span class="type-signature"> :String</span></h4>
 
     
@@ -792,7 +885,7 @@ Data passed : {Object} gamepad object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 160
+    minpubsub.src.js, line 170
 	</dd>
 	
 
@@ -859,7 +952,7 @@ Data passed : {Object} gamepad object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 170
+    minpubsub.src.js, line 180
 	</dd>
 	
 
@@ -930,7 +1023,7 @@ Data passed : {Boolean} current.pressed <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 180
+    minpubsub.src.js, line 190
 	</dd>
 	
 
@@ -1002,7 +1095,7 @@ argument set false.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 109
+    minpubsub.src.js, line 119
 	</dd>
 	
 
@@ -1027,7 +1120,7 @@ me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       }
 
       // Make character fall slower when holding the jump key
-      this.vel.y = this.gravity;
+      this.vel.y = this.body.gravity;
   }
 });</pre>
 
@@ -1087,7 +1180,7 @@ Data passed : {String} user-defined action, {Number} keyCode <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 138
+    minpubsub.src.js, line 148
 	</dd>
 	
 
@@ -1170,7 +1263,7 @@ Data passed : {String} Level Name
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 79
+    minpubsub.src.js, line 89
 	</dd>
 	
 
@@ -1237,7 +1330,7 @@ Data passed : none <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 89
+    minpubsub.src.js, line 99
 	</dd>
 	
 
@@ -1304,7 +1397,7 @@ Data passed : {Number} [0 .. 1], {Resource} resource object<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 99
+    minpubsub.src.js, line 109
 	</dd>
 	
 
@@ -1371,7 +1464,7 @@ Data passed : {Object} the Event object <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 194
+    minpubsub.src.js, line 204
 	</dd>
 	
 
@@ -1706,7 +1799,7 @@ Data passed : {me.Vector2d} viewport position vector <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 270
+    minpubsub.src.js, line 280
 	</dd>
 	
 
@@ -1775,7 +1868,7 @@ Data passed : {Number} viewport height <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 238
+    minpubsub.src.js, line 248
 	</dd>
 	
 
@@ -1842,7 +1935,7 @@ Data passed : {Event} Event object <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 250
+    minpubsub.src.js, line 260
 	</dd>
 	
 
@@ -1909,7 +2002,7 @@ Data passed : {Event} Event object <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 228
+    minpubsub.src.js, line 238
 	</dd>
 	
 
@@ -1976,7 +2069,7 @@ Data passed : {Event} Event object <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 260
+    minpubsub.src.js, line 270
 	</dd>
 	
 
@@ -2115,7 +2208,7 @@ Data passed : {Event} Event object <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 280
+    minpubsub.src.js, line 290
 	</dd>
 	
 
@@ -2270,7 +2363,7 @@ with the published array as ordered arguments</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 305
+    minpubsub.src.js, line 315
 	</dd>
 	
 
@@ -2467,7 +2560,7 @@ name of a channel as a String</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    minpubsub.src.js, line 328
+    minpubsub.src.js, line 338
 	</dd>
 	
 
@@ -2531,7 +2624,7 @@ me.event.unsubscribe(&quot;/some/channel&quot;, callback);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-02-23T17:54:58+08:00 using the <a
+		on 2016-05-20T18:26:09+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

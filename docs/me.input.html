@@ -126,6 +126,10 @@
 						</li>
 						
 						<li>
+							<a href="me.input.KEY.html">me.input.KEY</a>
+						</li>
+						
+						<li>
 							<a href="me.levelDirector.html">me.levelDirector</a>
 						</li>
 						
@@ -296,6 +300,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Object.html">me.Object</a>
+						</li>
+						
+						<li>
 							<a href="me.ObservableVector2d.html">me.ObservableVector2d</a>
 						</li>
 						
@@ -447,6 +455,24 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -534,6 +560,9 @@
         <dl>
             <dt><a href="namespaces.html#me.input.GAMEPAD"><a href="me.input.GAMEPAD.html">GAMEPAD</a></a></dt>
             <dd></dd>
+        
+            <dt><a href="namespaces.html#me.input.KEY"><a href="me.input.KEY.html">KEY</a></a></dt>
+            <dd></dd>
         </dl>
     
 
@@ -541,75 +570,6 @@
         <h3 class="subsection-title">Members</h3>
 
         <dl>
-            
-<dt>
-    <h4 class="name toc-target" id="KEY"><span class="type-signature">&lt;static> </span>KEY<span class="type-signature"> :number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Almost all keyboard keys that have ASCII code, like:
-LEFT, UP, RIGHT, DOWN, ENTER, SHIFT, CTRL, ALT, ESC, SPACE, TAB, BACKSPACE, PAUSE,
-PAGE_UP, PAGE_DOWN, INSERT, DELETE, CAPS_LOCK, NUM_LOCK, SCROLL_LOCK, PRINT_SCREEN,
-Keys [0..9], [A..Z], [NUMPAD0..NUMPAD9], [F1..F12]
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    keyboard.js, line 118
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
             
 <dt>
     <h4 class="name toc-target" id="pointer"><span class="type-signature">&lt;static> </span>pointer<span class="type-signature"> :<a href="me.Rect.html">me.Rect</a></span></h4>
@@ -896,6 +856,9 @@ set to 0 ms to disable the feature
             
                 
 <span class="param-type"><a href="me.input.GAMEPAD.html#BUTTONS">me.input.GAMEPAD.BUTTONS</a></span>
+|
+
+<span class="param-type"><a href="Object.html">Object</a></span>
 
 
             
@@ -905,7 +868,133 @@ set to 0 ms to disable the feature
 
             
 
-            <td class="description last"></td>
+            <td class="description last">id (deprecated) or definition as below
+                <h6>Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">"buttons" or "axes"</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.input.GAMEPAD.html#BUTTONS">me.input.GAMEPAD.BUTTONS</a></span>
+|
+
+<span class="param-type"><a href="me.input.GAMEPAD.html#AXES">me.input.GAMEPAD.AXES</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">button or axis code id</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>threshold</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">value indicating when the axis should trigger the keycode (e.g. -0.5 or 0.5)</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+            </td>
         </tr>
 
 	
@@ -918,7 +1007,7 @@ set to 0 ms to disable the feature
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.html#KEY">me.input.KEY</a></span>
+<span class="param-type"><a href="me.input.KEY.html">me.input.KEY</a></span>
 
 
             
@@ -962,7 +1051,7 @@ set to 0 ms to disable the feature
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 320
+    gamepad.js, line 368
 	</dd>
 	
 
@@ -989,8 +1078,13 @@ set to 0 ms to disable the feature
         
     <pre class="sunlight-highlight-javascript">// enable the keyboard
 me.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);
+...
+// map the lower face button on the first gamepad to the X key (deprecated use)
+me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);
 // map the lower face button on the first gamepad to the X key
-me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);</pre>
+me.input.bindGamepad(0, {type:&quot;buttons&quot;, code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.X);
+// map the left axis value on the first gamepad to the LEFT key
+me.input.bindGamepad(0, {type:&quot;axes&quot;, code: me.input.GAMEPAD.AXES.LX, threshold: -0.5}, me.input.KEY.LEFT);</pre>
 
 
     
@@ -1051,7 +1145,7 @@ me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);</pre>
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.html#KEY">me.input.KEY</a></span>
+<span class="param-type"><a href="me.input.KEY.html">me.input.KEY</a></span>
 
 
             
@@ -1220,7 +1314,7 @@ me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 295
+    keyboard.js, line 390
 	</dd>
 	
 
@@ -1352,7 +1446,7 @@ Right button – 2
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.html#KEY">me.input.KEY</a></span>
+<span class="param-type"><a href="me.input.KEY.html">me.input.KEY</a></span>
 
 
             
@@ -1767,7 +1861,7 @@ coordinate to local (viewport) relative coordinate.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 229
+    keyboard.js, line 324
 	</dd>
 	
 
@@ -1923,7 +2017,7 @@ else if (me.input.isKeyPressed(&#x27;right&#x27;))
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 258
+    keyboard.js, line 353
 	</dd>
 	
 
@@ -2502,7 +2596,7 @@ The default deadzone is 0.1 (10%) Analog values less than this will be ignored
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 375
+    gamepad.js, line 455
 	</dd>
 	
 
@@ -2803,7 +2897,7 @@ see below for the default mapping : <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 388
+    gamepad.js, line 468
 	</dd>
 	
 
@@ -2906,7 +3000,7 @@ me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.html#KEY">me.input.KEY</a></span>
+<span class="param-type"><a href="me.input.KEY.html">me.input.KEY</a></span>
 
 
             
@@ -2973,7 +3067,7 @@ me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 272
+    keyboard.js, line 367
 	</dd>
 	
 
@@ -3123,7 +3217,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 357
+    gamepad.js, line 437
 	</dd>
 	
 
@@ -3205,7 +3299,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.html#KEY">me.input.KEY</a></span>
+<span class="param-type"><a href="me.input.KEY.html">me.input.KEY</a></span>
 
 
             
@@ -3249,7 +3343,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 346
+    keyboard.js, line 441
 	</dd>
 	
 
@@ -3521,7 +3615,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 329
+    keyboard.js, line 424
 	</dd>
 	
 
@@ -3751,7 +3845,7 @@ if (!this.falling &amp;&amp; !this.jumping) {
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-02-23T17:54:58+08:00 using the <a
+		on 2016-05-20T18:26:09+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

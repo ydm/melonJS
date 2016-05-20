@@ -126,6 +126,10 @@
 						</li>
 						
 						<li>
+							<a href="me.input.KEY.html">me.input.KEY</a>
+						</li>
+						
+						<li>
 							<a href="me.levelDirector.html">me.levelDirector</a>
 						</li>
 						
@@ -296,6 +300,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Object.html">me.Object</a>
+						</li>
+						
+						<li>
 							<a href="me.ObservableVector2d.html">me.ObservableVector2d</a>
 						</li>
 						
@@ -441,6 +449,24 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -640,7 +666,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 579
+    loader.js, line 576
 	</dd>
 	
 
@@ -779,7 +805,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 601
+    loader.js, line 598
 	</dd>
 	
 
@@ -918,7 +944,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 624
+    loader.js, line 621
 	</dd>
 	
 
@@ -1017,7 +1043,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 644
+    loader.js, line 641
 	</dd>
 	
 
@@ -1156,7 +1182,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 558
+    loader.js, line 555
 	</dd>
 	
 
@@ -1214,19 +1240,7 @@ There is no constructor function for me.input.</div>
 
     
     <div class="description">
-        Load a single resource (to be used if you need to load additional resource during the game)<br>
-Given parameter must contain the following fields :<br>
-- name    : internal name of the resource<br>
-- type    : "audio", binary", "image", "json", "tmx", "tsx"<br>
-each resource except type "tmx" must contain the following field :<br>
-- src     : path and file name of the resource<br>
-(!) for tmx :<br>
-- src     : path and file name of the resource<br>
-or<br>
-- data    : the json or xml object representation of the tmx file<br>
-- format  : "xml" or "json"<br>
-(!) for audio :<br>
-- src     : path (only) where resources are located<br>
+        Load a single resource (to be used if you need to load additional resource during the game)
     </div>
     
 
@@ -1276,7 +1290,161 @@ or<br>
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">internal name of the resource</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">"audio", binary", "image", "json", "tmx", "tsx"</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>src</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">path and/or file name of the resource (for audio assets only the path is required)</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>stream</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">set to true if you don't have to wait for the audio file to be fully downloaded</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+            </td>
         </tr>
 
 	
@@ -1356,7 +1524,7 @@ or<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 381
+    loader.js, line 386
 	</dd>
 	
 
@@ -1400,7 +1568,7 @@ me.loader.load({
         
             
 <dt>
-    <h4 class="name toc-target" id="preload"><span class="type-signature">&lt;static> </span>preload<span class="signature">(resources)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="onload"><span class="type-signature">&lt;static> </span>onload<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -1408,20 +1576,165 @@ me.loader.load({
 
     
     <div class="description">
-        set all the specified game resources to be preloaded.<br>
-each resource item must contain the following fields :<br>
-- name    : internal name of the resource<br>
-- type    : "binary", "image", "tmx", "tsx", "audio"<br>
-each resource except type "tmx" must contain the following field :<br>
-- src     : path and file name of the resource<br>
-(!) for tmx :<br>
-- src     : path and file name of the resource<br>
-or<br>
-- data    : the json or xml object representation of the tmx file<br>
-- format  : "xml" or "json"<br>
-(!) for audio :<br>
-- src     : path (only) where resources are located<br>
-<br>
+        onload callback
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    loader.js, line 248
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set a callback when everything is loaded
+me.loader.onload = this.loaded.bind(this);</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="onProgress"><span class="type-signature">&lt;static> </span>onProgress<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        onProgress callback<br>
+each time a resource is loaded, the loader will fire the specified function,
+giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    loader.js, line 260
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set a callback for progress notification
+me.loader.onProgress = this.updateProgress.bind(this);</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="preload"><span class="type-signature">&lt;static> </span>preload<span class="signature">(resources, onload, onerror, <span class="optional">onload</span>, <span class="optional">switchToLoadState</span>)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        set all the specified game resources to be preloaded.
     </div>
     
 
@@ -1443,7 +1756,11 @@ or<br>
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
+		
+		<th>Default</th>
 		
 
 		<th class="last">Description</th>
@@ -1468,10 +1785,324 @@ or<br>
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"></td>
+            <td class="description last">internal name of the resource</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">"audio", binary", "image", "json", "tmx", "tsx"</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>src</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">path and/or file name of the resource (for audio assets only the path is required)</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>stream</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">set to true if you don't have to wait for the audio file to be fully downloaded</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+            </td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>onload</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">function to be called when the resource is loaded</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>onerror</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">function to be called in case of error</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>onload</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    me.loader.onload
+                
+                </td>
+            
+
+            <td class="description last">function to be called when all resources are loaded</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>switchToLoadState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">automatically switch to the loading screen</td>
         </tr>
 
 	
@@ -1530,7 +2161,7 @@ or<br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var g_resources = [
+    <pre class="sunlight-highlight-javascript">game_resources = [
   // PNG tileset
   {name: &quot;tileset-platformer&quot;, type: &quot;image&quot;,  src: &quot;data/map/tileset.png&quot;},
   // PNG packed texture
@@ -1550,9 +2181,9 @@ or<br>
   // JSON file (used for texturePacker)
   {name: &quot;texture&quot;, type: &quot;json&quot;, src: &quot;data/gfx/texture.json&quot;}
 ];
-
+...
 // set all resources to be loaded
-me.loader.preload(g_resources);</pre>
+me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 
 
     
@@ -1653,7 +2284,7 @@ me.loader.preload(g_resources);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 446
+    loader.js, line 443
 	</dd>
 	
 
@@ -1753,7 +2384,7 @@ me.loader.preload(g_resources);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 503
+    loader.js, line 500
 	</dd>
 	
 
@@ -1788,138 +2419,6 @@ me.loader.preload(g_resources);</pre>
     
 
     
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        <dl>
-                
-<dt>
-    <h4 class="name toc-target" id="onload">onload</h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        onload callback
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    loader.js, line 248
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">// set a callback when everything is loaded
-me.loader.onload = this.loaded.bind(this);</pre>
-
-
-    
-</dd>
-
-            
-                
-<dt>
-    <h4 class="name toc-target" id="onProgress">onProgress</h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        onProgress callback<br>
-each time a resource is loaded, the loader will fire the specified function,
-giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    loader.js, line 260
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">// set a callback for progress notification
-me.loader.onProgress = this.updateProgress.bind(this);</pre>
-
-
-    
-</dd>
-
-            </dl>
-    
 
     
 </article>
@@ -1942,7 +2441,7 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-02-23T17:54:58+08:00 using the <a
+		on 2016-05-20T18:26:09+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

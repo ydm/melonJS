@@ -23,27 +23,11 @@ var game = {
             return;
         }
 
-        // Set some default debug flags
-        me.debug.renderHitBox = true;
-
-        // add "#debug" to the URL to enable the debug Panel
-        if (me.game.HASH.debug === true) {
-            window.onReady(function () {
-                me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
-            });
-        }
-
         // initialize the "sound engine"
         me.audio.init("mp3,ogg");
 
         // set all ressources to be loaded
-        me.loader.onload = this.loaded.bind(this);
-
-        // set all ressources to be loaded
-        me.loader.preload(game.resources);
-
-        // load everything & display a loading screen
-        me.state.change(me.state.LOADING);
+        me.loader.preload(game.resources, this.loaded.bind(this));
     },
 
 

@@ -9,16 +9,8 @@ var game = {
             return;
         }
 
-        me.plugin.register(me.debug.Panel, "debug");
-
         // set all ressources to be loaded
-        me.loader.onload = this.loaded.bind(this);
-
-        // set all ressources to be loaded
-        me.loader.preload(game.resources);
-
-        // load everything & display a loading screen
-        me.state.change(me.state.LOADING);
+        me.loader.preload(game.resources, this.loaded.bind(this));
     },
 
 

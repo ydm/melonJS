@@ -126,6 +126,10 @@
 						</li>
 						
 						<li>
+							<a href="me.input.KEY.html">me.input.KEY</a>
+						</li>
+						
+						<li>
 							<a href="me.levelDirector.html">me.levelDirector</a>
 						</li>
 						
@@ -296,6 +300,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Object.html">me.Object</a>
+						</li>
+						
+						<li>
 							<a href="me.ObservableVector2d.html">me.ObservableVector2d</a>
 						</li>
 						
@@ -441,6 +449,24 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -1292,7 +1318,7 @@ fade to the specified color
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 396
+    viewport.js, line 389
 	</dd>
 	
 
@@ -1508,7 +1534,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 375
+    viewport.js, line 370
 	</dd>
 	
 
@@ -1624,7 +1650,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 439
+    viewport.js, line 432
 	</dd>
 	
 
@@ -1803,7 +1829,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 211
+    viewport.js, line 209
 	</dd>
 	
 
@@ -1874,7 +1900,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 428
+    viewport.js, line 421
 	</dd>
 	
 
@@ -1964,7 +1990,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 417
+    viewport.js, line 410
 	</dd>
 	
 
@@ -2103,7 +2129,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 454
+    viewport.js, line 447
 	</dd>
 	
 
@@ -2317,7 +2343,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 466
+    viewport.js, line 459
 	</dd>
 	
 
@@ -2479,7 +2505,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 238
+    viewport.js, line 236
 	</dd>
 	
 
@@ -2629,7 +2655,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 253
+    viewport.js, line 251
 	</dd>
 	
 
@@ -2808,7 +2834,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 120
+    viewport.js, line 118
 	</dd>
 	
 
@@ -2951,7 +2977,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 168
+    viewport.js, line 166
 	</dd>
 	
 
@@ -3164,7 +3190,7 @@ the viewport is bound to the given coordinates and cannot move/be scrolled outsi
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 194
+    viewport.js, line 192
 	</dd>
 	
 
@@ -3309,7 +3335,7 @@ the followed entity can move without scrolling the viewport.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 140
+    viewport.js, line 138
 	</dd>
 	
 
@@ -3344,7 +3370,7 @@ the followed entity can move without scrolling the viewport.
         
             
 <dt>
-    <h4 class="name toc-target" id="shake"><span class="type-signature">&lt;static> </span>shake<span class="signature">(intensity, duration, <span class="optional">axis</span>, <span class="optional">onComplete</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="shake"><span class="type-signature">&lt;static> </span>shake<span class="signature">(intensity, duration, <span class="optional">axis</span>, <span class="optional">onComplete</span>, <span class="optional">force</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -3535,6 +3561,43 @@ while shaking</td>
         </tr>
 
 	
+
+        <tr>
+            
+                <td class="name"><code>force</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">if true this will override the current effect</td>
+        </tr>
+
+	
 	</tbody>
 </table>
 
@@ -3565,7 +3628,7 @@ while shaking</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 347
+    viewport.js, line 345
 	</dd>
 	
 
@@ -3767,7 +3830,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 482
+    viewport.js, line 475
 	</dd>
 	
 
@@ -3837,7 +3900,7 @@ converted value</td>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-02-23T17:54:59+08:00 using the <a
+		on 2016-05-20T18:26:10+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
