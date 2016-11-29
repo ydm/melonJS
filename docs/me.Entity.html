@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -609,8 +595,7 @@
 
             
 
-            <td class="description last">Entity properties, to be defined through Tiled or when calling the entity constructor
-<img src="images/object_properties.png"/>
+            <td class="description last">Entity properties, to be defined through Tiled or when calling the entity constructor<img src="images/object_properties.png"/>
                 <h6>Properties</h6>
                 
 
@@ -634,6 +619,68 @@
 	</thead>
 
 	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the physical width the entity takes up in game</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the physical height the entity takes up in game</td>
+        </tr>
+
 	
 
         <tr>
@@ -939,7 +986,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 29
+    entity.js, line 31
 	</dd>
 	
 
@@ -1003,8 +1050,7 @@
 <dd>
     
     <div class="description">
-        dead/living state of the entity<br>
-default value : true
+        dead/living state of the entity<br>default value : true
     </div>
     
 
@@ -1045,7 +1091,7 @@ default value : true
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 98
+    entity.js, line 100
 	</dd>
 	
 
@@ -1111,7 +1157,7 @@ default value : true
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 108
+    entity.js, line 110
 	</dd>
 	
 
@@ -1177,7 +1223,7 @@ default value : true
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 89
+    entity.js, line 91
 	</dd>
 	
 
@@ -1202,8 +1248,7 @@ default value : true
 <dd>
     
     <div class="description">
-        Entity name<br>
-as defined in the Tiled Object Properties
+        Entity name<br>as defined in the Tiled Object Properties
     </div>
     
 
@@ -1244,7 +1289,7 @@ as defined in the Tiled Object Properties
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 70
+    entity.js, line 72
 	</dd>
 	
 
@@ -1269,7 +1314,7 @@ as defined in the Tiled Object Properties
 <dd>
     
     <div class="description">
-        The entity renderable object (if defined)
+        The entity renderable component (can be any objects deriving from me.Renderable, like me.Sprite for example)
     </div>
     
 
@@ -1310,7 +1355,7 @@ as defined in the Tiled Object Properties
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 35
+    entity.js, line 37
 	</dd>
 	
 
@@ -1376,7 +1421,7 @@ as defined in the Tiled Object Properties
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 80
+    entity.js, line 82
 	</dd>
 	
 
@@ -1401,8 +1446,7 @@ as defined in the Tiled Object Properties
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>
-Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -1459,7 +1503,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 110
+    renderable.js, line 152
 	</dd>
 	
 
@@ -1493,8 +1537,7 @@ Set to zero if you do not wish an object to be drawn
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
-or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
     </div>
     
 
@@ -1551,7 +1594,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 122
+    renderable.js, line 164
 	</dd>
 	
 
@@ -1667,7 +1710,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 186
+    entity.js, line 191
 	</dd>
 	
 
@@ -1810,7 +1853,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 204
+    entity.js, line 209
 	</dd>
 	
 
@@ -1953,7 +1996,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 151
+    entity.js, line 156
 	</dd>
 	
 
@@ -2096,7 +2139,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 169
+    entity.js, line 174
 	</dd>
 	
 
@@ -2155,9 +2198,7 @@ or undefined if it has not been added to one.
 
     
     <div class="description">
-        object draw<br>
-not to be called by the end user<br>
-called by the game manager on each game loop
+        object draw<br>not to be called by the end user<br>called by the game manager on each game loop
     </div>
     
 
@@ -2244,7 +2285,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 272
+    entity.js, line 267
 	</dd>
 	
 
@@ -2315,7 +2356,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 256
+    entity.js, line 250
 	</dd>
 	
 
@@ -2351,8 +2392,7 @@ called by the game manager on each game loop
 
     
     <div class="description">
-        onCollision callback<br>
-triggered in case of collision, when this entity body is being "touched" by another one<br>
+        onCollision callback<br>triggered in case of collision, when this entity body is being "touched" by another one<br>
     </div>
     
 
@@ -2459,7 +2499,7 @@ triggered in case of collision, when this entity body is being "touched" by anot
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 326
+    entity.js, line 350
 	</dd>
 	
 
@@ -2518,8 +2558,7 @@ triggered in case of collision, when this entity body is being "touched" by anot
 
     
     <div class="description">
-        onDeactivateEvent Notification function<br>
-Called by engine before deleting the object
+        onDeactivateEvent Notification function<br>Called by engine before deleting the object
     </div>
     
 
@@ -2554,78 +2593,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 313
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="resizeBounds"><span class="type-signature">&lt;private, static> </span>resizeBounds<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        update the bounding rect dimensions
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    entity.js, line 221
+    entity.js, line 337
 	</dd>
 	
 
@@ -2705,7 +2673,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 258
+    renderable.js, line 344
 	</dd>
 	
 
@@ -2776,7 +2744,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    entity.js, line 240
+    entity.js, line 234
 	</dd>
 	
 
@@ -2827,7 +2795,7 @@ Called by engine before deleting the object
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

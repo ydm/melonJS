@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,7 +499,7 @@
 
     
     <div class="description">
-        A Simple object to display a sprite on screen.
+        An object to display a fixed or animated sprite on screen.
     </div>
     
 
@@ -609,7 +595,7 @@
 
             
 
-            <td class="description last">Contains additional parameters for the sprite
+            <td class="description last">Contains additional parameters for the animation sheet
                 <h6>Properties</h6>
                 
 
@@ -673,44 +659,7 @@
                 </td>
             
 
-            <td class="description last">reference to a sprite image or to a texture atlas.</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>region</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">the region name containing the sprite within a specified texture atlas</td>
+            <td class="description last">reference to a texture, spritesheet image or to a texture atlas</td>
         </tr>
 
 	
@@ -744,12 +693,10 @@
             
                 <td class="default">
                 
-                    settings.image.width
-                
                 </td>
             
 
-            <td class="description last">Image source width.</td>
+            <td class="description last">Width of a single frame within the spritesheet</td>
         </tr>
 
 	
@@ -783,123 +730,10 @@
             
                 <td class="default">
                 
-                    settings.image.height
-                
                 </td>
             
 
-            <td class="description last">Image source height.</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>rotation</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">Initial rotation angle in radians.</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>flipX</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">Initial flip for X-axis.</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>flipY</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">Initial flip for Y-axis.</td>
+            <td class="description last">Height of a single frame within the spritesheet</td>
         </tr>
 
 	
@@ -1004,10 +838,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// create a static Sprite Object
-mySprite = new me.Sprite (100, 100, {
-    image : me.loader.getImage(&quot;mySpriteImage&quot;)
-});</pre>
+    <pre class="sunlight-highlight-javascript">// create a standalone sprite, with anchor in the centervar sprite = new me.Sprite(0, 0, {    image : &quot;PlayerTexture&quot;,    framewidth : 64,    frameheight : 64,    anchorPoint : new me.Vector2d(0.5, 0.5)});</pre>
 
 
     
@@ -1020,7 +851,7 @@ mySprite = new me.Sprite (100, 100, {
         <h3 class="subsection-title">Extends</h3>
 
         <ul>
-            <li><a href="me.Renderable.html">me.Renderable</a></li>
+            <li><a href="me.Sprite.html">me.Sprite</a></li>
         </ul>
     
 
@@ -1038,15 +869,14 @@ mySprite = new me.Sprite (100, 100, {
         <dl>
             
 <dt>
-    <h4 class="name toc-target" id="alpha"><span class="type-signature"></span>alpha<span class="type-signature"> :Number</span></h4>
+    <h4 class="name toc-target" id="offset"><span class="type-signature">&lt;static> </span>offset<span class="type-signature"> :<a href="me.Vector2d.html">me.Vector2d</a></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>
-Set to zero if you do not wish an object to be drawn
+        The position to draw from on the source image.
     </div>
     
 
@@ -1055,7 +885,7 @@ Set to zero if you do not wish an object to be drawn
         <ul>
             <li>
                 
-<span class="param-type">Number</span>
+<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
 
 
             </li>
@@ -1071,15 +901,6 @@ Set to zero if you do not wish an object to be drawn
 	
 
 	
-	<dt class="inherited-from">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="me.Renderable.html#alpha">me.Renderable#alpha</a>
-			</li>
-		</ul>
-	</dd>
-	
 
 	
 
@@ -1089,13 +910,6 @@ Set to zero if you do not wish an object to be drawn
 
 	
 
-	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>1.0</li>
-		</ul>
-	</dd>
 	
 
 
@@ -1103,99 +917,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 110
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>me.Renderable#setOpacity</li>
-			
-			<li>me.Renderable#getOpacity</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        a reference to the Container object that contains this renderable,
-or undefined if it has not been added to one.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="me.Container.html">me.Container</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-	<dt class="inherited-from">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="me.Renderable.html#ancestor">me.Renderable#ancestor</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>undefined</li>
-		</ul>
-	</dd>
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    renderable.js, line 122
+    sprite.js, line 574
 	</dd>
 	
 
@@ -1213,15 +935,80 @@ or undefined if it has not been added to one.
         
             
 <dt>
-    <h4 class="name toc-target" id="angle"><span class="type-signature"></span>angle<span class="type-signature"> :Number</span></h4>
+    <h4 class="name toc-target" id="animationpause"><span class="type-signature"></span>animationpause<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Set the angle (in Radians) of a sprite to rotate it <br>
-WARNING: rotating sprites decreases performance with Canvas Renderer
+        pause and resume animation<br>default value : false;
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 37
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="animationspeed"><span class="type-signature"></span>animationspeed<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        animation cycling speed (delay between frame in ms)<br>default value : 100ms;
     </div>
     
 
@@ -1256,20 +1043,13 @@ WARNING: rotating sprites decreases performance with Canvas Renderer
 	
 
 	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>0</li>
-		</ul>
-	</dd>
-	
 
 
 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 65
+    sprite.js, line 46
 	</dd>
 	
 
@@ -1293,6 +1073,242 @@ WARNING: rotating sprites decreases performance with Canvas Renderer
         <dl>
             
 <dt>
+    <h4 class="name toc-target" id="addAnimation"><span class="type-signature">&lt;static> </span>addAnimation<span class="signature">(name, index, <span class="optional">animationspeed</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        add an animation <br>For fixed-sized cell sprite sheet, the index list must follow thelogic as per the following example :<br><img src="images/spritesheet_grid.png"/>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">animation id</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number></span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+|
+
+<span class="param-type">Array.&lt;<a href="Object.html">Object</a>></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">list of sprite index or namedefining the animation. Can also use objects to specify delay for each frame, see below</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>animationspeed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">cycling speed for animation in ms</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 235
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="me.Sprite.html#animationspeed">me.Sprite#animationspeed</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    frame amount of frame added to the animation(delay between each frame).
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// walking animationthis.addAnimation(&quot;walk&quot;, [ 0, 1, 2, 3, 4, 5 ]);// eating animationthis.addAnimation(&quot;eat&quot;, [ 6, 6 ]);// rolling animationthis.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ]);// slower animationthis.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ], 200);// or get more specific with delay for each frame. Good solution instead of repeating:this.addAnimation(&quot;turn&quot;, [{ name: 0, delay: 200 }, { name: 1, delay: 100 }])// can do this with atlas values as well:this.addAnimation(&quot;turn&quot;, [{ name: &quot;turnone&quot;, delay: 200 }, { name: &quot;turntwo&quot;, delay: 100 }])// define an dying animation that stop on the last framethis.addAnimation(&quot;die&quot;, [{ name: 3, delay: 200 }, { name: 4, delay: 100 }, { name: 5, delay: Infinity }])</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name toc-target" id="draw"><span class="type-signature">&lt;protected, static> </span>draw<span class="signature">(renderer)</span><span class="type-signature"></span></h4>
 
     
@@ -1301,9 +1317,7 @@ WARNING: rotating sprites decreases performance with Canvas Renderer
 
     
     <div class="description">
-        object draw<br>
-not to be called by the end user<br>
-called by the game manager on each game loop
+        object draw<br>not to be called by the end user<br>called by the game manager on each game loop
     </div>
     
 
@@ -1390,7 +1404,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 269
+    sprite.js, line 504
 	</dd>
 	
 
@@ -1533,7 +1547,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 144
+    sprite.js, line 177
 	</dd>
 	
 
@@ -1558,11 +1572,7 @@ called by the game manager on each game loop
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// make the object flicker for 1 second
-// and then remove it
-this.flicker(1000, function () {
-    me.game.world.removeChild(this);
-});</pre>
+    <pre class="sunlight-highlight-javascript">// make the object flicker for 1 second// and then remove itthis.flicker(1000, function () {    me.game.world.removeChild(this);});</pre>
 
 
     
@@ -1663,7 +1673,7 @@ this.flicker(1000, function () {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 170
+    sprite.js, line 203
 	</dd>
 	
 
@@ -1783,7 +1793,7 @@ this.flicker(1000, function () {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 189
+    sprite.js, line 219
 	</dd>
 	
 
@@ -1804,6 +1814,339 @@ this.flicker(1000, function () {
     
 
     
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="getAnimationFrameObjectByIndex"><span class="type-signature">&lt;private, static> </span>getAnimationFrameObjectByIndex<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the frame object by the index.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 436
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    if using number indices. Returns {Object} containing frame data if using texture atlas
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="getCurrentAnimationFrame"><span class="type-signature">&lt;static> </span>getCurrentAnimationFrame<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        return the current animation frame index.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 425
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    current animation frame index
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="isCurrentAnimation"><span class="type-signature">&lt;static> </span>isCurrentAnimation<span class="signature">(name)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        return true if the specified animation is the current one.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">animation id</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 388
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">if (!this.isCurrentAnimation(&quot;walk&quot;)) {    // do something funny...}</pre>
+
 
     
 </dd>
@@ -1854,7 +2197,7 @@ this.flicker(1000, function () {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 133
+    sprite.js, line 166
 	</dd>
 	
 
@@ -1901,7 +2244,7 @@ this.flicker(1000, function () {
         
             
 <dt>
-    <h4 class="name toc-target" id="scale"><span class="type-signature">&lt;static> </span>scale<span class="signature">(ratioX, ratioY)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="setAnimationFrame"><span class="type-signature">&lt;static> </span>setAnimationFrame<span class="signature">(<span class="optional">index</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -1909,7 +2252,7 @@ this.flicker(1000, function () {
 
     
     <div class="description">
-        scale the sprite around his center<br>
+        force the current animation frame index.
     </div>
     
 
@@ -1931,7 +2274,11 @@ this.flicker(1000, function () {
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
+		
+		<th>Default</th>
 		
 
 		<th class="last">Description</th>
@@ -1943,7 +2290,7 @@ this.flicker(1000, function () {
 
         <tr>
             
-                <td class="name"><code>ratioX</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
@@ -1956,33 +2303,26 @@ this.flicker(1000, function () {
             </td>
 
             
-
-            
-
-            <td class="description last">x scaling ratio</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>ratioY</code></td>
-            
-
-            <td class="type">
-            
+                <td class="attributes">
                 
-<span class="param-type">Number</span>
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
 
             
-            </td>
-
+                <td class="default">
+                
+                    0
+                
+                </td>
             
 
-            
-
-            <td class="description last">y scaling ratio</td>
+            <td class="description last">animation frame index</td>
         </tr>
 
 	
@@ -2016,7 +2356,7 @@ this.flicker(1000, function () {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 208
+    sprite.js, line 404
 	</dd>
 	
 
@@ -2039,12 +2379,18 @@ this.flicker(1000, function () {
     
 
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// reset the current animation to the first framethis.setAnimationFrame();</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name toc-target" id="scaleV"><span class="type-signature">&lt;static> </span>scaleV<span class="signature">(vector)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="setCurrentAnimation"><span class="type-signature">&lt;static> </span>setCurrentAnimation<span class="signature">(name, <span class="optional">onComplete</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -2052,7 +2398,7 @@ this.flicker(1000, function () {
 
     
     <div class="description">
-        scale the sprite around his center<br>
+        set the current animationthis will always change the animation & set the frame to zero
     </div>
     
 
@@ -2074,6 +2420,8 @@ this.flicker(1000, function () {
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
 		
 
@@ -2086,23 +2434,67 @@ this.flicker(1000, function () {
 
         <tr>
             
-                <td class="name"><code>vector</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
+<span class="param-type">String</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">ratio</td>
+            <td class="description last">animation id</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>onComplete</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">animation id to switch to whencomplete, or callback</td>
         </tr>
 
 	
@@ -2136,7 +2528,7 @@ this.flicker(1000, function () {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 233
+    sprite.js, line 334
 	</dd>
 	
 
@@ -2159,12 +2551,18 @@ this.flicker(1000, function () {
     
 
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set &quot;walk&quot; animationthis.setCurrentAnimation(&quot;walk&quot;);// set &quot;walk&quot; animation if it is not the current animationif (this.isCurrentAnimation(&quot;walk&quot;)) {    this.setCurrentAnimation(&quot;walk&quot;);}// set &quot;eat&quot; animation, and switch to &quot;walk&quot; when completethis.setCurrentAnimation(&quot;eat&quot;, &quot;walk&quot;);// set &quot;die&quot; animation, and remove the object when finishedthis.setCurrentAnimation(&quot;die&quot;, (function () {   me.game.world.removeChild(this);   return false; // do not reset to first frame}).bind(this));// set &quot;attack&quot; animation, and pause for a short durationthis.setCurrentAnimation(&quot;die&quot;, (function () {   this.animationpause = true;   // back to &quot;standing&quot; animation after 1 second   setTimeout(function () {       this.setCurrentAnimation(&quot;standing&quot;);   }, 1000);   return false; // do not reset to first frame}).bind(this));</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name toc-target" id="update"><span class="type-signature">&lt;protected, static> </span>update<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="update"><span class="type-signature">&lt;protected, static> </span>update<span class="signature">(dt)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -2172,15 +2570,62 @@ this.flicker(1000, function () {
 
     
     <div class="description">
-        sprite update<br>
-not to be called by the end user<br>
-called by the game manager on each game loop
+        update the animation<br>this is automatically called by the game manager <a href="me.game.html">me.game</a>
     </div>
     
 
     
 
     
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>dt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">time since the last update in milliseconds.</td>
+        </tr>
+
+	
+	</tbody>
+</table>
 
     
 
@@ -2209,7 +2654,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    sprite.js, line 244
+    sprite.js, line 448
 	</dd>
 	
 
@@ -2230,17 +2675,6 @@ called by the game manager on each game loop
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    false
-</div>
-
-
-
-
-        
 
     
 </dd>
@@ -2271,7 +2705,7 @@ called by the game manager on each game loop
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

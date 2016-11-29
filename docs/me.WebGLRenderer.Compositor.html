@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -505,7 +491,7 @@
     
         
 <dt>
-    <h4 class="name toc-target" id="Compositor"><span class="type-signature"></span>new Compositor<span class="signature">(gl, matrix, color)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="Compositor"><span class="type-signature"></span>new Compositor<span class="signature">(renderer)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -513,8 +499,7 @@
 
     
     <div class="description">
-        A WebGL texture Compositor object. This class handles all of the WebGL state<br>
-Pushes texture regions into WebGL buffers, automatically flushes to GPU
+        A WebGL texture Compositor object. This class handles all of the WebGL state<br>Pushes texture regions into WebGL buffers, automatically flushes to GPU
     </div>
     
 
@@ -548,13 +533,13 @@ Pushes texture regions into WebGL buffers, automatically flushes to GPU
 
         <tr>
             
-                <td class="name"><code>gl</code></td>
+                <td class="name"><code>renderer</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">WebGLContext</span>
+<span class="param-type"><a href="me.WebGLRenderer.html">me.WebGLRenderer</a></span>
 
 
             
@@ -564,53 +549,7 @@ Pushes texture regions into WebGL buffers, automatically flushes to GPU
 
             
 
-            <td class="description last">Destination WebGL Context</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>matrix</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="me.Matrix2d.html">me.Matrix2d</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Global transformation matrix</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="me.Color.html">me.Color</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Global color</td>
+            <td class="description last">the current WebGL renderer session</td>
         </tr>
 
 	
@@ -742,7 +681,7 @@ Pushes texture regions into WebGL buffers, automatically flushes to GPU
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 50
+    compositor.js, line 51
 	</dd>
 	
 
@@ -973,7 +912,7 @@ Pushes texture regions into WebGL buffers, automatically flushes to GPU
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 298
+    compositor.js, line 308
 	</dd>
 	
 
@@ -1009,8 +948,7 @@ Pushes texture regions into WebGL buffers, automatically flushes to GPU
 
     
     <div class="description">
-        Clear the frame buffer, flushes the composite operations and calls
-gl.clear()
+        Clear the frame buffer, flushes the composite operations and callsgl.clear()
     </div>
     
 
@@ -1045,7 +983,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 528
+    compositor.js, line 540
 	</dd>
 	
 
@@ -1220,7 +1158,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 433
+    compositor.js, line 445
 	</dd>
 	
 
@@ -1291,7 +1229,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 402
+    compositor.js, line 414
 	</dd>
 	
 
@@ -1411,7 +1349,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 517
+    compositor.js, line 529
 	</dd>
 	
 
@@ -1554,7 +1492,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 193
+    compositor.js, line 202
 	</dd>
 	
 
@@ -1674,7 +1612,7 @@ gl.clear()
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    compositor.js, line 283
+    compositor.js, line 293
 	</dd>
 	
 
@@ -1725,7 +1663,7 @@ gl.clear()
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

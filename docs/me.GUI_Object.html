@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,10 +499,7 @@
 
     
     <div class="description">
-        GUI Object<br>
-A very basic object to manage GUI elements <br>
-The object simply register on the "pointerdown" <br>
-or "touchstart" event and call the onClick function"
+        GUI Object<br>A very basic object to manage GUI elements <br>The object simply register on the "pointerdown" <br>or "touchstart" event and call the onClick function"
     </div>
     
 
@@ -671,33 +654,7 @@ or "touchstart" event and call the onClick function"
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// create a basic GUI Object
-var myButton = me.GUI_Object.extend(
-{
-   init:function (x, y)
-   {
-      var settings = {}
-      settings.image = &quot;button&quot;;
-      settings.framewidth = 100;
-      settings.frameheight = 50;
-      // super constructor
-      this._super(me.GUI_Object, &quot;init&quot;, [x, y, settings]);
-      // define the object z order
-      this.pos.z = 4;
-   },
-
-   // output something in the console
-   // when the object is clicked
-   onClick:function (event)
-   {
-      console.log(&quot;clicked!&quot;);
-      // don&#x27;t propagate the event
-      return false;
-   }
-});
-
-// add the object at pos (10,10)
-me.game.world.addChild(new myButton(10,10));</pre>
+    <pre class="sunlight-highlight-javascript">// create a basic GUI Objectvar myButton = me.GUI_Object.extend({   init:function (x, y)   {      var settings = {}      settings.image = &quot;button&quot;;      settings.framewidth = 100;      settings.frameheight = 50;      // super constructor      this._super(me.GUI_Object, &quot;init&quot;, [x, y, settings]);      // define the object z order      this.pos.z = 4;   },   // output something in the console   // when the object is clicked   onClick:function (event)   {      console.log(&quot;clicked!&quot;);      // don&#x27;t propagate the event      return false;   }});// add the object at pos (10,10)me.game.world.addChild(new myButton(10,10));</pre>
 
 
     
@@ -728,15 +685,89 @@ me.game.world.addChild(new myButton(10,10));</pre>
         <dl>
             
 <dt>
-    <h4 class="name toc-target" id="alpha"><span class="type-signature"></span>alpha<span class="type-signature"> :Number</span></h4>
+    <h4 class="name toc-target" id="animationpause"><span class="type-signature"></span>animationpause<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>
-Set to zero if you do not wish an object to be drawn
+        pause and resume animation<br>default value : false;
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="me.Sprite.html#animationpause">me.Sprite#animationpause</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 37
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="animationspeed"><span class="type-signature"></span>animationspeed<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        animation cycling speed (delay between frame in ms)<br>default value : 100ms;
     </div>
     
 
@@ -765,7 +796,7 @@ Set to zero if you do not wish an object to be drawn
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="me.Renderable.html#alpha">me.Renderable#alpha</a>
+				<a href="me.Sprite.html#animationspeed">me.Sprite#animationspeed</a>
 			</li>
 		</ul>
 	</dd>
@@ -780,195 +811,13 @@ Set to zero if you do not wish an object to be drawn
 	
 
 	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>1.0</li>
-		</ul>
-	</dd>
-	
 
 
 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 110
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>me.Renderable#setOpacity</li>
-			
-			<li>me.Renderable#getOpacity</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        a reference to the Container object that contains this renderable,
-or undefined if it has not been added to one.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="me.Container.html">me.Container</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-	<dt class="inherited-from">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="me.Renderable.html#ancestor">me.Renderable#ancestor</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>undefined</li>
-		</ul>
-	</dd>
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    renderable.js, line 122
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="angle"><span class="type-signature"></span>angle<span class="type-signature"> :Number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Set the angle (in Radians) of a sprite to rotate it <br>
-WARNING: rotating sprites decreases performance with Canvas Renderer
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-	<dt class="inherited-from">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="me.Sprite.html#angle">me.Sprite#angle</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	<dt class="tag-default">Default Value:</dt>
-	<dd class="tag-default">
-		<ul class="dummy">
-			<li>0</li>
-		</ul>
-	</dd>
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    sprite.js, line 65
+    sprite.js, line 46
 	</dd>
 	
 
@@ -1292,9 +1141,7 @@ WARNING: rotating sprites decreases performance with Canvas Renderer
 
     
     <div class="description">
-        function called when the object is pressed <br>
-to be extended <br>
-return false if we need to stop propagating the event
+        function called when the object is pressed <br>to be extended <br>return false if we need to stop propagating the event
     </div>
     
 
@@ -1414,8 +1261,7 @@ return false if we need to stop propagating the event
 
     
     <div class="description">
-        function called when the object is pressed and held<br>
-to be extended <br>
+        function called when the object is pressed and held<br>to be extended <br>
     </div>
     
 
@@ -1726,9 +1572,7 @@ to be extended <br>
 
     
     <div class="description">
-        function called when the object is pressed and released <br>
-to be extended <br>
-return false if we need to stop propagating the event
+        function called when the object is pressed and released <br>to be extended <br>return false if we need to stop propagating the event
     </div>
     
 
@@ -1863,7 +1707,7 @@ return false if we need to stop propagating the event
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

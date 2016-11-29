@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -571,10 +557,7 @@
 <dd>
     
     <div class="description">
-        Channel Constant for dragend events on a Draggable entity <br>
-Data passed:
-{Object} the drag event <br>
-{Object} the Draggable entity <br>
+        Channel Constant for dragend events on a Draggable entity <br>Data passed:{Object} the drag event <br>{Object} the Draggable entity <br>
     </div>
     
 
@@ -640,10 +623,7 @@ Data passed:
 <dd>
     
     <div class="description">
-        Channel Constant for dragstart events on a Draggable entity <br>
-Data passed:
-{Object} the drag event <br>
-{Object} the Draggable entity <br>
+        Channel Constant for dragstart events on a Draggable entity <br>Data passed:{Object} the drag event <br>{Object} the Draggable entity <br>
     </div>
     
 
@@ -709,8 +689,7 @@ Data passed:
 <dd>
     
     <div class="description">
-        Channel Constant for when the game manager is initialized <br>
-Data passed : none <br>
+        Channel Constant for when the game manager is initialized <br>Data passed : none <br>
     </div>
     
 
@@ -776,8 +755,7 @@ Data passed : none <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the game manager is resetted <br>
-Data passed : none <br>
+        Channel Constant for when the game manager is resetted <br>Data passed : none <br>
     </div>
     
 
@@ -843,8 +821,7 @@ Data passed : none <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when a gamepad is connected <br>
-Data passed : {Object} gamepad object
+        Channel Constant for when a gamepad is connected <br>Data passed : {Object} gamepad object
     </div>
     
 
@@ -910,8 +887,7 @@ Data passed : {Object} gamepad object
 <dd>
     
     <div class="description">
-        Channel Constant for when a gamepad is disconnected <br>
-Data passed : {Object} gamepad object
+        Channel Constant for when a gamepad is disconnected <br>Data passed : {Object} gamepad object
     </div>
     
 
@@ -977,12 +953,7 @@ Data passed : {Object} gamepad object
 <dd>
     
     <div class="description">
-        Channel Constant for when gamepad button/axis state is updated <br>
-Data passed : {Number} index <br>
-Data passed : {String} type : "axes" or "buttons" <br>
-Data passed : {Number} button <br>
-Data passed : {Number} current.value <br>
-Data passed : {Boolean} current.pressed <br>
+        Channel Constant for when gamepad button/axis state is updated <br>Data passed : {Number} index <br>Data passed : {String} type : "axes" or "buttons" <br>Data passed : {Number} button <br>Data passed : {Number} current.value <br>Data passed : {Boolean} current.pressed <br>
     </div>
     
 
@@ -1048,13 +1019,7 @@ Data passed : {Boolean} current.pressed <br>
 <dd>
     
     <div class="description">
-        Channel Constant for pressing a binded key <br>
-Data passed : {String} user-defined action, {Number} keyCode,
-{Boolean} edge state <br>
-Edge-state is for detecting "locked" key bindings. When a locked key
-is pressed and held, the first event will have the third argument
-set true. Subsequent events will continue firing with the third
-argument set false.
+        Channel Constant for pressing a binded key <br>Data passed : {String} user-defined action, {Number} keyCode,{Boolean} edge state <br>Edge-state is for detecting "locked" key bindings. When a locked keyis pressed and held, the first event will have the third argumentset true. Subsequent events will continue firing with the thirdargument set false.
     </div>
     
 
@@ -1110,19 +1075,7 @@ argument set false.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">me.input.bindKey(me.input.KEY.X, &quot;jump&quot;, true); // Edge-triggered
-me.input.bindKey(me.input.KEY.Z, &quot;shoot&quot;); // Level-triggered
-me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-  // Checking bound keys
-  if (action === &quot;jump&quot;) {
-      if (edge) {
-          this.doJump();
-      }
-
-      // Make character fall slower when holding the jump key
-      this.vel.y = this.body.gravity;
-  }
-});</pre>
+    <pre class="sunlight-highlight-javascript">me.input.bindKey(me.input.KEY.X, &quot;jump&quot;, true); // Edge-triggeredme.input.bindKey(me.input.KEY.Z, &quot;shoot&quot;); // Level-triggeredme.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {  // Checking bound keys  if (action === &quot;jump&quot;) {      if (edge) {          this.doJump();      }      // Make character fall slower when holding the jump key      this.vel.y = this.body.gravity;  }});</pre>
 
 
     
@@ -1138,8 +1091,7 @@ me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
 <dd>
     
     <div class="description">
-        Channel Constant for releasing a binded key <br>
-Data passed : {String} user-defined action, {Number} keyCode <br>
+        Channel Constant for releasing a binded key <br>Data passed : {String} user-defined action, {Number} keyCode <br>
     </div>
     
 
@@ -1195,17 +1147,7 @@ Data passed : {String} user-defined action, {Number} keyCode <br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">me.event.subscribe(me.event.KEYUP, function (action, keyCode) {
-  // Checking unbound keys
-  if (keyCode == me.input.KEY.ESC) {
-      if (me.state.isPaused()) {
-          me.state.resume();
-      }
-      else {
-          me.state.pause();
-      }
-  }
-});</pre>
+    <pre class="sunlight-highlight-javascript">me.event.subscribe(me.event.KEYUP, function (action, keyCode) {  // Checking unbound keys  if (keyCode == me.input.KEY.ESC) {      if (me.state.isPaused()) {          me.state.resume();      }      else {          me.state.pause();      }  }});</pre>
 
 
     
@@ -1221,8 +1163,7 @@ Data passed : {String} user-defined action, {Number} keyCode <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when a level is loaded <br>
-Data passed : {String} Level Name
+        Channel Constant for when a level is loaded <br>Data passed : {String} Level Name
     </div>
     
 
@@ -1288,8 +1229,7 @@ Data passed : {String} Level Name
 <dd>
     
     <div class="description">
-        Channel Constant for when everything has loaded <br>
-Data passed : none <br>
+        Channel Constant for when everything has loaded <br>Data passed : none <br>
     </div>
     
 
@@ -1355,8 +1295,7 @@ Data passed : none <br>
 <dd>
     
     <div class="description">
-        Channel Constant for displaying a load progress indicator <br>
-Data passed : {Number} [0 .. 1], {Resource} resource object<br>
+        Channel Constant for displaying a load progress indicator <br>Data passed : {Number} [0 .. 1], {Resource} resource object<br>
     </div>
     
 
@@ -1422,8 +1361,7 @@ Data passed : {Number} [0 .. 1], {Resource} resource object<br>
 <dd>
     
     <div class="description">
-        Channel Constant for pointermove events on the viewport area <br>
-Data passed : {Object} the Event object <br>
+        Channel Constant for pointermove events on the viewport area <br>Data passed : {Object} the Event object <br>
     </div>
     
 
@@ -1489,8 +1427,7 @@ Data passed : {Object} the Event object <br>
 <dd>
     
     <div class="description">
-        Channel Constant when the game is paused <br>
-Data passed : none <br>
+        Channel Constant when the game is paused <br>Data passed : none <br>
     </div>
     
 
@@ -1556,8 +1493,7 @@ Data passed : none <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the game is restarted <br>
-Data passed : {Number} time in ms the game was stopped
+        Channel Constant for when the game is restarted <br>Data passed : {Number} time in ms the game was stopped
     </div>
     
 
@@ -1623,8 +1559,7 @@ Data passed : {Number} time in ms the game was stopped
 <dd>
     
     <div class="description">
-        Channel Constant for when the game is resumed <br>
-Data passed : {Number} time in ms the game was paused
+        Channel Constant for when the game is resumed <br>Data passed : {Number} time in ms the game was paused
     </div>
     
 
@@ -1690,8 +1625,7 @@ Data passed : {Number} time in ms the game was paused
 <dd>
     
     <div class="description">
-        Channel Constant when the game is stopped <br>
-Data passed : none <br>
+        Channel Constant when the game is stopped <br>Data passed : none <br>
     </div>
     
 
@@ -1757,8 +1691,7 @@ Data passed : none <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the viewport position is updated <br>
-Data passed : {me.Vector2d} viewport position vector <br>
+        Channel Constant for when the viewport position is updated <br>Data passed : {me.Vector2d} viewport position vector <br>
     </div>
     
 
@@ -1824,10 +1757,7 @@ Data passed : {me.Vector2d} viewport position vector <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the viewport is resized <br>
-(this usually follows a WINDOW_ONRESIZE event, when using the `flex` scaling mode is used and after the viewport was updated).<br>
-Data passed : {Number} viewport width <br>
-Data passed : {Number} viewport height <br>
+        Channel Constant for when the viewport is resized <br>(this usually follows a WINDOW_ONRESIZE event, when using the `flex` scaling mode is used and after the viewport was updated).<br>Data passed : {Number} viewport width <br>Data passed : {Number} viewport height <br>
     </div>
     
 
@@ -1893,8 +1823,7 @@ Data passed : {Number} viewport height <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the device is rotated <br>
-Data passed : {Event} Event object <br>
+        Channel Constant for when the device is rotated <br>Data passed : {Event} Event object <br>
     </div>
     
 
@@ -1960,8 +1889,7 @@ Data passed : {Event} Event object <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the (browser) window is resized <br>
-Data passed : {Event} Event object <br>
+        Channel Constant for when the (browser) window is resized <br>Data passed : {Event} Event object <br>
     </div>
     
 
@@ -2027,8 +1955,7 @@ Data passed : {Event} Event object <br>
 <dd>
     
     <div class="description">
-        Channel Constant for when the (browser) window is scrolled <br>
-Data passed : {Event} Event object <br>
+        Channel Constant for when the (browser) window is scrolled <br>Data passed : {Event} Event object <br>
     </div>
     
 
@@ -2233,11 +2160,7 @@ Data passed : {Event} Event object <br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">Publish stuff on &#x27;/some/channel&#x27;.
-Anything subscribed will be called with a function
-signature like: function (a,b,c){ ... }
-
-me.event.publish(&quot;/some/channel&quot;, [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]);</pre>
+    <pre class="sunlight-highlight-javascript">Publish stuff on &#x27;/some/channel&#x27;.Anything subscribed will be called with a functionsignature like: function (a,b,c){ ... }me.event.publish(&quot;/some/channel&quot;, [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]);</pre>
 
 
     
@@ -2327,9 +2250,7 @@ me.event.publish(&quot;/some/channel&quot;, [&quot;a&quot;,&quot;b&quot;,&quot;c
 
             
 
-            <td class="description last">The event handler, any time something is
-published on a subscribed channel, the callback will be called
-with the published array as ordered arguments</td>
+            <td class="description last">The event handler, any time something ispublished on a subscribed channel, the callback will be calledwith the published array as ordered arguments</td>
         </tr>
 
 	
@@ -2388,8 +2309,7 @@ with the published array as ordered arguments</td>
     
             
 <div class="param-desc">
-    A handle which can be used to unsubscribe this
-particular subscription
+    A handle which can be used to unsubscribe thisparticular subscription
 </div>
 
 
@@ -2492,8 +2412,7 @@ particular subscription
 
             
 
-            <td class="description last">The return value from a subscribe call or the
-name of a channel as a String</td>
+            <td class="description last">The return value from a subscribe call or thename of a channel as a String</td>
         </tr>
 
 	
@@ -2585,14 +2504,7 @@ name of a channel as a String</td>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var handle = me.event.subscribe(&quot;/some/channel&quot;, function (){});
-me.event.unsubscribe(handle);
-
-// Or alternatively ...
-
-var callback = function (){};
-me.event.subscribe(&quot;/some/channel&quot;, callback);
-me.event.unsubscribe(&quot;/some/channel&quot;, callback);</pre>
+    <pre class="sunlight-highlight-javascript">var handle = me.event.subscribe(&quot;/some/channel&quot;, function (){});me.event.unsubscribe(handle);// Or alternatively ...var callback = function (){};me.event.subscribe(&quot;/some/channel&quot;, callback);me.event.unsubscribe(&quot;/some/channel&quot;, callback);</pre>
 
 
     
@@ -2624,7 +2536,7 @@ me.event.unsubscribe(&quot;/some/channel&quot;, callback);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

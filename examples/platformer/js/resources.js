@@ -5,7 +5,6 @@ game.resources = [
      * { name: "example", type:"image", src: "data/img/example.png" },
      */
     { name: "tileset",         type:"image",   src: "data/img/tileset.png" },
-    { name: "atascii",         type:"image",   src: "data/img/atascii_24px.png" },
     { name: "background",      type:"image",   src: "data/img/background.png" },
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
 
@@ -48,5 +47,13 @@ game.resources = [
      */
     // texturePacker
     { name: "texture",         type: "json",   src: "data/img/texture.json" },
-    { name: "texture",         type: "image",  src: "data/img/texture.png" }
+    { name: "texture",         type: "image",  src: "data/img/texture.png" },
+
+    /* Bitmap Font
+    * @example
+    * { name: "example_fnt", type: "image", src: "data/img/example_fnt.png" },
+    * { name: "example_fnt", type: "binary", src: "data/img/example_fnt.fnt" },
+    */
+    { name: "PressStart2P", type:"image", src: "data/fnt/PressStart2P.png" },
+    { name: "PressStart2P", type:"binary", src: "data/fnt/PressStart2P.fnt"}
 ];

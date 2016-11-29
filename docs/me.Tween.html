@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,17 +499,7 @@
 
     
     <div class="description">
-        Javascript Tweening Engine<p>
-Super simple, fast and easy to use tweening engine which incorporates optimised Robert Penner's equation<p>
-<a href="https://github.com/sole/Tween.js">https://github.com/sole/Tween.js</a><p>
-author sole / http://soledadpenades.com<br>
-author mr.doob / http://mrdoob.com<br>
-author Robert Eisele / http://www.xarg.org<br>
-author Philippe / http://philippe.elsass.me<br>
-author Robert Penner / http://www.robertpenner.com/easing_terms_of_use.html<br>
-author Paul Lewis / http://www.aerotwist.com/<br>
-author lechecacharro<br>
-author Josh Faul / http://jocafa.com/
+        Javascript Tweening Engine<p>Super simple, fast and easy to use tweening engine which incorporates optimised Robert Penner's equation<p><a href="https://github.com/sole/Tween.js">https://github.com/sole/Tween.js</a><p>author sole / http://soledadpenades.com<br>author mr.doob / http://mrdoob.com<br>author Robert Eisele / http://www.xarg.org<br>author Philippe / http://philippe.elsass.me<br>author Robert Penner / http://www.robertpenner.com/easing_terms_of_use.html<br>author Paul Lewis / http://www.aerotwist.com/<br>author lechecacharro<br>author Josh Faul / http://jocafa.com/
     </div>
     
 
@@ -607,7 +583,7 @@ author Josh Faul / http://jocafa.com/
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 38
+    tween.js, line 32
 	</dd>
 	
 
@@ -632,10 +608,7 @@ author Josh Faul / http://jocafa.com/
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// add a tween to change the object pos.y variable to 200 in 3 seconds
-tween = new me.Tween(myObject.pos).to({y: 200}, 3000).onComplete(myFunc);
-tween.easing(me.Tween.Easing.Bounce.Out);
-tween.start();</pre>
+    <pre class="sunlight-highlight-javascript">// add a tween to change the object pos.y variable to 200 in 3 secondstween = new me.Tween(myObject.pos).to({y: 200}, 3000).onComplete(myFunc);tween.easing(me.Tween.Easing.Bounce.Out);tween.start();</pre>
 
 
     
@@ -674,40 +647,7 @@ tween.start();</pre>
 <dd>
     
     <div class="description">
-        Easing Function :<br>
-<p>
-me.Tween.Easing.Linear.None<br>
-me.Tween.Easing.Quadratic.In<br>
-me.Tween.Easing.Quadratic.Out<br>
-me.Tween.Easing.Quadratic.InOut<br>
-me.Tween.Easing.Cubic.In<br>
-me.Tween.Easing.Cubic.Out<br>
-me.Tween.Easing.Cubic.InOut<br>
-me.Tween.Easing.Quartic.In<br>
-me.Tween.Easing.Quartic.Out<br>
-me.Tween.Easing.Quartic.InOut<br>
-me.Tween.Easing.Quintic.In<br>
-me.Tween.Easing.Quintic.Out<br>
-me.Tween.Easing.Quintic.InOut<br>
-me.Tween.Easing.Sinusoidal.In<br>
-me.Tween.Easing.Sinusoidal.Out<br>
-me.Tween.Easing.Sinusoidal.InOut<br>
-me.Tween.Easing.Exponential.In<br>
-me.Tween.Easing.Exponential.Out<br>
-me.Tween.Easing.Exponential.InOut<br>
-me.Tween.Easing.Circular.In<br>
-me.Tween.Easing.Circular.Out<br>
-me.Tween.Easing.Circular.InOut<br>
-me.Tween.Easing.Elastic.In<br>
-me.Tween.Easing.Elastic.Out<br>
-me.Tween.Easing.Elastic.InOut<br>
-me.Tween.Easing.Back.In<br>
-me.Tween.Easing.Back.Out<br>
-me.Tween.Easing.Back.InOut<br>
-me.Tween.Easing.Bounce.In<br>
-me.Tween.Easing.Bounce.Out<br>
-me.Tween.Easing.Bounce.InOut
-</p>
+        Easing Function :<br><p>me.Tween.Easing.Linear.None<br>me.Tween.Easing.Quadratic.In<br>me.Tween.Easing.Quadratic.Out<br>me.Tween.Easing.Quadratic.InOut<br>me.Tween.Easing.Cubic.In<br>me.Tween.Easing.Cubic.Out<br>me.Tween.Easing.Cubic.InOut<br>me.Tween.Easing.Quartic.In<br>me.Tween.Easing.Quartic.Out<br>me.Tween.Easing.Quartic.InOut<br>me.Tween.Easing.Quintic.In<br>me.Tween.Easing.Quintic.Out<br>me.Tween.Easing.Quintic.InOut<br>me.Tween.Easing.Sinusoidal.In<br>me.Tween.Easing.Sinusoidal.Out<br>me.Tween.Easing.Sinusoidal.InOut<br>me.Tween.Easing.Exponential.In<br>me.Tween.Easing.Exponential.Out<br>me.Tween.Easing.Exponential.InOut<br>me.Tween.Easing.Circular.In<br>me.Tween.Easing.Circular.Out<br>me.Tween.Easing.Circular.InOut<br>me.Tween.Easing.Elastic.In<br>me.Tween.Easing.Elastic.Out<br>me.Tween.Easing.Elastic.InOut<br>me.Tween.Easing.Back.In<br>me.Tween.Easing.Back.Out<br>me.Tween.Easing.Back.InOut<br>me.Tween.Easing.Bounce.In<br>me.Tween.Easing.Bounce.Out<br>me.Tween.Easing.Bounce.InOut</p>
     </div>
     
 
@@ -748,7 +688,7 @@ me.Tween.Easing.Bounce.InOut
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 454
+    tween.js, line 448
 	</dd>
 	
 
@@ -773,12 +713,7 @@ me.Tween.Easing.Bounce.InOut
 <dd>
     
     <div class="description">
-        Interpolation Function :<br>
-<p>
-me.Tween.Interpolation.Linear<br>
-me.Tween.Interpolation.Bezier<br>
-me.Tween.Interpolation.CatmullRom
-</p>
+        Interpolation Function :<br><p>me.Tween.Interpolation.Linear<br>me.Tween.Interpolation.Bezier<br>me.Tween.Interpolation.CatmullRom</p>
     </div>
     
 
@@ -819,7 +754,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 774
+    tween.js, line 768
 	</dd>
 	
 
@@ -935,7 +870,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 274
+    tween.js, line 268
 	</dd>
 	
 
@@ -1055,7 +990,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 202
+    tween.js, line 196
 	</dd>
 	
 
@@ -1175,7 +1110,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 244
+    tween.js, line 238
 	</dd>
 	
 
@@ -1295,7 +1230,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 260
+    tween.js, line 254
 	</dd>
 	
 
@@ -1415,7 +1350,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 316
+    tween.js, line 310
 	</dd>
 	
 
@@ -1535,7 +1470,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 288
+    tween.js, line 282
 	</dd>
 	
 
@@ -1655,7 +1590,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 302
+    tween.js, line 296
 	</dd>
 	
 
@@ -1775,7 +1710,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 216
+    tween.js, line 210
 	</dd>
 	
 
@@ -1846,7 +1781,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 145
+    tween.js, line 139
 	</dd>
 	
 
@@ -1917,7 +1852,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 190
+    tween.js, line 184
 	</dd>
 	
 
@@ -2092,7 +2027,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 123
+    tween.js, line 117
 	</dd>
 	
 
@@ -2212,7 +2147,7 @@ me.Tween.Interpolation.CatmullRom
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    tween.js, line 230
+    tween.js, line 224
 	</dd>
 	
 
@@ -2263,7 +2198,7 @@ me.Tween.Interpolation.CatmullRom
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

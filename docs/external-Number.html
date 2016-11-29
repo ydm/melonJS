@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -449,24 +453,6 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -686,7 +672,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 21
+    number.js, line 23
 	</dd>
 	
 
@@ -849,7 +835,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 137
+    number.js, line 139
 	</dd>
 	
 
@@ -897,11 +883,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// convert a specific angle
-Number.prototype.degToRad (60); // return 1.0471...
-// convert object value
-var num = 60
-num.degToRad(); // return 1.0471...</pre>
+    <pre class="sunlight-highlight-javascript">// convert a specific angleNumber.prototype.degToRad (60); // return 1.0471...// convert object valuevar num = 60num.degToRad(); // return 1.0471...</pre>
 
 
     
@@ -1022,7 +1004,7 @@ num.degToRad(); // return 1.0471...</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 154
+    number.js, line 156
 	</dd>
 	
 
@@ -1070,11 +1052,7 @@ num.degToRad(); // return 1.0471...</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// convert a specific angle
-Number.prototype.radToDeg (1.0471975511965976); // return 59.9999...
-// convert object value
-num = 1.0471975511965976
-Math.ceil(num.radToDeg()); // return 60</pre>
+    <pre class="sunlight-highlight-javascript">// convert a specific angleNumber.prototype.radToDeg (1.0471975511965976); // return 59.9999...// convert object valuenum = 1.0471975511965976Math.ceil(num.radToDeg()); // return 60</pre>
 
 
     
@@ -1230,7 +1208,7 @@ Math.ceil(num.radToDeg()); // return 60</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 39
+    number.js, line 41
 	</dd>
 	
 
@@ -1278,11 +1256,7 @@ Math.ceil(num.radToDeg()); // return 60</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9
-console.log( (5).random(10) );
-// Select a random array element
-var ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];
-console.log(ar[ (0).random(ar.length) ]);</pre>
+    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9console.log( (5).random(10) );// Select a random array elementvar ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];console.log(ar[ (0).random(ar.length) ]);</pre>
 
 
     
@@ -1438,7 +1412,7 @@ console.log(ar[ (0).random(ar.length) ]);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 61
+    number.js, line 63
 	</dd>
 	
 
@@ -1486,11 +1460,7 @@ console.log(ar[ (0).random(ar.length) ]);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9
-console.log( (5).random(10) );
-// Select a random array element
-var ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];
-console.log(ar[ (0).random(ar.length) ]);</pre>
+    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9console.log( (5).random(10) );// Select a random array elementvar ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];console.log(ar[ (0).random(ar.length) ]);</pre>
 
 
     
@@ -1646,7 +1616,7 @@ console.log(ar[ (0).random(ar.length) ]);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 106
+    number.js, line 108
 	</dd>
 	
 
@@ -1694,11 +1664,7 @@ console.log(ar[ (0).random(ar.length) ]);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// round a specific value to 2 digits
-Number.prototype.round (10.33333, 2); // return 10.33
-// round a float value to 4 digits
-num = 10.3333333
-num.round(4); // return 10.3333</pre>
+    <pre class="sunlight-highlight-javascript">// round a specific value to 2 digitsNumber.prototype.round (10.33333, 2); // return 10.33// round a float value to 4 digitsnum = 10.3333333num.round(4); // return 10.3333</pre>
 
 
     
@@ -1715,8 +1681,7 @@ num.round(4); // return 10.3333</pre>
 
     
     <div class="description">
-        a quick toHex function<br>
-given number <b>must</b> be an int, with a value between 0 and 255
+        a quick toHex function<br>given number <b>must</b> be an int, with a value between 0 and 255
     </div>
     
 
@@ -1751,7 +1716,7 @@ given number <b>must</b> be an int, with a value between 0 and 255
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 120
+    number.js, line 122
 	</dd>
 	
 
@@ -1810,8 +1775,7 @@ given number <b>must</b> be an int, with a value between 0 and 255
 
     
     <div class="description">
-        return a weighted random between min, max (exclusive)
-favoring the lower numbers
+        return a weighted random between min, max (exclusive)favoring the lower numbers
     </div>
     
 
@@ -1950,7 +1914,7 @@ favoring the lower numbers
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    number.js, line 84
+    number.js, line 86
 	</dd>
 	
 
@@ -1998,11 +1962,7 @@ favoring the lower numbers
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9
-console.log( (5).random(10) );
-// Select a random array element
-var ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];
-console.log(ar[ (0).random(ar.length) ]);</pre>
+    <pre class="sunlight-highlight-javascript">// Print a random number; one of 5, 6, 7, 8, 9console.log( (5).random(10) );// Select a random array elementvar ar = [ &quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot; ];console.log(ar[ (0).random(ar.length) ]);</pre>
 
 
     
@@ -2034,7 +1994,7 @@ console.log(ar[ (0).random(ar.length) ]);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:08+08:00 using the <a
+		on 2016-11-29T10:46:16+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

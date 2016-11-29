@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -449,24 +453,6 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -956,8 +942,7 @@
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>
-Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -1014,7 +999,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 110
+    renderable.js, line 152
 	</dd>
 	
 
@@ -1048,8 +1033,7 @@ Set to zero if you do not wish an object to be drawn
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
-or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
     </div>
     
 
@@ -1106,7 +1090,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 122
+    renderable.js, line 164
 	</dd>
 	
 
@@ -1138,8 +1122,7 @@ or undefined if it has not been added to one.
 
     
     <div class="description">
-        fadeIn effect <p>
-fade to the specified color
+        fadeIn effect <p>fade to the specified color
     </div>
     
 
@@ -1318,7 +1301,7 @@ fade to the specified color
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 389
+    viewport.js, line 392
 	</dd>
 	
 
@@ -1354,8 +1337,7 @@ fade to the specified color
 
     
     <div class="description">
-        fadeOut(flash) effect<p>
-screen is filled with the specified color and slowly goes back to normal
+        fadeOut(flash) effect<p>screen is filled with the specified color and slowly goes back to normal
     </div>
     
 
@@ -1534,7 +1516,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 370
+    viewport.js, line 373
 	</dd>
 	
 
@@ -1650,7 +1632,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 432
+    viewport.js, line 435
 	</dd>
 	
 
@@ -1686,7 +1668,7 @@ screen is filled with the specified color and slowly goes back to normal
 
     
     <div class="description">
-        set the viewport to follow the specified entity
+        set the viewport to follow the specified renderable. <br>(this will put the viewport center around the given target)
     </div>
     
 
@@ -1730,7 +1712,7 @@ screen is filled with the specified color and slowly goes back to normal
             <td class="type">
             
                 
-<span class="param-type"><a href="me.Entity.html">me.Entity</a></span>
+<span class="param-type"><a href="me.Renderable.html">me.Renderable</a></span>
 |
 
 <span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
@@ -1755,8 +1737,7 @@ screen is filled with the specified color and slowly goes back to normal
                 </td>
             
 
-            <td class="description last">Entity or Position
-Vector to follow</td>
+            <td class="description last">renderable or positionVector to follow</td>
         </tr>
 
 	
@@ -1900,7 +1881,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 421
+    viewport.js, line 424
 	</dd>
 	
 
@@ -1990,7 +1971,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 410
+    viewport.js, line 413
 	</dd>
 	
 
@@ -2129,7 +2110,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 447
+    viewport.js, line 450
 	</dd>
 	
 
@@ -2308,8 +2289,7 @@ Vector to follow</td>
 
             
 
-            <td class="description last">an optional vector object where to set the
-converted value</td>
+            <td class="description last">an optional vector object where to set theconverted value</td>
         </tr>
 
 	
@@ -2343,7 +2323,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 459
+    viewport.js, line 462
 	</dd>
 	
 
@@ -2398,7 +2378,7 @@ converted value</td>
 
     
     <div class="description">
-        move the viewport position by the specified offset
+        move the viewport upper-left position by the specified offset.
     </div>
     
 
@@ -2505,12 +2485,19 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 236
+    viewport.js, line 237
 	</dd>
 	
 
 	
 
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="me.Viewport.html#focusOn">me.Viewport.focusOn</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -2530,8 +2517,7 @@ converted value</td>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Move the viewport up by four pixels
-me.game.viewport.move(0, -4);</pre>
+    <pre class="sunlight-highlight-javascript">// Move the viewport up by four pixelsme.game.viewport.move(0, -4);</pre>
 
 
     
@@ -2548,7 +2534,7 @@ me.game.viewport.move(0, -4);</pre>
 
     
     <div class="description">
-        move the viewport to the specified coordinates
+        move the viewport  upper-left position to the specified coordinates
     </div>
     
 
@@ -2655,12 +2641,19 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 251
+    viewport.js, line 253
 	</dd>
 	
 
 	
 
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="me.Viewport.html#focusOn">me.Viewport.focusOn</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -3036,8 +3029,7 @@ me.game.viewport.move(0, -4);</pre>
 
     
     <div class="description">
-        set the viewport boundaries (set to the world limit by default).
-the viewport is bound to the given coordinates and cannot move/be scrolled outside of it.
+        set the viewport boundaries (set to the world limit by default).the viewport is bound to the given coordinates and cannot move/be scrolled outside of it.
     </div>
     
 
@@ -3226,9 +3218,7 @@ the viewport is bound to the given coordinates and cannot move/be scrolled outsi
 
     
     <div class="description">
-        change the deadzone settings.
-the "deadzone" defines an area within the current viewport in which
-the followed entity can move without scrolling the viewport.
+        change the deadzone settings.the "deadzone" defines an area within the current viewport in whichthe followed renderable can move without scrolling the viewport.
     </div>
     
 
@@ -3444,8 +3434,7 @@ the followed entity can move without scrolling the viewport.
                 </td>
             
 
-            <td class="description last">maximum offset that the screen can be moved
-while shaking</td>
+            <td class="description last">maximum offset that the screen can be movedwhile shaking</td>
         </tr>
 
 	
@@ -3519,8 +3508,7 @@ while shaking</td>
                 </td>
             
 
-            <td class="description last">specify on which axis you
-  want the shake effect</td>
+            <td class="description last">specify on which axis you  want the shake effect</td>
         </tr>
 
 	
@@ -3628,7 +3616,7 @@ while shaking</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 345
+    viewport.js, line 348
 	</dd>
 	
 
@@ -3653,8 +3641,7 @@ while shaking</td>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// shake it baby !
-me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);</pre>
+    <pre class="sunlight-highlight-javascript">// shake it baby !me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);</pre>
 
 
     
@@ -3795,8 +3782,7 @@ me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);</pre>
 
             
 
-            <td class="description last">an optional vector object where to set the
-converted value</td>
+            <td class="description last">an optional vector object where to set theconverted value</td>
         </tr>
 
 	
@@ -3830,7 +3816,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 475
+    viewport.js, line 478
 	</dd>
 	
 
@@ -3900,7 +3886,7 @@ converted value</td>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

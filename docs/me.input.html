@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -579,11 +565,7 @@
 <dd>
     
     <div class="description">
-        Pointer information (current position and size) <br>
-properties : <br>
-LEFT : constant for left button <br>
-MIDDLE : constant for middle button <br>
-RIGHT : constant for right button
+        Pointer information (current position and size) <br>properties : <br>LEFT : constant for left button <br>MIDDLE : constant for middle button <br>RIGHT : constant for right button
     </div>
     
 
@@ -624,7 +606,7 @@ RIGHT : constant for right button
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 545
+    pointer.js, line 544
 	</dd>
 	
 
@@ -649,9 +631,7 @@ RIGHT : constant for right button
 <dd>
     
     <div class="description">
-        Global flag to specify if melonJS should prevent default browser action on registered key events <br>
-This is also configurable per key through the bindKey function
-default : true
+        Global flag to specify if melonJS should prevent default browser action on registered key events <br>This is also configurable per key through the bindKey functiondefault : true
     </div>
     
 
@@ -717,9 +697,7 @@ default : true
 <dd>
     
     <div class="description">
-        time interval for event throttling in milliseconds<br>
-default value : "1000/me.sys.fps" ms<br>
-set to 0 ms to disable the feature
+        time interval for event throttling in milliseconds<br>default value : "1000/me.sys.fps" ms<br>set to 0 ms to disable the feature
     </div>
     
 
@@ -760,7 +738,7 @@ set to 0 ms to disable the feature
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 566
+    pointer.js, line 565
 	</dd>
 	
 
@@ -1076,15 +1054,7 @@ set to 0 ms to disable the feature
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// enable the keyboard
-me.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);
-...
-// map the lower face button on the first gamepad to the X key (deprecated use)
-me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);
-// map the lower face button on the first gamepad to the X key
-me.input.bindGamepad(0, {type:&quot;buttons&quot;, code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.X);
-// map the left axis value on the first gamepad to the LEFT key
-me.input.bindGamepad(0, {type:&quot;axes&quot;, code: me.input.GAMEPAD.AXES.LX, threshold: -0.5}, me.input.KEY.LEFT);</pre>
+    <pre class="sunlight-highlight-javascript">// enable the keyboardme.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);...// map the lower face button on the first gamepad to the X key (deprecated use)me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);// map the lower face button on the first gamepad to the X keyme.input.bindGamepad(0, {type:&quot;buttons&quot;, code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.X);// map the left axis value on the first gamepad to the LEFT keyme.input.bindGamepad(0, {type:&quot;axes&quot;, code: me.input.GAMEPAD.AXES.LX, threshold: -0.5}, me.input.KEY.LEFT);</pre>
 
 
     
@@ -1339,11 +1309,7 @@ me.input.bindGamepad(0, {type:&quot;axes&quot;, code: me.input.GAMEPAD.AXES.LX, 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// enable the keyboard
-me.input.bindKey(me.input.KEY.LEFT,  &quot;left&quot;);
-me.input.bindKey(me.input.KEY.RIGHT, &quot;right&quot;);
-me.input.bindKey(me.input.KEY.X,     &quot;jump&quot;, true);
-me.input.bindKey(me.input.KEY.F1,    &quot;options&quot;, true, true);</pre>
+    <pre class="sunlight-highlight-javascript">// enable the keyboardme.input.bindKey(me.input.KEY.LEFT,  &quot;left&quot;);me.input.bindKey(me.input.KEY.RIGHT, &quot;right&quot;);me.input.bindKey(me.input.KEY.X,     &quot;jump&quot;, true);me.input.bindKey(me.input.KEY.F1,    &quot;options&quot;, true, true);</pre>
 
 
     
@@ -1360,10 +1326,7 @@ me.input.bindKey(me.input.KEY.F1,    &quot;options&quot;, true, true);</pre>
 
     
     <div class="description">
-        Associate a pointer event to a keycode<br>
-Left button – 0
-Middle button – 1
-Right button – 2
+        Associate a pointer event to a keycode<br>Left button – 0Middle button – 1Right button – 2
     </div>
     
 
@@ -1502,7 +1465,7 @@ Right button – 2
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 609
+    pointer.js, line 608
 	</dd>
 	
 
@@ -1527,12 +1490,7 @@ Right button – 2
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// enable the keyboard
-me.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);
-// map the left button click on the X key (default if the button is not specified)
-me.input.bindPointer(me.input.KEY.X);
-// map the right button click on the X key
-me.input.bindPointer(me.input.pointer.RIGHT, me.input.KEY.X);</pre>
+    <pre class="sunlight-highlight-javascript">// enable the keyboardme.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);// map the left button click on the X key (default if the button is not specified)me.input.bindPointer(me.input.KEY.X);// map the right button click on the X keyme.input.bindPointer(me.input.pointer.RIGHT, me.input.KEY.X);</pre>
 
 
     
@@ -1549,8 +1507,7 @@ me.input.bindPointer(me.input.pointer.RIGHT, me.input.KEY.X);</pre>
 
     
     <div class="description">
-        Translate the specified x and y values from the global (absolute)
-coordinate to local (viewport) relative coordinate.
+        Translate the specified x and y values from the global (absolute)coordinate to local (viewport) relative coordinate.
     </div>
     
 
@@ -1708,7 +1665,7 @@ coordinate to local (viewport) relative coordinate.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 577
+    pointer.js, line 576
 	</dd>
 	
 
@@ -1756,11 +1713,7 @@ coordinate to local (viewport) relative coordinate.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">onMouseEvent : function (e) {
-   // convert the given into local (viewport) relative coordinates
-   var pos = me.input.globalToLocal(e.clientX, e,clientY);
-   // do something with pos !
-};</pre>
+    <pre class="sunlight-highlight-javascript">onMouseEvent : function (e) {   // convert the given into local (viewport) relative coordinates   var pos = me.input.globalToLocal(e.clientX, e,clientY);   // do something with pos !};</pre>
 
 
     
@@ -1909,14 +1862,7 @@ coordinate to local (viewport) relative coordinate.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">if (me.input.isKeyPressed(&#x27;left&#x27;))
-{
-   //do something
-}
-else if (me.input.isKeyPressed(&#x27;right&#x27;))
-{
-   //do something else...
-}</pre>
+    <pre class="sunlight-highlight-javascript">if (me.input.isKeyPressed(&#x27;left&#x27;)){   //do something}else if (me.input.isKeyPressed(&#x27;right&#x27;)){   //do something else...}</pre>
 
 
     
@@ -2076,8 +2022,7 @@ else if (me.input.isKeyPressed(&#x27;right&#x27;))
 
     
     <div class="description">
-        allows registration of event listeners on the object target. <br>
-melonJS defines the additional `gameX` and `gameY` properties when passing the Event object to the defined callback (see below)<br>
+        allows registration of event listeners on the object target. <br>melonJS defines the additional `gameX` and `gameY` properties when passing the Event object to the defined callback (see below)<br>
     </div>
     
 
@@ -2127,17 +2072,7 @@ melonJS defines the additional `gameX` and `gameY` properties when passing the E
 
             
 
-            <td class="description last">The event type for which the object is registering <br>
-melonJS currently supports: <br>
-<ul>
-  <li><code>"pointermove"</code></li>
-  <li><code>"pointerdown"</code></li>
-  <li><code>"pointerup"</code></li>
-  <li><code>"pointerenter"</code></li>
-  <li><code>"pointerleave"</code></li>
-  <li><code>"pointercancel"</code></li>
-  <li><code>"mousewheel"</code></li>
-</ul></td>
+            <td class="description last">The event type for which the object is registering <br>melonJS currently supports: <br><ul>  <li><code>"pointermove"</code></li>  <li><code>"pointerdown"</code></li>  <li><code>"pointerup"</code></li>  <li><code>"pointerenter"</code></li>  <li><code>"pointerleave"</code></li>  <li><code>"pointercancel"</code></li>  <li><code>"mousewheel"</code></li></ul></td>
         </tr>
 
 	
@@ -2192,7 +2127,7 @@ melonJS currently supports: <br>
 
             
 
-            <td class="description last">methods to be called when the event occurs.</td>
+            <td class="description last">methods to be called when the event occurs.Returning `false` from the defined callback will prevent the event to be propagated to other objects</td>
         </tr>
 
 	
@@ -2226,7 +2161,7 @@ melonJS currently supports: <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 661
+    pointer.js, line 660
 	</dd>
 	
 
@@ -2260,8 +2195,7 @@ melonJS currently supports: <br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// register on the &#x27;pointerdown&#x27; event
-me.input.registerPointerEvent(&#x27;pointerdown&#x27;, this, this.pointerDown.bind(this));</pre>
+    <pre class="sunlight-highlight-javascript">// onActivate function onActivateEvent: function () {    // register on the &#x27;pointerdown&#x27; event    me.input.registerPointerEvent(&#x27;pointerdown&#x27;, this, this.pointerDown.bind(this)); }, // pointerDown event callback pointerDown: function (event) {   // do something   ....   // don&quot;t propagate the event to other objects   return false; },</pre>
 
 
     
@@ -2461,7 +2395,7 @@ me.input.registerPointerEvent(&#x27;pointerdown&#x27;, this, this.pointerDown.bi
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 719
+    pointer.js, line 730
 	</dd>
 	
 
@@ -2493,8 +2427,7 @@ me.input.registerPointerEvent(&#x27;pointerdown&#x27;, this, this.pointerDown.bi
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// release the registered region on the &#x27;pointerdown&#x27; event
-me.input.releasePointerEvent(&#x27;pointerdown&#x27;, this);</pre>
+    <pre class="sunlight-highlight-javascript">// release the registered region on the &#x27;pointerdown&#x27; eventme.input.releasePointerEvent(&#x27;pointerdown&#x27;, this);</pre>
 
 
     
@@ -2511,8 +2444,7 @@ me.input.releasePointerEvent(&#x27;pointerdown&#x27;, this);</pre>
 
     
     <div class="description">
-        Set deadzone for analog gamepad inputs<br>
-The default deadzone is 0.1 (10%) Analog values less than this will be ignored
+        Set deadzone for analog gamepad inputs<br>The default deadzone is 0.1 (10%) Analog values less than this will be ignored
     </div>
     
 
@@ -2632,9 +2564,7 @@ The default deadzone is 0.1 (10%) Analog values less than this will be ignored
 
     
     <div class="description">
-        specify a custom mapping for a specific gamepad id<br>
-see below for the default mapping : <br>
-<center><img src="images/gamepad_diagram.png"/></center><br>
+        specify a custom mapping for a specific gamepad id<br>see below for the default mapping : <br><center><img src="images/gamepad_diagram.png"/></center><br>
     </div>
     
 
@@ -2922,28 +2852,7 @@ see below for the default mapping : <br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// A weird controller that has its axis mappings reversed
-me.input.setGamepadMapping(&quot;Generic USB Controller&quot;, {
-  &quot;axes&quot; : [ 3, 2, 1, 0 ],
-  &quot;buttons&quot; : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
-});
-
-// Mapping extra axes to analog buttons
-me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
-  &quot;axes&quot; : [ 0, 1, 2, 3 ],
-  &quot;buttons&quot; : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ],
-
-  // Raw axis 4 is mapped to GAMEPAD.BUTTONS.FACE_1
-  // Raw axis 5 is mapped to GAMEPAD.BUTTONS.FACE_2
-  // etc...
-  // Also maps left and right triggers
-  &quot;analog&quot; : [ 4, 5, 6, 7, -1, -1, 8, 9, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
-
-  // Normalize the value of button L2: [-1.0..1.0] =&gt; [0.0..1.0]
-  &quot;normalize_fn&quot; : function (value, axis, button) {
-    return ((button === me.input.GAMEPAD.BUTTONS.L2) ? ((value + 1) / 2) : value) || 0;
-  }
-});</pre>
+    <pre class="sunlight-highlight-javascript">// A weird controller that has its axis mappings reversedme.input.setGamepadMapping(&quot;Generic USB Controller&quot;, {  &quot;axes&quot; : [ 3, 2, 1, 0 ],  &quot;buttons&quot; : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]});// Mapping extra axes to analog buttonsme.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {  &quot;axes&quot; : [ 0, 1, 2, 3 ],  &quot;buttons&quot; : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ],  // Raw axis 4 is mapped to GAMEPAD.BUTTONS.FACE_1  // Raw axis 5 is mapped to GAMEPAD.BUTTONS.FACE_2  // etc...  // Also maps left and right triggers  &quot;analog&quot; : [ 4, 5, 6, 7, -1, -1, 8, 9, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],  // Normalize the value of button L2: [-1.0..1.0] =&gt; [0.0..1.0]  &quot;normalize_fn&quot; : function (value, axis, button) {    return ((button === me.input.GAMEPAD.BUTTONS.L2) ? ((value + 1) / 2) : value) || 0;  }});</pre>
 
 
     
@@ -3092,8 +3001,7 @@ me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// trigger a key press
-me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
+    <pre class="sunlight-highlight-javascript">// trigger a key pressme.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 
 
     
@@ -3489,7 +3397,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 642
+    pointer.js, line 641
 	</dd>
 	
 
@@ -3640,10 +3548,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Unlock jump when touching the ground
-if (!this.falling &amp;&amp; !this.jumping) {
-    me.input.unlockKey(&quot;jump&quot;);
-}</pre>
+    <pre class="sunlight-highlight-javascript">// Unlock jump when touching the groundif (!this.falling &amp;&amp; !this.jumping) {    me.input.unlockKey(&quot;jump&quot;);}</pre>
 
 
     
@@ -3845,7 +3750,7 @@ if (!this.falling &amp;&amp; !this.jumping) {
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

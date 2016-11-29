@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -504,8 +490,7 @@
 
     
         
-            <div class="description">A singleton for managing collision detection (and projection-based collision response) of 2D shapes.<br>
-Based on the Separating Axis Theorem and supports detecting collisions between simple Axis-Aligned Boxes, convex polygons and circles based shapes.</div>
+            <div class="description">A singleton for managing collision detection (and projection-based collision response) of 2D shapes.<br>Based on the Separating Axis Theorem and supports detecting collisions between simple Axis-Aligned Boxes, convex polygons and circles based shapes.</div>
         
 
         
@@ -850,8 +835,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 <dd>
     
     <div class="description">
-        a global instance of a response object used for collision detection <br>
-this object will be reused amongst collision detection call if not user-defined response is specified
+        a global instance of a response object used for collision detection <br>this object will be reused amongst collision detection call if not user-defined response is specified
     </div>
     
 
@@ -1500,33 +1484,7 @@ this object will be reused amongst collision detection call if not user-defined 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set the entity body collision type
-myEntity.body.collisionType = me.collision.types.PLAYER_OBJECT;
-
-// filter collision detection with collision shapes, enemies and collectables
-myEntity.body.setCollisionMask(
-    me.collision.types.WORLD_SHAPE |
-    me.collision.types.ENEMY_OBJECT |
-    me.collision.types.COLLECTABLE_OBJECT
-);
-
-// User-defined collision types are defined using BITWISE LEFT-SHIFT:
-game.collisionTypes = {
-    LOCKED_DOOR : me.collision.types.USER &lt;&lt; 0,
-    OPEN_DOOR   : me.collision.types.USER &lt;&lt; 1,
-    LOOT        : me.collision.types.USER &lt;&lt; 2,
-};
-
-// Set collision type for a door entity
-myDoorEntity.body.collisionType = game.collisionTypes.LOCKED_DOOR;
-
-// Set collision mask for the player entity, so it collides with locked doors and loot
-myPlayerEntity.body.setCollisionMask(
-    me.collision.types.ENEMY_OBJECT |
-    me.collision.types.WORLD_SHAPE |
-    game.collisionTypes.LOCKED_DOOR |
-    game.collisionTypes.LOOT
-);</pre>
+    <pre class="sunlight-highlight-javascript">// set the entity body collision typemyEntity.body.collisionType = me.collision.types.PLAYER_OBJECT;// filter collision detection with collision shapes, enemies and collectablesmyEntity.body.setCollisionMask(    me.collision.types.WORLD_SHAPE |    me.collision.types.ENEMY_OBJECT |    me.collision.types.COLLECTABLE_OBJECT);// User-defined collision types are defined using BITWISE LEFT-SHIFT:game.collisionTypes = {    LOCKED_DOOR : me.collision.types.USER &lt;&lt; 0,    OPEN_DOOR   : me.collision.types.USER &lt;&lt; 1,    LOOT        : me.collision.types.USER &lt;&lt; 2,};// Set collision type for a door entitymyDoorEntity.body.collisionType = game.collisionTypes.LOCKED_DOOR;// Set collision mask for the player entity, so it collides with locked doors and lootmyPlayerEntity.body.setCollisionMask(    me.collision.types.ENEMY_OBJECT |    me.collision.types.WORLD_SHAPE |    game.collisionTypes.LOCKED_DOOR |    game.collisionTypes.LOOT);</pre>
 
 
     
@@ -1736,27 +1694,7 @@ myPlayerEntity.body.setCollisionMask(
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">update : function (dt) {
-   // ...
-
-   // handle collisions against other shapes
-   me.collision.check(this);
-
-   // ...
-},
-
-// colision handler
-onCollision : function (response) {
-    if (response.b.body.collisionType === me.collision.types.ENEMY_OBJECT) {
-        // makes the other entity solid, by substracting the overlap vector to the current position
-        this.pos.sub(response.overlapV);
-        this.hurt();
-        // not solid
-        return false;
-    }
-    // Make the object solid
-    return true;
-},</pre>
+    <pre class="sunlight-highlight-javascript">update : function (dt) {   // ...   // handle collisions against other shapes   me.collision.check(this);   // ...},// colision handleronCollision : function (response) {    if (response.b.body.collisionType === me.collision.types.ENEMY_OBJECT) {        // makes the other entity solid, by substracting the overlap vector to the current position        this.pos.sub(response.overlapV);        this.hurt();        // not solid        return false;    }    // Make the object solid    return true;},</pre>
 
 
     
@@ -1773,8 +1711,7 @@ onCollision : function (response) {
 
     
     <div class="description">
-        a callback used to determine if two objects should collide (based on both respective objects collision mask and type).<br>
-you can redefine this function if you need any specific rules over what should collide with what.
+        a callback used to determine if two objects should collide (based on both respective objects collision mask and type).<br>you can redefine this function if you need any specific rules over what should collide with what.
     </div>
     
 
@@ -1955,7 +1892,7 @@ you can redefine this function if you need any specific rules over what should c
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:08+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

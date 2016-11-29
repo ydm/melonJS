@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,8 +499,7 @@
 
     
     <div class="description">
-        The base class from which all melonJS objects inherit.
-See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyte/jay-extend</a>
+        The base class from which all melonJS objects inherit.See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyte/jay-extend</a>
     </div>
     
 
@@ -549,7 +534,7 @@ See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyt
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 320
+    object.js, line 317
 	</dd>
 	
 
@@ -609,8 +594,7 @@ See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyt
 
     
     <div class="description">
-        Extend a class prototype with the provided mixin descriptors.
-Designed as a faster replacement for John Resig's Simple Inheritance.
+        Extend a class prototype with the provided mixin descriptors.Designed as a faster replacement for John Resig's Simple Inheritance.
     </div>
     
 
@@ -660,9 +644,7 @@ Designed as a faster replacement for John Resig's Simple Inheritance.
 
             
 
-            <td class="description last">Each mixin is a dictionary of functions, or a
-previously extended class whose methods will be applied to the target class
-prototype.</td>
+            <td class="description last">Each mixin is a dictionary of functions, or apreviously extended class whose methods will be applied to the target classprototype.</td>
         </tr>
 
 	
@@ -696,7 +678,7 @@ prototype.</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 157
+    object.js, line 154
 	</dd>
 	
 
@@ -740,56 +722,7 @@ prototype.</td>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var Person = me.Object.extend({
-    &quot;init&quot; : function (isDancing) {
-        this.dancing = isDancing;
-    },
-    &quot;dance&quot; : function () {
-        return this.dancing;
-    }
-});
-
-var Ninja = Person.extend({
-    &quot;init&quot; : function () {
-        // Call the super constructor, passing a single argument
-        this._super(Person, &quot;init&quot;, [false]);
-    },
-    &quot;dance&quot; : function () {
-        // Call the overridden dance() method
-        return this._super(Person, &quot;dance&quot;);
-    },
-    &quot;swingSword&quot; : function () {
-        return true;
-    }
-});
-
-var Pirate = Person.extend(Ninja, {
-    &quot;init&quot; : function () {
-        // Call the super constructor, passing a single argument
-        this._super(Person, &quot;init&quot;, [true]);
-    }
-});
-
-var p = new Person(true);
-console.log(p.dance()); // =&gt; true
-
-var n = new Ninja();
-console.log(n.dance()); // =&gt; false
-console.log(n.swingSword()); // =&gt; true
-
-var r = new Pirate();
-console.log(r.dance()); // =&gt; true
-console.log(r.swingSword()); // =&gt; true
-
-console.log(
-    p instanceof Person &amp;&amp;
-    n instanceof Ninja &amp;&amp;
-    n instanceof Person &amp;&amp;
-    r instanceof Pirate &amp;&amp;
-    r instanceof Person
-); // =&gt; true
-
-console.log(r instanceof Ninja); // =&gt; false</pre>
+    <pre class="sunlight-highlight-javascript">var Person = me.Object.extend({    &quot;init&quot; : function (isDancing) {        this.dancing = isDancing;    },    &quot;dance&quot; : function () {        return this.dancing;    }});var Ninja = Person.extend({    &quot;init&quot; : function () {        // Call the super constructor, passing a single argument        this._super(Person, &quot;init&quot;, [false]);    },    &quot;dance&quot; : function () {        // Call the overridden dance() method        return this._super(Person, &quot;dance&quot;);    },    &quot;swingSword&quot; : function () {        return true;    }});var Pirate = Person.extend(Ninja, {    &quot;init&quot; : function () {        // Call the super constructor, passing a single argument        this._super(Person, &quot;init&quot;, [true]);    }});var p = new Person(true);console.log(p.dance()); // =&gt; truevar n = new Ninja();console.log(n.dance()); // =&gt; falseconsole.log(n.swingSword()); // =&gt; truevar r = new Pirate();console.log(r.dance()); // =&gt; trueconsole.log(r.swingSword()); // =&gt; trueconsole.log(    p instanceof Person &amp;&amp;    n instanceof Ninja &amp;&amp;    n instanceof Person &amp;&amp;    r instanceof Pirate &amp;&amp;    r instanceof Person); // =&gt; trueconsole.log(r instanceof Ninja); // =&gt; false</pre>
 
 
     
@@ -821,7 +754,7 @@ console.log(r instanceof Ninja); // =&gt; false</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -504,9 +490,7 @@
 
     
         
-            <div class="description">a level manager object <br>
-once ressources loaded, the level director contains all references of defined levels<br>
-There is no constructor function for me.levelDirector, this is a static object</div>
+            <div class="description">a level manager object <br>once ressources loaded, the level director contains all references of defined levels<br>There is no constructor function for me.levelDirector, this is a static object</div>
         
 
         
@@ -576,9 +560,7 @@ There is no constructor function for me.levelDirector, this is a static object</
 
     
     <div class="description">
-        return the current level definition.
-for a reference to the live instantiated level,
-rather use the container in which it was loaded (e.g. me.game.world)
+        return the current level definition.for a reference to the live instantiated level,rather use the container in which it was loaded (e.g. me.game.world)
     </div>
     
 
@@ -613,7 +595,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 246
+    LevelDirector.js, line 252
 	</dd>
 	
 
@@ -703,7 +685,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 234
+    LevelDirector.js, line 240
 	</dd>
 	
 
@@ -793,7 +775,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 319
+    LevelDirector.js, line 325
 	</dd>
 	
 
@@ -829,8 +811,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
 
     
     <div class="description">
-        load a level into the game manager<br>
-(will also create all level defined entities, etc..)
+        load a level into the game manager<br>(will also create all level defined entities, etc..)
     </div>
     
 
@@ -1143,7 +1124,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 170
+    LevelDirector.js, line 166
 	</dd>
 	
 
@@ -1168,20 +1149,7 @@ rather use the container in which it was loaded (e.g. me.game.world)
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// the game defined ressources
-// to be preloaded by the loader
-// TMX maps
-var resources = [
-    {name: &quot;a4_level1&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level1.tmx&quot;},
-    {name: &quot;a4_level2&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level2.tmx&quot;},
-    {name: &quot;a4_level3&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level3.tmx&quot;},
-    // ...
-];
-
-// ...
-
-// load a level
-me.levelDirector.loadLevel(&quot;a4_level1&quot;);</pre>
+    <pre class="sunlight-highlight-javascript">// the game assets to be be preloaded// TMX mapsvar resources = [    {name: &quot;a4_level1&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level1.tmx&quot;},    {name: &quot;a4_level2&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level2.tmx&quot;},    {name: &quot;a4_level3&quot;,   type: &quot;tmx&quot;,   src: &quot;data/level/a4_level3.tmx&quot;},    // ...];// ...// load a level into the game worldme.levelDirector.loadLevel(&quot;a4_level1&quot;);......// load a level into a specific containervar levelContainer = new me.Container();me.levelDirector.loadLevel(&quot;a4_level2&quot;, {container:levelContainer});// add a simple transformationlevelContainer.currentTransform.translate(levelContainer.width / 2, levelContainer.height / 2 );levelContainer.currentTransform.rotate(0.05);levelContainer.currentTransform.translate(-levelContainer.width / 2, -levelContainer.height / 2 );// add it to the game worldme.game.world.addChild(levelContainer);</pre>
 
 
     
@@ -1441,7 +1409,7 @@ me.levelDirector.loadLevel(&quot;a4_level1&quot;);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 277
+    LevelDirector.js, line 283
 	</dd>
 	
 
@@ -1720,7 +1688,7 @@ me.levelDirector.loadLevel(&quot;a4_level1&quot;);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 298
+    LevelDirector.js, line 304
 	</dd>
 	
 
@@ -1999,7 +1967,7 @@ me.levelDirector.loadLevel(&quot;a4_level1&quot;);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    LevelDirector.js, line 260
+    LevelDirector.js, line 266
 	</dd>
 	
 
@@ -2050,7 +2018,7 @@ me.levelDirector.loadLevel(&quot;a4_level1&quot;);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

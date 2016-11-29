@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,14 +499,7 @@
 
     
     <div class="description">
-        A Texture atlas object <br>
-For portability, a global reference to this class is available through the default renderer: <a href="me.video.html#renderer">me.video.renderer</a>.Texture <br>
-<br>
-Currently supports : <br>
-- <a href="http://www.codeandweb.com/texturepacker/">TexturePacker</a> : through JSON export <br>
-- <a href="http://renderhjs.net/shoebox/">ShoeBox</a> : through JSON export using the
-melonJS setting <a href="https://github.com/melonjs/melonJS/raw/master/media/shoebox_JSON_export.sbx">file</a> <br>
-- Standard (fixed cell size) spritesheet : through a {framewidth:xx, frameheight:xx, anchorPoint:me.Vector2d} object
+        A Texture atlas object <br>For portability, a global reference to this class is available through the default renderer: <a href="me.video.html#renderer">me.video.renderer</a>.Texture <br><br>Currently supports : <br>- <a href="http://www.codeandweb.com/texturepacker/">TexturePacker</a> : through JSON export <br>- <a href="http://renderhjs.net/shoebox/">ShoeBox</a> : through JSON export using themelonJS setting <a href="https://github.com/melonjs/melonJS/raw/master/media/shoebox_JSON_export.sbx">file</a> <br>- Standard (fixed cell size) spritesheet : through a {framewidth:xx, frameheight:xx, anchorPoint:me.Vector2d} object
     </div>
     
 
@@ -723,17 +702,7 @@ melonJS setting <a href="https://github.com/melonjs/melonJS/raw/master/media/sho
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// create a texture atlas from a JSON Object
-texture = new me.video.renderer.Texture(
-    me.loader.getJSON(&quot;texture&quot;),
-    me.loader.getImage(&quot;texture&quot;)
-);
-
-// create a texture atlas for a spritesheet, with (optional) an anchorPoint in the center of each frame
-texture = new me.video.renderer.Texture(
-    { framewidth : 32, frameheight : 32, anchorPoint : new me.Vector2d(0.5, 0.5) },
-    me.loader.getImage(&quot;spritesheet&quot;)
-);</pre>
+    <pre class="sunlight-highlight-javascript">// create a texture atlas from a JSON Objecttexture = new me.video.renderer.Texture(    me.loader.getJSON(&quot;texture&quot;),    me.loader.getImage(&quot;texture&quot;));// create a texture atlas for a spritesheet, with (optional) an anchorPoint in the center of each frametexture = new me.video.renderer.Texture(    { framewidth : 32, frameheight : 32, anchorPoint : new me.Vector2d(0.5, 0.5) },    me.loader.getImage(&quot;spritesheet&quot;));</pre>
 
 
     
@@ -773,7 +742,7 @@ texture = new me.video.renderer.Texture(
         <dl>
             
 <dt>
-    <h4 class="name toc-target" id="createAnimationFromName"><span class="type-signature">&lt;static> </span>createAnimationFromName<span class="signature">(names, <span class="optional">settings</span>)</span><span class="type-signature"> &rarr; {<a href="me.AnimationSheet.html">me.AnimationSheet</a>}</span></h4>
+    <h4 class="name toc-target" id="createAnimationFromName"><span class="type-signature">&lt;static> </span>createAnimationFromName<span class="signature">(names, <span class="optional">settings</span>)</span><span class="type-signature"> &rarr; {<a href="me.Sprite.html">me.Sprite</a>}</span></h4>
 
     
 </dt>
@@ -844,8 +813,7 @@ texture = new me.video.renderer.Texture(
 
             
 
-            <td class="description last">list of names for each sprite
-(when manually creating a Texture out of a spritesheet, only numeric values are authorized)</td>
+            <td class="description last">list of names for each sprite(when manually creating a Texture out of a spritesheet, only numeric values are authorized)</td>
         </tr>
 
 	
@@ -878,7 +846,7 @@ texture = new me.video.renderer.Texture(
 
             
 
-            <td class="description last">Additional settings passed to the <a href="me.AnimationSheet.html">me.AnimationSheet</a> contructor</td>
+            <td class="description last">Additional settings passed to the <a href="me.Sprite.html">me.Sprite</a> contructor</td>
         </tr>
 
 	
@@ -912,7 +880,7 @@ texture = new me.video.renderer.Texture(
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    texture.js, line 283
+    texture.js, line 306
 	</dd>
 	
 
@@ -944,7 +912,7 @@ texture = new me.video.renderer.Texture(
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="me.AnimationSheet.html">me.AnimationSheet</a></span>
+<span class="param-type"><a href="me.Sprite.html">me.Sprite</a></span>
 
 
 	</dd>
@@ -956,28 +924,7 @@ texture = new me.video.renderer.Texture(
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// create a new texture atlas object under the &#x60;game&#x60; namespace
-game.texture = new me.video.renderer.Texture(
-    me.loader.getJSON(&quot;texture&quot;),
-    me.loader.getImage(&quot;texture&quot;)
-);
-
-// create a new animationSheet as renderable for the entity
-this.renderable = game.texture.createAnimationFromName([
-    &quot;walk0001.png&quot;, &quot;walk0002.png&quot;, &quot;walk0003.png&quot;,
-    &quot;walk0004.png&quot;, &quot;walk0005.png&quot;, &quot;walk0006.png&quot;,
-    &quot;walk0007.png&quot;, &quot;walk0008.png&quot;, &quot;walk0009.png&quot;,
-    &quot;walk0010.png&quot;, &quot;walk0011.png&quot;
-]);
-
-// define an additional basic walking animation
-this.renderable.addAnimation (&quot;simple_walk&quot;, [0,2,1]);
-// you can also use frame name to define your animation
-this.renderable.addAnimation (&quot;speed_walk&quot;, [&quot;walk0007.png&quot;, &quot;walk0008.png&quot;, &quot;walk0009.png&quot;, &quot;walk0010.png&quot;]);
-// set the default animation
-this.renderable.setCurrentAnimation(&quot;simple_walk&quot;);
-// set the renderable position to bottom center
-this.anchorPoint.set(0.5, 1.0);</pre>
+    <pre class="sunlight-highlight-javascript">// create a new texture atlas object under the &#x60;game&#x60; namespacegame.texture = new me.video.renderer.Texture(    me.loader.getJSON(&quot;texture&quot;),    me.loader.getImage(&quot;texture&quot;));// create a new Sprite as renderable for the entitythis.renderable = game.texture.createAnimationFromName([    &quot;walk0001.png&quot;, &quot;walk0002.png&quot;, &quot;walk0003.png&quot;,    &quot;walk0004.png&quot;, &quot;walk0005.png&quot;, &quot;walk0006.png&quot;,    &quot;walk0007.png&quot;, &quot;walk0008.png&quot;, &quot;walk0009.png&quot;,    &quot;walk0010.png&quot;, &quot;walk0011.png&quot;]);// define an additional basic walking animationthis.renderable.addAnimation (&quot;simple_walk&quot;, [0,2,1]);// you can also use frame name to define your animationthis.renderable.addAnimation (&quot;speed_walk&quot;, [&quot;walk0007.png&quot;, &quot;walk0008.png&quot;, &quot;walk0009.png&quot;, &quot;walk0010.png&quot;]);// set the default animationthis.renderable.setCurrentAnimation(&quot;simple_walk&quot;);// set the renderable position to bottom centerthis.anchorPoint.set(0.5, 1.0);</pre>
 
 
     
@@ -1121,7 +1068,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    texture.js, line 250
+    texture.js, line 273
 	</dd>
 	
 
@@ -1165,17 +1112,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// create a new texture atlas object under the &#x60;game&#x60; namespace
-game.texture = new me.video.renderer.Texture(
-   me.loader.getJSON(&quot;texture&quot;),
-   me.loader.getImage(&quot;texture&quot;)
-);
-...
-...
-// add the coin sprite as renderable for the entity
-this.renderable = game.texture.createSpriteFromName(&quot;coin.png&quot;);
-// set the renderable position to bottom center
-this.anchorPoint.set(0.5, 1.0);</pre>
+    <pre class="sunlight-highlight-javascript">// create a new texture atlas object under the &#x60;game&#x60; namespacegame.texture = new me.video.renderer.Texture(   me.loader.getJSON(&quot;texture&quot;),   me.loader.getImage(&quot;texture&quot;));......// add the coin sprite as renderable for the entitythis.renderable = game.texture.createSpriteFromName(&quot;coin.png&quot;);// set the renderable position to bottom centerthis.anchorPoint.set(0.5, 1.0);</pre>
 
 
     
@@ -1227,7 +1164,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    texture.js, line 216
+    texture.js, line 239
 	</dd>
 	
 
@@ -1366,7 +1303,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    texture.js, line 238
+    texture.js, line 261
 	</dd>
 	
 
@@ -1456,7 +1393,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    texture.js, line 227
+    texture.js, line 250
 	</dd>
 	
 
@@ -1526,7 +1463,7 @@ this.anchorPoint.set(0.5, 1.0);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:08+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

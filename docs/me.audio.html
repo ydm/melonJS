@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -652,8 +638,7 @@
 
     
     <div class="description">
-        enable audio output <br>
-only useful if audio supported and previously disabled through
+        enable audio output <br>only useful if audio supported and previously disabled through
     </div>
     
 
@@ -1175,11 +1160,7 @@ only useful if audio supported and previously disabled through
 
     
     <div class="description">
-        configure and initialize the audio engine<br>
-melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>
-below is the list of supported file extentions : <br>
-<i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby" </i> <br>
-keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
+        configure and initialize the audio engine<br>melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>below is the list of supported file extentions : <br><i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby", "flac" </i> <br>keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
     </div>
     
 
@@ -1331,13 +1312,7 @@ keep in mind that not all browsers can play all audio formats, and if no compati
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;mp3&quot; and &quot;ogg&quot; as desired audio format
-// i.e. on Safari, the loader will load all audio.mp3 files,
-// on Opera the loader will however load audio.ogg files
-if (!me.audio.init(&quot;mp3,ogg&quot;)) {
-    alert(&quot;Sorry but your browser does not support html 5 audio !&quot;);
-    return;
-}</pre>
+    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;mp3&quot; and &quot;ogg&quot; as desired audio format// i.e. on Safari, the loader will load all audio.mp3 files,// on Opera the loader will however load audio.ogg filesif (!me.audio.init(&quot;mp3,ogg&quot;)) {    alert(&quot;Sorry but your browser does not support html 5 audio !&quot;);    return;}</pre>
 
 
     
@@ -1588,8 +1563,7 @@ if (!me.audio.init(&quot;mp3,ogg&quot;)) {
 
     
     <div class="description">
-        pause the specified sound on all channels<br>
-this function does not reset the currentTime property
+        pause the specified sound on all channels<br>this function does not reset the currentTime property
     </div>
     
 
@@ -2098,14 +2072,7 @@ this function does not reset the currentTime property
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play the &quot;cling&quot; audio clip
-me.audio.play(&quot;cling&quot;);
-// play &amp; repeat the &quot;engine&quot; audio clip
-me.audio.play(&quot;engine&quot;, true);
-// play the &quot;gameover_sfx&quot; audio clip and call myFunc when finished
-me.audio.play(&quot;gameover_sfx&quot;, false, myFunc);
-// play the &quot;gameover_sfx&quot; audio clip with a lower volume level
-me.audio.play(&quot;gameover_sfx&quot;, false, null, 0.5);</pre>
+    <pre class="sunlight-highlight-javascript">// play the &quot;cling&quot; audio clipme.audio.play(&quot;cling&quot;);// play &amp; repeat the &quot;engine&quot; audio clipme.audio.play(&quot;engine&quot;, true);// play the &quot;gameover_sfx&quot; audio clip and call myFunc when finishedme.audio.play(&quot;gameover_sfx&quot;, false, myFunc);// play the &quot;gameover_sfx&quot; audio clip with a lower volume levelme.audio.play(&quot;gameover_sfx&quot;, false, null, 0.5);</pre>
 
 
     
@@ -2122,9 +2089,7 @@ me.audio.play(&quot;gameover_sfx&quot;, false, null, 0.5);</pre>
 
     
     <div class="description">
-        play the specified audio track<br>
-this function automatically set the loop property to true<br>
-and keep track of the current sound being played.
+        play the specified audio track<br>this function automatically set the loop property to true<br>and keep track of the current sound being played.
     </div>
     
 
@@ -2524,8 +2489,7 @@ and keep track of the current sound being played.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// speed up the playback of the background music
-me.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
+    <pre class="sunlight-highlight-javascript">// speed up the playback of the background musicme.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
 
 
     
@@ -2694,14 +2658,7 @@ me.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play a audio clip
-var id = me.audio.play(&quot;myClip&quot;);
-...
-// pause it
-me.audio.pause(&quot;myClip&quot;, id);
-...
-// resume
-me.audio.resume(&quot;myClip&quot;, id);</pre>
+    <pre class="sunlight-highlight-javascript">// play a audio clipvar id = me.audio.play(&quot;myClip&quot;);...// pause itme.audio.pause(&quot;myClip&quot;, id);...// resumeme.audio.resume(&quot;myClip&quot;, id);</pre>
 
 
     
@@ -2778,12 +2735,7 @@ me.audio.resume(&quot;myClip&quot;, id);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play an awesome music
-me.audio.playTrack(&quot;awesome_music&quot;);
-// pause the audio track
-me.audio.pauseTrack();
-// resume the music
-me.audio.resumeTrack();</pre>
+    <pre class="sunlight-highlight-javascript">// play an awesome musicme.audio.playTrack(&quot;awesome_music&quot;);// pause the audio trackme.audio.pauseTrack();// resume the musicme.audio.resumeTrack();</pre>
 
 
     
@@ -3156,10 +3108,7 @@ me.audio.resumeTrack();</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play a awesome music
-me.audio.playTrack(&quot;awesome_music&quot;);
-// stop the current music
-me.audio.stopTrack();</pre>
+    <pre class="sunlight-highlight-javascript">// play a awesome musicme.audio.playTrack(&quot;awesome_music&quot;);// stop the current musicme.audio.stopTrack();</pre>
 
 
     
@@ -3360,7 +3309,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 530
+    audio.js, line 529
 	</dd>
 	
 
@@ -3651,7 +3600,7 @@ me.audio.stopTrack();</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:08+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

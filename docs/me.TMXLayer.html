@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,8 +499,7 @@
 
     
     <div class="description">
-        a TMX Tile Layer Object
-Tiled QT 0.7.x format
+        a TMX Tile Layer ObjectTiled QT 0.7.x format
     </div>
     
 
@@ -690,7 +675,7 @@ Tiled QT 0.7.x format
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 352
+    TMXLayer.js, line 358
 	</dd>
 	
 
@@ -747,8 +732,7 @@ Tiled QT 0.7.x format
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>
-Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -805,7 +789,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 110
+    renderable.js, line 152
 	</dd>
 	
 
@@ -839,8 +823,7 @@ Set to zero if you do not wish an object to be drawn
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
-or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
     </div>
     
 
@@ -897,73 +880,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 122
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="animatedTilesets"><span class="type-signature">&lt;private> </span>animatedTilesets<span class="type-signature"> :Array</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        All animated tilesets in this layer
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Array</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    TMXLayer.js, line 389
+    renderable.js, line 164
 	</dd>
 	
 
@@ -1029,7 +946,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 397
+    TMXLayer.js, line 403
 	</dd>
 	
 
@@ -1095,7 +1012,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 366
+    TMXLayer.js, line 372
 	</dd>
 	
 
@@ -1234,7 +1151,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 570
+    TMXLayer.js, line 584
 	</dd>
 	
 
@@ -1259,10 +1176,7 @@ or undefined if it has not been added to one.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">me.game.world.getChildByType(me.TMXLayer).forEach(function(layer) {
-    // clear all tiles at the given x,y coordinates
-    layer.clearTile(x, y);
-});</pre>
+    <pre class="sunlight-highlight-javascript">me.game.world.getChildByType(me.TMXLayer).forEach(function(layer) {    // clear all tiles at the given x,y coordinates    layer.clearTile(x, y);});</pre>
 
 
     
@@ -1386,7 +1300,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 532
+    TMXLayer.js, line 541
 	</dd>
 	
 
@@ -1430,6 +1344,12 @@ or undefined if it has not been added to one.
 
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// get the TMX Map Layer called &quot;Front layer&quot;var layer = me.game.world.getChildByName(&quot;Front Layer&quot;)[0];// get the tile object corresponding to the latest pointer positionvar tile = layer.getTile(me.input.pointer.pos.x, me.input.pointer.pos.y);</pre>
+
 
     
 </dd>
@@ -1552,7 +1472,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 517
+    TMXLayer.js, line 526
 	</dd>
 	
 
@@ -1741,7 +1661,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 546
+    TMXLayer.js, line 560
 	</dd>
 	
 
@@ -1815,7 +1735,7 @@ or undefined if it has not been added to one.
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -513,12 +499,7 @@
 
     
     <div class="description">
-        a polygon Object.<br>
-Please do note that melonJS implements a simple Axis-Aligned Boxes collision algorithm, which requires all polygons used for collision to be convex with all vertices defined with clockwise winding.
-A polygon is convex when all line segments connecting two points in the interior do not cross any edge of the polygon
-(which means that all angles are less than 180 degrees), as described here below : <br>
-<center><img src="images/convex_polygon.png"/></center><br>
-A polygon's `winding` is clockwise iff its vertices (points) are declared turning to the right. The image above shows COUNTERCLOCKWISE winding.
+        a polygon Object.<br>Please do note that melonJS implements a simple Axis-Aligned Boxes collision algorithm, which requires all polygons used for collision to be convex with all vertices defined with clockwise winding.A polygon is convex when all line segments connecting two points in the interior do not cross any edge of the polygon(which means that all angles are less than 180 degrees), as described here below : <br><center><img src="images/convex_polygon.png"/></center><br>A polygon's `winding` is clockwise iff its vertices (points) are declared turning to the right. The image above shows COUNTERCLOCKWISE winding.
     </div>
     
 
@@ -778,8 +759,7 @@ A polygon's `winding` is clockwise iff its vertices (points) are declared turnin
 <dd>
     
     <div class="description">
-        Array of points defining the Polygon <br>
-Note: If you manually change `points`, you **must** call `recalc`afterwards so that the changes get applied correctly.
+        Array of points defining the Polygon <br>Note: If you manually change `points`, you **must** call `recalc`afterwards so that the changes get applied correctly.
     </div>
     
 
@@ -953,7 +933,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 273
+    poly.js, line 284
 	</dd>
 	
 
@@ -1012,9 +992,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 
     
     <div class="description">
-        check if this Polygon contains the specified point <br>
-(Note: it is highly recommended to first do a hit test on the corresponding <br>
- bounding rect, as the function can be highly consuming with complex shapes)
+        check if this Polygon contains the specified point <br>(Note: it is highly recommended to first do a hit test on the corresponding <br> bounding rect, as the function can be highly consuming with complex shapes)
     </div>
     
 
@@ -1121,7 +1099,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 209
+    poly.js, line 228
 	</dd>
 	
 
@@ -1264,7 +1242,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 197
+    poly.js, line 216
 	</dd>
 	
 
@@ -1358,7 +1336,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 237
+    poly.js, line 256
 	</dd>
 	
 
@@ -1417,8 +1395,7 @@ Note: If you manually change `points`, you **must** call `recalc`afterwards so t
 
     
     <div class="description">
-        Computes the calculated collision polygon.
-This **must** be called if the `points` array, `angle`, or `offset` is modified manually.
+        Computes the calculated collision polygon.This **must** be called if the `points` array, `angle`, or `offset` is modified manually.
     </div>
     
 
@@ -1453,7 +1430,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 133
+    poly.js, line 152
 	</dd>
 	
 
@@ -1573,7 +1550,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 78
+    poly.js, line 97
 	</dd>
 	
 
@@ -1771,7 +1748,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 99
+    poly.js, line 118
 	</dd>
 	
 
@@ -1914,7 +1891,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 121
+    poly.js, line 140
 	</dd>
 	
 
@@ -2131,6 +2108,149 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
         
             
 <dt>
+    <h4 class="name toc-target" id="transform"><span class="type-signature">&lt;static> </span>transform<span class="signature">(matrix)</span><span class="type-signature"> &rarr; {<a href="me.Polygon.html">me.Polygon</a>}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        apply the given transformation matrix to this Polygon
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.Matrix2d.html">me.Matrix2d</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the transformation matrix</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    poly.js, line 78
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Reference to this object for method chaining
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="me.Polygon.html">me.Polygon</a></span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name toc-target" id="translate"><span class="type-signature">&lt;static> </span>translate<span class="signature">(x, y)</span><span class="type-signature"> &rarr; {<a href="me.Polygon.html">me.Polygon</a>}</span></h4>
 
     
@@ -2246,7 +2366,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 167
+    poly.js, line 186
 	</dd>
 	
 
@@ -2389,7 +2509,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 183
+    poly.js, line 202
 	</dd>
 	
 
@@ -2483,7 +2603,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    poly.js, line 248
+    poly.js, line 267
 	</dd>
 	
 
@@ -2557,7 +2677,7 @@ This **must** be called if the `points` array, `angle`, or `offset` is modified 
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

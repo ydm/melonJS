@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -449,24 +453,6 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -769,8 +755,7 @@
 <dd>
     
     <div class="description">
-        Device orientation Alpha property. Gives angle based on the rotation of the phone around its z axis.
-The z-axis is perpendicular to the phone, facing out from the center of the screen.
+        Device orientation Alpha property. Gives angle based on the rotation of the phone around its z axis.The z-axis is perpendicular to the phone, facing out from the center of the screen.
     </div>
     
 
@@ -1708,8 +1693,7 @@ The z-axis is perpendicular to the phone, facing out from the center of the scre
 <dd>
     
     <div class="description">
-        equals to true if a mobile device <br>
-(Android | iPhone | iPad | iPod | BlackBerry | Windows Phone | Kindle)
+        equals to true if a mobile device <br>(Android | iPhone | iPad | iPod | BlackBerry | Windows Phone | Kindle)
     </div>
     
 
@@ -1841,8 +1825,7 @@ The z-axis is perpendicular to the phone, facing out from the center of the scre
 <dd>
     
     <div class="description">
-        a string representing the preferred language of the user, usually the language of the browser UI.
-(will default to "en" if the information is not available)
+        a string representing the preferred language of the user, usually the language of the browser UI.(will default to "en" if the information is not available)
     </div>
     
 
@@ -1915,8 +1898,7 @@ The z-axis is perpendicular to the phone, facing out from the center of the scre
 <dd>
     
     <div class="description">
-        Browser Local Storage capabilities <br>
-(this flag will be set to false if cookies are blocked)
+        Browser Local Storage capabilities <br>(this flag will be set to false if cookies are blocked)
     </div>
     
 
@@ -2114,11 +2096,7 @@ The z-axis is perpendicular to the phone, facing out from the center of the scre
 <dd>
     
     <div class="description">
-        The device current orientation status. <br>
-  0 : default orientation<br>
- 90 : 90 degrees clockwise from default<br>
--90 : 90 degrees anti-clockwise from default<br>
-180 : 180 degrees from default
+        The device current orientation status. <br>  0 : default orientation<br> 90 : 90 degrees clockwise from default<br>-90 : 90 degrees anti-clockwise from default<br>180 : 180 degrees from default
     </div>
     
 
@@ -2877,18 +2855,7 @@ The z-axis is perpendicular to the phone, facing out from the center of the scre
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// add a keyboard shortcut to toggle Fullscreen mode on/off
-me.input.bindKey(me.input.KEY.F, &quot;toggleFullscreen&quot;);
-me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-   // toggle fullscreen on/off
-   if (action === &quot;toggleFullscreen&quot;) {
-      if (!me.device.isFullscreen) {
-         me.device.requestFullscreen();
-      } else {
-         me.device.exitFullscreen();
-      }
-   }
-});</pre>
+    <pre class="sunlight-highlight-javascript">// add a keyboard shortcut to toggle Fullscreen mode on/offme.input.bindKey(me.input.KEY.F, &quot;toggleFullscreen&quot;);me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {   // toggle fullscreen on/off   if (action === &quot;toggleFullscreen&quot;) {      if (!me.device.isFullscreen) {         me.device.requestFullscreen();      } else {         me.device.exitFullscreen();      }   }});</pre>
 
 
     
@@ -2976,9 +2943,7 @@ me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
 
     
     <div class="description">
-        Enters pointer lock, requesting it from the user first. Works on supported devices & browsers
-Must be called in a click event or an event that requires user interaction.
-If you need to run handle events for errors or change of the pointer lock, see below.
+        Enters pointer lock, requesting it from the user first. Works on supported devices & browsersMust be called in a click event or an event that requires user interaction.If you need to run handle events for errors or change of the pointer lock, see below.
     </div>
     
 
@@ -3038,13 +3003,7 @@ If you need to run handle events for errors or change of the pointer lock, see b
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">document.addEventListener(&quot;pointerlockchange&quot;, pointerlockchange, false);
-document.addEventListener(&quot;mozpointerlockchange&quot;, pointerlockchange, false);
-document.addEventListener(&quot;webkitpointerlockchange&quot;, pointerlockchange, false);
-
-document.addEventListener(&quot;pointerlockerror&quot;, pointerlockerror, false);
-document.addEventListener(&quot;mozpointerlockerror&quot;, pointerlockerror, false);
-document.addEventListener(&quot;webkitpointerlockerror&quot;, pointerlockerror, false);</pre>
+    <pre class="sunlight-highlight-javascript">document.addEventListener(&quot;pointerlockchange&quot;, pointerlockchange, false);document.addEventListener(&quot;mozpointerlockchange&quot;, pointerlockchange, false);document.addEventListener(&quot;webkitpointerlockchange&quot;, pointerlockchange, false);document.addEventListener(&quot;pointerlockerror&quot;, pointerlockerror, false);document.addEventListener(&quot;mozpointerlockerror&quot;, pointerlockerror, false);document.addEventListener(&quot;webkitpointerlockerror&quot;, pointerlockerror, false);</pre>
 
 
     
@@ -3203,10 +3162,7 @@ document.addEventListener(&quot;webkitpointerlockerror&quot;, pointerlockerror, 
 
     
     <div class="description">
-        the vibrate method pulses the vibration hardware on the device, <br>
-If the device doesn't support vibration, this method has no effect. <br>
-If a vibration pattern is already in progress when this method is called,
-the previous pattern is halted and the new one begins instead.
+        the vibrate method pulses the vibration hardware on the device, <br>If the device doesn't support vibration, this method has no effect. <br>If a vibration pattern is already in progress when this method is called,the previous pattern is halted and the new one begins instead.
     </div>
     
 
@@ -3318,14 +3274,7 @@ the previous pattern is halted and the new one begins instead.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// vibrate for 1000 ms
-navigator.vibrate(1000);
-// or alternatively
-navigator.vibrate([1000]);
-// vibrate for 50 ms, be still for 100 ms, and then vibrate for 150 ms:
-navigator.vibrate([50, 100, 150]);
-// cancel any existing vibrations
-navigator.vibrate(0);</pre>
+    <pre class="sunlight-highlight-javascript">// vibrate for 1000 msnavigator.vibrate(1000);// or alternativelynavigator.vibrate([1000]);// vibrate for 50 ms, be still for 100 ms, and then vibrate for 150 ms:navigator.vibrate([50, 100, 150]);// cancel any existing vibrationsnavigator.vibrate(0);</pre>
 
 
     
@@ -3545,7 +3494,7 @@ navigator.vibrate(0);</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

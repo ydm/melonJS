@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -449,24 +453,6 @@
 						
 						<li>
 							<a href="me.WebGLRenderer.Texture.html">me.WebGLRenderer.Texture</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
 						</li>
 						
 
@@ -668,27 +654,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Create a basic emitter at position 100, 100
-var emitter = new me.ParticleEmitter(100, 100);
-
-// Adjust the emitter properties
-emitter.totalParticles = 200;
-emitter.minLife = 1000;
-emitter.maxLife = 3000;
-emitter.z = 10;
-
-// Add the emitter to the game world
-me.game.world.addChild(emitter);
-
-// Launch all particles one time and stop, like a explosion
-emitter.burstParticles();
-
-// Launch constantly the particles, like a fountain
-emitter.streamParticles();
-
-// At the end, remove emitter from the game world
-// call this in onDestroyEvent function
-me.game.world.removeChild(emitter);</pre>
+    <pre class="sunlight-highlight-javascript">// Create a basic emitter at position 100, 100var emitter = new me.ParticleEmitter(100, 100);// Adjust the emitter propertiesemitter.totalParticles = 200;emitter.minLife = 1000;emitter.maxLife = 3000;emitter.z = 10;// Add the emitter to the game worldme.game.world.addChild(emitter);// Launch all particles one time and stop, like a explosionemitter.burstParticles();// Launch constantly the particles, like a fountainemitter.streamParticles();// At the end, remove emitter from the game world// call this in onDestroyEvent functionme.game.world.removeChild(emitter);</pre>
 
 
     
@@ -799,8 +765,7 @@ me.game.world.removeChild(emitter);</pre>
 
     
     <div class="description">
-        Launch all particles from emitter and stop <br>
-Particles example: Explosions <br>
+        Launch all particles from emitter and stop <br>Particles example: Explosions <br>
     </div>
     
 
@@ -884,7 +849,7 @@ Particles example: Explosions <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    emitter.js, line 496
+    emitter.js, line 504
 	</dd>
 	
 
@@ -912,7 +877,7 @@ Particles example: Explosions <br>
         
             
 <dt>
-    <h4 class="name toc-target" id="getRandomPoint"><span class="type-signature">&lt;static> </span>getRandomPoint<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="me.Vector2d.html">me.Vector2d</a>}</span></h4>
+    <h4 class="name toc-target" id="getRandomPointX"><span class="type-signature">&lt;static> </span>getRandomPointX<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 </dt>
@@ -920,7 +885,7 @@ Particles example: Explosions <br>
 
     
     <div class="description">
-        returns a random point inside the bounds for this emitter
+        returns a random point inside the bounds x axis of this emitter
     </div>
     
 
@@ -979,10 +944,6 @@ Particles example: Explosions <br>
     <h5>Returns:</h5>
     
             
-<div class="param-desc">
-    new vector
-</div>
-
 
 
 <dl>
@@ -991,7 +952,97 @@ Particles example: Explosions <br>
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="getRandomPointY"><span class="type-signature">&lt;static> </span>getRandomPointY<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        returns a random point inside the bounds y axis of this emitter
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    emitter.js, line 425
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
 
 
 	</dd>
@@ -1049,7 +1100,7 @@ Particles example: Explosions <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    emitter.js, line 460
+    emitter.js, line 468
 	</dd>
 	
 
@@ -1192,7 +1243,7 @@ Particles example: Explosions <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    emitter.js, line 428
+    emitter.js, line 436
 	</dd>
 	
 
@@ -1263,7 +1314,7 @@ Particles example: Explosions <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    emitter.js, line 486
+    emitter.js, line 494
 	</dd>
 	
 
@@ -1299,8 +1350,7 @@ Particles example: Explosions <br>
 
     
     <div class="description">
-        Launch particles from emitter constantly <br>
-Particles example: Fountains
+        Launch particles from emitter constantly <br>Particles example: Fountains
     </div>
     
 
@@ -1384,7 +1434,7 @@ Particles example: Fountains
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    emitter.js, line 471
+    emitter.js, line 479
 	</dd>
 	
 
@@ -1435,7 +1485,7 @@ Particles example: Fountains
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

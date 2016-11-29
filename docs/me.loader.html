@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -504,8 +490,7 @@
 
     
         
-            <div class="description">a small class to manage loading of stuff and manage resources
-There is no constructor function for me.input.</div>
+            <div class="description">a small class to manage loading of stuff and manage resourcesThere is no constructor function for me.input.</div>
         
 
         
@@ -666,7 +651,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 576
+    loader.js, line 574
 	</dd>
 	
 
@@ -805,7 +790,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 598
+    loader.js, line 596
 	</dd>
 	
 
@@ -944,7 +929,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 621
+    loader.js, line 619
 	</dd>
 	
 
@@ -1043,7 +1028,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 641
+    loader.js, line 639
 	</dd>
 	
 
@@ -1182,7 +1167,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 555
+    loader.js, line 553
 	</dd>
 	
 
@@ -1524,7 +1509,7 @@ There is no constructor function for me.input.</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 386
+    loader.js, line 384
 	</dd>
 	
 
@@ -1549,17 +1534,7 @@ There is no constructor function for me.input.</div>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// load an image asset
-me.loader.load({name: &quot;avatar&quot;,  type:&quot;image&quot;,  src: &quot;data/avatar.png&quot;}, this.onload.bind(this), this.onerror.bind(this));
-
-// start loading music
-me.loader.load({
-    name   : &quot;bgmusic&quot;,
-    type   : &quot;audio&quot;,
-    src    : &quot;data/audio/&quot;
-}, function () {
-    me.audio.play(&quot;bgmusic&quot;);
-});</pre>
+    <pre class="sunlight-highlight-javascript">// load an image assetme.loader.load({name: &quot;avatar&quot;,  type:&quot;image&quot;,  src: &quot;data/avatar.png&quot;}, this.onload.bind(this), this.onerror.bind(this));// start loading musicme.loader.load({    name   : &quot;bgmusic&quot;,    type   : &quot;audio&quot;,    src    : &quot;data/audio/&quot;}, function () {    me.audio.play(&quot;bgmusic&quot;);});</pre>
 
 
     
@@ -1636,8 +1611,7 @@ me.loader.load({
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set a callback when everything is loaded
-me.loader.onload = this.loaded.bind(this);</pre>
+    <pre class="sunlight-highlight-javascript">// set a callback when everything is loadedme.loader.onload = this.loaded.bind(this);</pre>
 
 
     
@@ -1654,9 +1628,7 @@ me.loader.onload = this.loaded.bind(this);</pre>
 
     
     <div class="description">
-        onProgress callback<br>
-each time a resource is loaded, the loader will fire the specified function,
-giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
+        onProgress callback<br>each time a resource is loaded, the loader will fire the specified function,giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
     </div>
     
 
@@ -1716,8 +1688,7 @@ giving the actual progress [0 ... 1], as argument, and an object describing the 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set a callback for progress notification
-me.loader.onProgress = this.updateProgress.bind(this);</pre>
+    <pre class="sunlight-highlight-javascript">// set a callback for progress notificationme.loader.onProgress = this.updateProgress.bind(this);</pre>
 
 
     
@@ -1726,7 +1697,7 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
         
             
 <dt>
-    <h4 class="name toc-target" id="preload"><span class="type-signature">&lt;static> </span>preload<span class="signature">(resources, onload, onerror, <span class="optional">onload</span>, <span class="optional">switchToLoadState</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="preload"><span class="type-signature">&lt;static> </span>preload<span class="signature">(resources, <span class="optional">onload</span>, <span class="optional">switchToLoadState</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -1976,76 +1947,6 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
             
                 <td class="attributes">
                 
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">function to be called when the resource is loaded</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>onerror</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">function to be called in case of error</td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>onload</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
                     &lt;optional><br>
                 
 
@@ -2161,29 +2062,7 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">game_resources = [
-  // PNG tileset
-  {name: &quot;tileset-platformer&quot;, type: &quot;image&quot;,  src: &quot;data/map/tileset.png&quot;},
-  // PNG packed texture
-  {name: &quot;texture&quot;, type:&quot;image&quot;, src: &quot;data/gfx/texture.png&quot;}
-  // TSX file
-  {name: &quot;meta_tiles&quot;, type: &quot;tsx&quot;, src: &quot;data/map/meta_tiles.tsx&quot;},
-  // TMX level (XML &amp; JSON)
-  {name: &quot;map1&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map1.json&quot;},
-  {name: &quot;map2&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map2.tmx&quot;},
-  {name: &quot;map3&quot;, type: &quot;tmx&quot;, format: &quot;json&quot;, data: {&quot;height&quot;:15,&quot;layers&quot;:[...],&quot;tilewidth&quot;:32,&quot;version&quot;:1,&quot;width&quot;:20}},
-  {name: &quot;map4&quot;, type: &quot;tmx&quot;, format: &quot;xml&quot;, data: {xml representation of tmx}},
-  // audio resources
-  {name: &quot;bgmusic&quot;, type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},
-  {name: &quot;cling&quot;,   type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},
-  // binary file
-  {name: &quot;ymTrack&quot;, type: &quot;binary&quot;, src: &quot;data/audio/main.ym&quot;},
-  // JSON file (used for texturePacker)
-  {name: &quot;texture&quot;, type: &quot;json&quot;, src: &quot;data/gfx/texture.json&quot;}
-];
-...
-// set all resources to be loaded
-me.loader.preload(game.resources, this.loaded.bind(this));</pre>
+    <pre class="sunlight-highlight-javascript">game_resources = [  // PNG tileset  {name: &quot;tileset-platformer&quot;, type: &quot;image&quot;,  src: &quot;data/map/tileset.png&quot;},  // PNG packed texture  {name: &quot;texture&quot;, type:&quot;image&quot;, src: &quot;data/gfx/texture.png&quot;}  // TSX file  {name: &quot;meta_tiles&quot;, type: &quot;tsx&quot;, src: &quot;data/map/meta_tiles.tsx&quot;},  // TMX level (XML &amp; JSON)  {name: &quot;map1&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map1.json&quot;},  {name: &quot;map2&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map2.tmx&quot;},  {name: &quot;map3&quot;, type: &quot;tmx&quot;, format: &quot;json&quot;, data: {&quot;height&quot;:15,&quot;layers&quot;:[...],&quot;tilewidth&quot;:32,&quot;version&quot;:1,&quot;width&quot;:20}},  {name: &quot;map4&quot;, type: &quot;tmx&quot;, format: &quot;xml&quot;, data: {xml representation of tmx}},  // audio resources  {name: &quot;bgmusic&quot;, type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},  {name: &quot;cling&quot;,   type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},  // binary file  {name: &quot;ymTrack&quot;, type: &quot;binary&quot;, src: &quot;data/audio/main.ym&quot;},  // JSON file (used for texturePacker)  {name: &quot;texture&quot;, type: &quot;json&quot;, src: &quot;data/gfx/texture.json&quot;}];...// set all resources to be loadedme.loader.preload(game.resources, this.loaded.bind(this));</pre>
 
 
     
@@ -2284,7 +2163,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 443
+    loader.js, line 441
 	</dd>
 	
 
@@ -2384,7 +2263,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 500
+    loader.js, line 498
 	</dd>
 	
 
@@ -2441,7 +2320,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:09+08:00 using the <a
+		on 2016-11-29T10:46:17+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

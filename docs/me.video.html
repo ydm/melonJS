@@ -188,15 +188,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="me.AnimationSheet.html">me.AnimationSheet</a>
-						</li>
-						
-						<li>
 							<a href="me.audio.Error.html">me.audio.Error</a>
 						</li>
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
+						</li>
+						
+						<li>
+							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -269,6 +269,10 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
+						</li>
+						
+						<li>
+							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -455,24 +459,6 @@
 					</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="global.html#catch">catch</a>
-						</li>
-						
-						<li>
-							<a href="global.html#then">then</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -504,8 +490,7 @@
 
     
         
-            <div class="description">video functions
-There is no constructor function for me.video</div>
+            <div class="description">video functionsThere is no constructor function for me.video</div>
         
 
         
@@ -627,7 +612,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 94
+    video.js, line 96
 	</dd>
 	
 
@@ -693,7 +678,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 76
+    video.js, line 78
 	</dd>
 	
 
@@ -765,7 +750,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 231
+    video.js, line 233
 	</dd>
 	
 
@@ -831,7 +816,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 85
+    video.js, line 87
 	</dd>
 	
 
@@ -1037,7 +1022,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 306
+    video.js, line 308
 	</dd>
 	
 
@@ -1188,7 +1173,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 272
+    video.js, line 274
 	</dd>
 	
 
@@ -1278,7 +1263,7 @@ There is no constructor function for me.video</div>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 334
+    video.js, line 336
 	</dd>
 	
 
@@ -1333,13 +1318,7 @@ There is no constructor function for me.video</div>
 
     
     <div class="description">
-        Initialize the "video" system (create a canvas based on the given arguments, and the related renderer). <br>
-melonJS support various scaling mode : <br>
- - <i>`fit`</i> : Letterboxed; content is scaled to design aspect ratio <br>
- - <i>`fill-max`</i> : Canvas is resized to fit maximum design resolution; content is scaled to design aspect ratio <br>
- - <i>`flex-height`</i> : Canvas height is resized to fit; content is scaled to design aspect ratio <br>
- - <i>`flex-width`</i> : Canvas width is resized to fit; content is scaled to design aspect ratio <br>
- - <i>`stretch`</i> : Canvas is resized to fit; content is scaled to screen aspect ratio
+        Initialize the "video" system (create a canvas based on the given arguments, and the related renderer). <br>melonJS support various scaling mode : <br> - <i>`fit`</i> : Letterboxed; content is scaled to design aspect ratio <br> - <i>`fill-max`</i> : Canvas is resized to fit maximum design resolution; content is scaled to design aspect ratio <br> - <i>`flex-height`</i> : Canvas height is resized to fit; content is scaled to design aspect ratio <br> - <i>`flex-width`</i> : Canvas width is resized to fit; content is scaled to design aspect ratio <br> - <i>`stretch`</i> : Canvas is resized to fit; content is scaled to screen aspect ratio
     </div>
     
 
@@ -1803,7 +1782,7 @@ melonJS support various scaling mode : <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 103
+    video.js, line 105
 	</dd>
 	
 
@@ -1851,14 +1830,7 @@ melonJS support various scaling mode : <br>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// init the video with a 640x480 canvas
-me.video.init(640, 480, {
-    wrapper : &quot;screen&quot;,
-    renderer : me.video.CANVAS,
-    scale : &quot;auto&quot;,
-    scaleMethod : &quot;fit&quot;,
-    doubleBuffering : true
-});</pre>
+    <pre class="sunlight-highlight-javascript">// init the video with a 640x480 canvasme.video.init(640, 480, {    wrapper : &quot;screen&quot;,    renderer : me.video.CANVAS,    scale : &quot;auto&quot;,    scaleMethod : &quot;fit&quot;,    doubleBuffering : true});</pre>
 
 
     
@@ -1982,7 +1954,7 @@ me.video.init(640, 480, {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 288
+    video.js, line 290
 	</dd>
 	
 
@@ -2125,7 +2097,7 @@ me.video.init(640, 480, {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    video.js, line 453
+    video.js, line 455
 	</dd>
 	
 
@@ -2176,7 +2148,7 @@ me.video.init(640, 480, {
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-05-20T18:26:10+08:00 using the <a
+		on 2016-11-29T10:46:18+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
