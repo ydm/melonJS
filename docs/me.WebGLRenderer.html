@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -1327,7 +1343,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 185
+    webgl_renderer.js, line 192
 	</dd>
 	
 
@@ -1363,7 +1379,8 @@
 
     
     <div class="description">
-        Sets all pixels in the given rectangle to transparent black, <br>erasing any previously drawn content.
+        Sets all pixels in the given rectangle to transparent black, <br>
+erasing any previously drawn content.
     </div>
     
 
@@ -1516,7 +1533,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 211
+    webgl_renderer.js, line 218
 	</dd>
 	
 
@@ -1552,7 +1569,7 @@
 
     
     <div class="description">
-        Create a pattern with the specified repition
+        Create a pattern with the specified repetition
     </div>
     
 
@@ -1659,7 +1676,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 145
+    webgl_renderer.js, line 144
 	</dd>
 	
 
@@ -1710,7 +1727,10 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var tileable   = renderer.createPattern(image, &quot;repeat&quot;);var horizontal = renderer.createPattern(image, &quot;repeat-x&quot;);var vertical   = renderer.createPattern(image, &quot;repeat-y&quot;);var basic      = renderer.createPattern(image, &quot;no-repeat&quot;);</pre>
+    <pre class="sunlight-highlight-javascript">var tileable   = renderer.createPattern(image, &quot;repeat&quot;);
+var horizontal = renderer.createPattern(image, &quot;repeat-x&quot;);
+var vertical   = renderer.createPattern(image, &quot;repeat-y&quot;);
+var basic      = renderer.createPattern(image, &quot;no-repeat&quot;);</pre>
 
 
     
@@ -1995,7 +2015,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 255
+    webgl_renderer.js, line 264
 	</dd>
 	
 
@@ -2020,7 +2040,11 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Can be used in three ways:renderer.drawImage(image, dx, dy);renderer.drawImage(image, dx, dy, dw, dh);renderer.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);// dx, dy, dw, dh being the destination target &amp; dimensions. sx, sy, sw, sh being the position &amp; dimensions to take from the image</pre>
+    <pre class="sunlight-highlight-javascript">// Can be used in three ways:
+renderer.drawImage(image, dx, dy);
+renderer.drawImage(image, dx, dy, dw, dh);
+renderer.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
+// dx, dy, dw, dh being the destination target &amp; dimensions. sx, sy, sw, sh being the position &amp; dimensions to take from the image</pre>
 
 
     
@@ -2213,7 +2237,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 308
+    webgl_renderer.js, line 317
 	</dd>
 	
 
@@ -2349,7 +2373,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 630
+    webgl_renderer.js, line 655
 	</dd>
 	
 
@@ -2538,7 +2562,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 325
+    webgl_renderer.js, line 334
 	</dd>
 	
 
@@ -2609,7 +2633,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 175
+    webgl_renderer.js, line 182
 	</dd>
 	
 
@@ -2645,7 +2669,8 @@
 
     
     <div class="description">
-        Returns the WebGLContext instance for the rendererreturn a reference to the system 2d Context
+        Returns the WebGLContext instance for the renderer
+return a reference to the system 2d Context
     </div>
     
 
@@ -2680,7 +2705,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 383
+    webgl_renderer.js, line 392
 	</dd>
 	
 
@@ -2874,7 +2899,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 350
+    webgl_renderer.js, line 359
 	</dd>
 	
 
@@ -2964,7 +2989,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 339
+    webgl_renderer.js, line 348
 	</dd>
 	
 
@@ -3054,7 +3079,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 498
+    webgl_renderer.js, line 523
 	</dd>
 	
 
@@ -3144,7 +3169,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 405
+    webgl_renderer.js, line 428
 	</dd>
 	
 
@@ -3215,7 +3240,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 395
+    webgl_renderer.js, line 418
 	</dd>
 	
 
@@ -3286,7 +3311,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 442
+    webgl_renderer.js, line 467
 	</dd>
 	
 
@@ -3406,7 +3431,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 455
+    webgl_renderer.js, line 480
 	</dd>
 	
 
@@ -3477,7 +3502,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 466
+    webgl_renderer.js, line 491
 	</dd>
 	
 
@@ -3620,7 +3645,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 477
+    webgl_renderer.js, line 502
 	</dd>
 	
 
@@ -3691,7 +3716,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 419
+    webgl_renderer.js, line 444
 	</dd>
 	
 
@@ -3814,7 +3839,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 509
+    webgl_renderer.js, line 534
 	</dd>
 	
 
@@ -3934,7 +3959,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 522
+    webgl_renderer.js, line 547
 	</dd>
 	
 
@@ -3970,7 +3995,8 @@
 
     
     <div class="description">
-        Resets (overrides) the renderer transformation matrix to theidentity one, and then apply the given transformation matrix.
+        Resets (overrides) the renderer transformation matrix to the
+identity one, and then apply the given transformation matrix.
     </div>
     
 
@@ -4054,7 +4080,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 664
+    webgl_renderer.js, line 689
 	</dd>
 	
 
@@ -4369,7 +4395,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 533
+    webgl_renderer.js, line 558
 	</dd>
 	
 
@@ -4558,7 +4584,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 549
+    webgl_renderer.js, line 574
 	</dd>
 	
 
@@ -4747,7 +4773,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 563
+    webgl_renderer.js, line 588
 	</dd>
 	
 
@@ -4867,7 +4893,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 582
+    webgl_renderer.js, line 607
 	</dd>
 	
 
@@ -5056,7 +5082,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 607
+    webgl_renderer.js, line 632
 	</dd>
 	
 
@@ -5176,7 +5202,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 677
+    webgl_renderer.js, line 702
 	</dd>
 	
 
@@ -5319,7 +5345,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    webgl_renderer.js, line 694
+    webgl_renderer.js, line 719
 	</dd>
 	
 
@@ -5370,7 +5396,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:18+08:00 using the <a
+		on 2017-01-16T10:03:07+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -490,7 +506,8 @@
 
     
         
-            <div class="description">a small class to manage loading of stuff and manage resourcesThere is no constructor function for me.input.</div>
+            <div class="description">a small class to manage loading of stuff and manage resources
+There is no constructor function for me.input.</div>
         
 
         
@@ -551,6 +568,96 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name toc-target" id="crossOrigin"><span class="type-signature">&lt;static> </span>crossOrigin<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        crossOrigin attribute to configure the CORS requests for Image data element.<br>
+By default (that is, when the attribute is not specified), CORS is not used at all. <br>
+The "anonymous" keyword means that there will be no exchange of user credentials via cookies, <br>
+client-side SSL certificates or HTTP authentication as described in the Terminology section of the CORS specification.<br>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    loader.js, line 285
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes">https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// allow for cross-origin texture loading in WebGL
+me.loader.crossOrigin = &quot;anonymous&quot;;
+
+// set all ressources to be loaded
+me.loader.preload(game.resources, this.loaded.bind(this));</pre>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
@@ -651,7 +758,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 574
+    loader.js, line 640
 	</dd>
 	
 
@@ -790,7 +897,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 596
+    loader.js, line 662
 	</dd>
 	
 
@@ -929,7 +1036,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 619
+    loader.js, line 685
 	</dd>
 	
 
@@ -1028,7 +1135,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 639
+    loader.js, line 705
 	</dd>
 	
 
@@ -1167,7 +1274,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 553
+    loader.js, line 619
 	</dd>
 	
 
@@ -1509,7 +1616,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 384
+    loader.js, line 446
 	</dd>
 	
 
@@ -1534,7 +1641,17 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// load an image assetme.loader.load({name: &quot;avatar&quot;,  type:&quot;image&quot;,  src: &quot;data/avatar.png&quot;}, this.onload.bind(this), this.onerror.bind(this));// start loading musicme.loader.load({    name   : &quot;bgmusic&quot;,    type   : &quot;audio&quot;,    src    : &quot;data/audio/&quot;}, function () {    me.audio.play(&quot;bgmusic&quot;);});</pre>
+    <pre class="sunlight-highlight-javascript">// load an image asset
+me.loader.load({name: &quot;avatar&quot;,  type:&quot;image&quot;,  src: &quot;data/avatar.png&quot;}, this.onload.bind(this), this.onerror.bind(this));
+
+// start loading music
+me.loader.load({
+    name   : &quot;bgmusic&quot;,
+    type   : &quot;audio&quot;,
+    src    : &quot;data/audio/&quot;
+}, function () {
+    me.audio.play(&quot;bgmusic&quot;);
+});</pre>
 
 
     
@@ -1586,7 +1703,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 248
+    loader.js, line 258
 	</dd>
 	
 
@@ -1611,7 +1728,8 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set a callback when everything is loadedme.loader.onload = this.loaded.bind(this);</pre>
+    <pre class="sunlight-highlight-javascript">// set a callback when everything is loaded
+me.loader.onload = this.loaded.bind(this);</pre>
 
 
     
@@ -1628,7 +1746,9 @@
 
     
     <div class="description">
-        onProgress callback<br>each time a resource is loaded, the loader will fire the specified function,giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
+        onProgress callback<br>
+each time a resource is loaded, the loader will fire the specified function,
+giving the actual progress [0 ... 1], as argument, and an object describing the resource loaded
     </div>
     
 
@@ -1663,7 +1783,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 260
+    loader.js, line 270
 	</dd>
 	
 
@@ -1688,7 +1808,8 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set a callback for progress notificationme.loader.onProgress = this.updateProgress.bind(this);</pre>
+    <pre class="sunlight-highlight-javascript">// set a callback for progress notification
+me.loader.onProgress = this.updateProgress.bind(this);</pre>
 
 
     
@@ -2037,7 +2158,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 323
+    loader.js, line 385
 	</dd>
 	
 
@@ -2062,7 +2183,214 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">game_resources = [  // PNG tileset  {name: &quot;tileset-platformer&quot;, type: &quot;image&quot;,  src: &quot;data/map/tileset.png&quot;},  // PNG packed texture  {name: &quot;texture&quot;, type:&quot;image&quot;, src: &quot;data/gfx/texture.png&quot;}  // TSX file  {name: &quot;meta_tiles&quot;, type: &quot;tsx&quot;, src: &quot;data/map/meta_tiles.tsx&quot;},  // TMX level (XML &amp; JSON)  {name: &quot;map1&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map1.json&quot;},  {name: &quot;map2&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map2.tmx&quot;},  {name: &quot;map3&quot;, type: &quot;tmx&quot;, format: &quot;json&quot;, data: {&quot;height&quot;:15,&quot;layers&quot;:[...],&quot;tilewidth&quot;:32,&quot;version&quot;:1,&quot;width&quot;:20}},  {name: &quot;map4&quot;, type: &quot;tmx&quot;, format: &quot;xml&quot;, data: {xml representation of tmx}},  // audio resources  {name: &quot;bgmusic&quot;, type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},  {name: &quot;cling&quot;,   type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},  // binary file  {name: &quot;ymTrack&quot;, type: &quot;binary&quot;, src: &quot;data/audio/main.ym&quot;},  // JSON file (used for texturePacker)  {name: &quot;texture&quot;, type: &quot;json&quot;, src: &quot;data/gfx/texture.json&quot;}];...// set all resources to be loadedme.loader.preload(game.resources, this.loaded.bind(this));</pre>
+    <pre class="sunlight-highlight-javascript">game_resources = [
+  // PNG tileset
+  {name: &quot;tileset-platformer&quot;, type: &quot;image&quot;,  src: &quot;data/map/tileset.png&quot;},
+  // PNG packed texture
+  {name: &quot;texture&quot;, type:&quot;image&quot;, src: &quot;data/gfx/texture.png&quot;}
+  // TSX file
+  {name: &quot;meta_tiles&quot;, type: &quot;tsx&quot;, src: &quot;data/map/meta_tiles.tsx&quot;},
+  // TMX level (XML &amp; JSON)
+  {name: &quot;map1&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map1.json&quot;},
+  {name: &quot;map2&quot;, type: &quot;tmx&quot;, src: &quot;data/map/map2.tmx&quot;},
+  {name: &quot;map3&quot;, type: &quot;tmx&quot;, format: &quot;json&quot;, data: {&quot;height&quot;:15,&quot;layers&quot;:[...],&quot;tilewidth&quot;:32,&quot;version&quot;:1,&quot;width&quot;:20}},
+  {name: &quot;map4&quot;, type: &quot;tmx&quot;, format: &quot;xml&quot;, data: {xml representation of tmx}},
+  // audio resources
+  {name: &quot;bgmusic&quot;, type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},
+  {name: &quot;cling&quot;,   type: &quot;audio&quot;,  src: &quot;data/audio/&quot;},
+  // binary file
+  {name: &quot;ymTrack&quot;, type: &quot;binary&quot;, src: &quot;data/audio/main.ym&quot;},
+  // JSON file (used for texturePacker)
+  {name: &quot;texture&quot;, type: &quot;json&quot;, src: &quot;data/gfx/texture.json&quot;}
+];
+...
+// set all resources to be loaded
+me.loader.preload(game.resources, this.loaded.bind(this));</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="setBaseURL"><span class="type-signature">&lt;static> </span>setBaseURL<span class="signature">(type, <span class="optional">url</span>)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        change the default baseURL for the given asset type.<br>
+(this will prepend the asset URL and must finish with a '/')
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+		<th>Default</th>
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">"*", "audio", binary", "image", "json", "tmx", "tsx"</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    "./"
+                
+                </td>
+            
+
+            <td class="description last">default base URL</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    loader.js, line 355
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// change the base URL relative address
+me.loader.setBaseURL(&quot;audio&quot;, &quot;data/audio/&quot;);
+// change the base URL absolute address for all object types
+me.loader.setBaseURL(&quot;*&quot;, &quot;http://myurl.com/&quot;)</pre>
 
 
     
@@ -2163,7 +2491,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 441
+    loader.js, line 507
 	</dd>
 	
 
@@ -2263,7 +2591,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 498
+    loader.js, line 564
 	</dd>
 	
 
@@ -2320,7 +2648,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:05+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -602,7 +618,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 130
+    audio.js, line 115
 	</dd>
 	
 
@@ -638,7 +654,8 @@
 
     
     <div class="description">
-        enable audio output <br>only useful if audio supported and previously disabled through
+        enable audio output <br>
+only useful if audio supported and previously disabled through
     </div>
     
 
@@ -673,7 +690,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 116
+    audio.js, line 101
 	</dd>
 	
 
@@ -936,7 +953,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 218
+    audio.js, line 211
 	</dd>
 	
 
@@ -1007,7 +1024,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 412
+    audio.js, line 434
 	</dd>
 	
 
@@ -1101,7 +1118,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 436
+    audio.js, line 458
 	</dd>
 	
 
@@ -1160,7 +1177,11 @@
 
     
     <div class="description">
-        configure and initialize the audio engine<br>melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>below is the list of supported file extentions : <br><i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby", "flac" </i> <br>keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
+        configure and initialize the audio engine<br>
+melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>
+below is the list of supported file extentions : <br>
+<i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby", "flac" </i> <br>
+keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
     </div>
     
 
@@ -1264,7 +1285,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 82
+    audio.js, line 67
 	</dd>
 	
 
@@ -1312,7 +1333,13 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;mp3&quot; and &quot;ogg&quot; as desired audio format// i.e. on Safari, the loader will load all audio.mp3 files,// on Opera the loader will however load audio.ogg filesif (!me.audio.init(&quot;mp3,ogg&quot;)) {    alert(&quot;Sorry but your browser does not support html 5 audio !&quot;);    return;}</pre>
+    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;mp3&quot; and &quot;ogg&quot; as desired audio format
+// i.e. on Safari, the loader will load all audio.mp3 files,
+// on Opera the loader will however load audio.ogg files
+if (!me.audio.init(&quot;mp3,ogg&quot;)) {
+    alert(&quot;Sorry but your browser does not support html 5 audio !&quot;);
+    return;
+}</pre>
 
 
     
@@ -1321,7 +1348,7 @@
         
             
 <dt>
-    <h4 class="name toc-target" id="mute"><span class="type-signature">&lt;static> </span>mute<span class="signature">(sound_name, <span class="optional">id</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="mute"><span class="type-signature">&lt;static> </span>mute<span class="signature">(sound_name, <span class="optional">id</span>, <span class="optional">muted</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -1329,7 +1356,7 @@
 
     
     <div class="description">
-        mute the specified sound
+        mute or unmute the specified sound, but does not pause the playback.
     </div>
     
 
@@ -1354,6 +1381,8 @@
 		<th>Argument</th>
 		
 
+		
+		<th>Default</th>
 		
 
 		<th class="last">Description</th>
@@ -1388,6 +1417,10 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">audio clip name - case sensitive</td>
         </tr>
@@ -1421,8 +1454,51 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">the sound instance ID. If none is passed, all sounds in group will mute.</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>muted</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">True to mute and false to unmute</td>
         </tr>
 
 	
@@ -1456,7 +1532,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 448
+    audio.js, line 470
 	</dd>
 	
 
@@ -1477,6 +1553,13 @@
     
 
     
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// mute the background music
+me.audio.mute(&quot;awesome_music&quot;);</pre>
+
 
     
 </dd>
@@ -1527,7 +1610,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 479
+    audio.js, line 507
 	</dd>
 	
 
@@ -1563,7 +1646,8 @@
 
     
     <div class="description">
-        pause the specified sound on all channels<br>this function does not reset the currentTime property
+        pause the specified sound on all channels<br>
+this function does not reset the currentTime property
     </div>
     
 
@@ -1690,7 +1774,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 286
+    audio.js, line 304
 	</dd>
 	
 
@@ -1767,7 +1851,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 375
+    audio.js, line 397
 	</dd>
 	
 
@@ -2024,7 +2108,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 176
+    audio.js, line 167
 	</dd>
 	
 
@@ -2072,7 +2156,14 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play the &quot;cling&quot; audio clipme.audio.play(&quot;cling&quot;);// play &amp; repeat the &quot;engine&quot; audio clipme.audio.play(&quot;engine&quot;, true);// play the &quot;gameover_sfx&quot; audio clip and call myFunc when finishedme.audio.play(&quot;gameover_sfx&quot;, false, myFunc);// play the &quot;gameover_sfx&quot; audio clip with a lower volume levelme.audio.play(&quot;gameover_sfx&quot;, false, null, 0.5);</pre>
+    <pre class="sunlight-highlight-javascript">// play the &quot;cling&quot; audio clip
+me.audio.play(&quot;cling&quot;);
+// play &amp; repeat the &quot;engine&quot; audio clip
+me.audio.play(&quot;engine&quot;, true);
+// play the &quot;gameover_sfx&quot; audio clip and call myFunc when finished
+me.audio.play(&quot;gameover_sfx&quot;, false, myFunc);
+// play the &quot;gameover_sfx&quot; audio clip with a lower volume level
+me.audio.play(&quot;gameover_sfx&quot;, false, null, 0.5);</pre>
 
 
     
@@ -2089,7 +2180,9 @@
 
     
     <div class="description">
-        play the specified audio track<br>this function automatically set the loop property to true<br>and keep track of the current sound being played.
+        play the specified audio track<br>
+this function automatically set the loop property to true<br>
+and keep track of the current sound being played.
     </div>
     
 
@@ -2228,7 +2321,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 330
+    audio.js, line 352
 	</dd>
 	
 
@@ -2293,7 +2386,7 @@
 
     
     <div class="description">
-        change the playback rate of a sound.
+        get or set the rate of playback for a sound.
     </div>
     
 
@@ -2453,7 +2546,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 237
+    audio.js, line 257
 	</dd>
 	
 
@@ -2478,7 +2571,7 @@
     
             
 <div class="param-desc">
-    current playback rate.
+    return the current playback rate (if no extra parameters were given)
 </div>
 
 
@@ -2489,7 +2582,10 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// speed up the playback of the background musicme.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
+    <pre class="sunlight-highlight-javascript">// get the playback rate of the background music
+var rate = me.audio.rate(&quot;dst-gameforest&quot;);
+// speed up the playback of the background music
+me.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
 
 
     
@@ -2633,7 +2729,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 305
+    audio.js, line 325
 	</dd>
 	
 
@@ -2658,7 +2754,14 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play a audio clipvar id = me.audio.play(&quot;myClip&quot;);...// pause itme.audio.pause(&quot;myClip&quot;, id);...// resumeme.audio.resume(&quot;myClip&quot;, id);</pre>
+    <pre class="sunlight-highlight-javascript">// play a audio clip
+var id = me.audio.play(&quot;myClip&quot;);
+...
+// pause it
+me.audio.pause(&quot;myClip&quot;, id);
+...
+// resume
+me.audio.resume(&quot;myClip&quot;, id);</pre>
 
 
     
@@ -2710,7 +2813,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 391
+    audio.js, line 413
 	</dd>
 	
 
@@ -2735,7 +2838,228 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play an awesome musicme.audio.playTrack(&quot;awesome_music&quot;);// pause the audio trackme.audio.pauseTrack();// resume the musicme.audio.resumeTrack();</pre>
+    <pre class="sunlight-highlight-javascript">// play an awesome music
+me.audio.playTrack(&quot;awesome_music&quot;);
+// pause the audio track
+me.audio.pauseTrack();
+// resume the music
+me.audio.resumeTrack();</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="seek"><span class="type-signature">&lt;static> </span>seek<span class="signature">(sound_name, <span class="optional">seek</span>, <span class="optional">id</span>)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        get/set the position of playback for a sound.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>sound_name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">audio clip name - case sensitive</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>seek</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The position to move current playback to (in seconds).</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the sound instance ID. If none is passed, all sounds in group will changed.</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    audio.js, line 232
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    return the current seek position (if no extra parameters were given)
+</div>
+
+
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// return the current position of the background music
+var current_pos = me.audio.seek(&quot;dst-gameforest&quot;);
+// set back the position of the background music to the beginning
+me.audio.seek(&quot;dst-gameforest&quot;, 0);</pre>
 
 
     
@@ -2836,7 +3160,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 424
+    audio.js, line 446
 	</dd>
 	
 
@@ -2999,7 +3323,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 266
+    audio.js, line 282
 	</dd>
 	
 
@@ -3076,7 +3400,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 354
+    audio.js, line 376
 	</dd>
 	
 
@@ -3108,7 +3432,10 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// play a awesome musicme.audio.playTrack(&quot;awesome_music&quot;);// stop the current musicme.audio.stopTrack();</pre>
+    <pre class="sunlight-highlight-javascript">// play a awesome music
+me.audio.playTrack(&quot;awesome_music&quot;);
+// stop the current music
+me.audio.stopTrack();</pre>
 
 
     
@@ -3209,7 +3536,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 501
+    audio.js, line 529
 	</dd>
 	
 
@@ -3309,7 +3636,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 529
+    audio.js, line 557
 	</dd>
 	
 
@@ -3478,7 +3805,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 466
+    audio.js, line 494
 	</dd>
 	
 
@@ -3549,7 +3876,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 490
+    audio.js, line 518
 	</dd>
 	
 
@@ -3600,7 +3927,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:05+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

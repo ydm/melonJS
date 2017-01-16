@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -859,7 +875,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 79
+    TMXLayer.js, line 82
 	</dd>
 	
 
@@ -916,7 +932,8 @@
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>
+Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -1007,7 +1024,8 @@
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,
+or undefined if it has not been added to one.
     </div>
     
 
@@ -1089,7 +1107,16 @@
 <dd>
     
     <div class="description">
-        Define how the image is anchored to the viewport bounds<br>By default, its upper-left corner is anchored to the viewport bounds upper left corner.<br>The anchorPoint is a unit vector where each component falls in range [0.0,1.0].<br>Some common examples:<br>* &lt;0.0,0.0&gt; : (Default) Anchor image to the upper-left corner of viewport bounds* &lt;0.5,0.5&gt; : Center the image within viewport bounds* &lt;1.0,1.0&gt; : Anchor image to the lower-right corner of viewport boundsTo specify a value through Tiled, use one of the following format : <br>- a number, to change the value for both axis <br>- a json expression like `json:{"x":0.5,"y":0.5}` if you wish to specify a different value for both x and y
+        Define how the image is anchored to the viewport bounds<br>
+By default, its upper-left corner is anchored to the viewport bounds upper left corner.<br>
+The anchorPoint is a unit vector where each component falls in range [0.0,1.0].<br>
+Some common examples:<br>
+* &lt;0.0,0.0&gt; : (Default) Anchor image to the upper-left corner of viewport bounds
+* &lt;0.5,0.5&gt; : Center the image within viewport bounds
+* &lt;1.0,1.0&gt; : Anchor image to the lower-right corner of viewport bounds
+To specify a value through Tiled, use one of the following format : <br>
+- a number, to change the value for both axis <br>
+- a json expression like `json:{"x":0.5,"y":0.5}` if you wish to specify a different value for both x and y
     </div>
     
 
@@ -1137,7 +1164,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 139
+    TMXLayer.js, line 141
 	</dd>
 	
 
@@ -1162,7 +1189,12 @@
 <dd>
     
     <div class="description">
-        Define the image scrolling ratio<br>Scrolling speed is defined by multiplying the viewport delta position (e.g. followed entity) by the specified ratio.Setting this vector to &lt;0.0,0.0&gt; will disable automatic scrolling.<br>To specify a value through Tiled, use one of the following format : <br>- a number, to change the value for both axis <br>- a json expression like `json:{"x":0.5,"y":0.5}` if you wish to specify a different value for both x and y
+        Define the image scrolling ratio<br>
+Scrolling speed is defined by multiplying the viewport delta position (e.g. followed entity) by the specified ratio.
+Setting this vector to &lt;0.0,0.0&gt; will disable automatic scrolling.<br>
+To specify a value through Tiled, use one of the following format : <br>
+- a number, to change the value for both axis <br>
+- a json expression like `json:{"x":0.5,"y":0.5}` if you wish to specify a different value for both x and y
     </div>
     
 
@@ -1210,7 +1242,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 115
+    TMXLayer.js, line 117
 	</dd>
 	
 
@@ -1235,7 +1267,13 @@
 <dd>
     
     <div class="description">
-        Define if and how an Image Layer should be repeated.<br>By default, an Image Layer is repeated both vertically and horizontally.<br>Acceptable values : <br>* 'repeat' - The background image will be repeated both vertically and horizontally. (default) <br>* 'repeat-x' - The background image will be repeated only horizontally.<br>* 'repeat-y' - The background image will be repeated only vertically.<br>* 'no-repeat' - The background-image will not be repeated.<br>
+        Define if and how an Image Layer should be repeated.<br>
+By default, an Image Layer is repeated both vertically and horizontally.<br>
+Acceptable values : <br>
+* 'repeat' - The background image will be repeated both vertically and horizontally. (default) <br>
+* 'repeat-x' - The background image will be repeated only horizontally.<br>
+* 'repeat-y' - The background image will be repeated only vertically.<br>
+* 'no-repeat' - The background-image will not be repeated.<br>
     </div>
     
 
@@ -1276,7 +1314,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 166
+    TMXLayer.js, line 168
 	</dd>
 	
 
@@ -1415,7 +1453,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXLayer.js, line 228
+    TMXLayer.js, line 236
 	</dd>
 	
 
@@ -1466,7 +1504,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:05+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

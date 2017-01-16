@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -789,7 +805,11 @@
 <dd>
     
     <div class="description">
-        Define the object anchoring point<br>This is used when positioning, or scaling the object<br>The anchor point is a value between 0.0 and 1.0 (1.0 being the maximum size of the object) <br>(0, 0) means the top-left corner, <br>(1, 1) means the bottom-right corner, <br>
+        Define the object anchoring point<br>
+This is used when positioning, or scaling the object<br>
+The anchor point is a value between 0.0 and 1.0 (1.0 being the maximum size of the object) <br>
+(0, 0) means the top-left corner, <br>
+(1, 1) means the bottom-right corner, <br>
     </div>
     
 
@@ -862,7 +882,8 @@
 <dd>
     
     <div class="description">
-        [EXPERIMENTAL] when enabled, an object container will automaticallyapply any defined transformation before calling the child draw method.
+        [EXPERIMENTAL] when enabled, an object container will automatically
+apply any defined transformation before calling the child draw method.
     </div>
     
 
@@ -925,7 +946,23 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// enable &quot;automatic&quot; transformation when the object is activatedonActivateEvent: function () {    // reset the transformation matrix    this.renderable.currentTransform.identity();    // ensure the anchor point is the renderable center    this.renderable.anchorPoint.set(0.5, 0.5);    // enable auto transform    this.renderable.autoTransform = true;    ....},// add a rotation effect when updating the entityupdate : function (dt) {    ....    this.renderable.currentTransform.rotate(0.025);    ....    return this._super(me.Entity, &#x27;update&#x27;, [dt]);},</pre>
+    <pre class="sunlight-highlight-javascript">// enable &quot;automatic&quot; transformation when the object is activated
+onActivateEvent: function () {
+    // reset the transformation matrix
+    this.renderable.currentTransform.identity();
+    // ensure the anchor point is the renderable center
+    this.renderable.anchorPoint.set(0.5, 0.5);
+    // enable auto transform
+    this.renderable.autoTransform = true;
+    ....
+},
+// add a rotation effect when updating the entity
+update : function (dt) {
+    ....
+    this.renderable.currentTransform.rotate(0.025);
+    ....
+    return this._super(me.Entity, &#x27;update&#x27;, [dt]);
+},</pre>
 
 
     
@@ -1007,7 +1044,8 @@
 <dd>
     
     <div class="description">
-        Define if a renderable follows screen coordinates (floating)<br>or the world coordinates (not floating)<br>
+        Define if a renderable follows screen coordinates (floating)<br>
+or the world coordinates (not floating)<br>
     </div>
     
 
@@ -1080,7 +1118,9 @@
 <dd>
     
     <div class="description">
-        (G)ame (U)nique (Id)entifier" <br>a GUID will be allocated for any renderable object added <br>to an object container (including the `me.game.world` container)
+        (G)ame (U)nique (Id)entifier" <br>
+a GUID will be allocated for any renderable object added <br>
+to an object container (including the `me.game.world` container)
     </div>
     
 
@@ -1187,7 +1227,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 410
+    renderable.js, line 416
 	</dd>
 	
 
@@ -1563,7 +1603,8 @@
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>
+Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -1645,7 +1686,8 @@
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,
+or undefined if it has not been added to one.
     </div>
     
 
@@ -1725,7 +1767,8 @@
 
     
     <div class="description">
-        object drawcalled by the game manager on each game loop
+        object draw
+called by the game manager on each game loop
     </div>
     
 
@@ -2036,7 +2079,8 @@
 
     
     <div class="description">
-        OnDestroy Notification function<br>Called by engine before deleting the object
+        OnDestroy Notification function<br>
+Called by engine before deleting the object
     </div>
     
 
@@ -2718,7 +2762,8 @@
 
     
     <div class="description">
-        update functioncalled by the game manager on each game loop
+        update function
+called by the game manager on each game loop
     </div>
     
 
@@ -2935,7 +2980,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:06+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

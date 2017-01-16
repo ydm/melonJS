@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -565,7 +581,12 @@
 
     
     <div class="description">
-        The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.The Object.assign method only copies enumerable and own properties from a source object to a target object.It uses [[Get]] on the source and [[Put]] on the target, so it will invoke getters and setters.Therefore it assigns properties versus just copying or defining new properties.This may make it unsuitable for merging new properties into a prototype if the merge sources contain getters.For copying propertiy definitions, including their enumerability, into prototypes Object.getOwnPropertyDescriptor and Object.defineProperty should be used instead.
+        The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
+The Object.assign method only copies enumerable and own properties from a source object to a target object.
+It uses [[Get]] on the source and [[Put]] on the target, so it will invoke getters and setters.
+Therefore it assigns properties versus just copying or defining new properties.
+This may make it unsuitable for merging new properties into a prototype if the merge sources contain getters.
+For copying propertiy definitions, including their enumerability, into prototypes Object.getOwnPropertyDescriptor and Object.defineProperty should be used instead.
     </div>
     
 
@@ -672,7 +693,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 105
+    object.js, line 106
 	</dd>
 	
 
@@ -727,7 +748,14 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Merging objectsvar o1 = { a: 1 };var o2 = { b: 2 };var o3 = { c: 3 };var obj = Object.assign(o1, o2, o3);console.log(obj);// { a: 1, b: 2, c: 3 }</pre>
+    <pre class="sunlight-highlight-javascript">// Merging objects
+var o1 = { a: 1 };
+var o2 = { b: 2 };
+var o3 = { c: 3 };
+
+var obj = Object.assign(o1, o2, o3);
+console.log(obj);
+// { a: 1, b: 2, c: 3 }</pre>
 
 
     
@@ -736,7 +764,7 @@
         
             
 <dt>
-    <h4 class="name toc-target" id="create"><span class="type-signature"></span>create<span class="signature">(Object)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="create"><span class="type-signature"></span>create<span class="signature">(o)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -778,7 +806,7 @@
 
         <tr>
             
-                <td class="name"><code>Object</code></td>
+                <td class="name"><code>o</code></td>
             
 
             <td class="type">
@@ -860,7 +888,13 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// declare oldObjectoldObject = new Object();// make some crazy stuff with oldObject (adding functions, etc...)// ...// make newObject inherits from oldObjectnewObject = Object.create(oldObject);</pre>
+    <pre class="sunlight-highlight-javascript">// declare oldObject
+oldObject = new Object();
+// make some crazy stuff with oldObject (adding functions, etc...)
+// ...
+
+// make newObject inherits from oldObject
+newObject = Object.create(oldObject);</pre>
 
 
     
@@ -1035,7 +1069,22 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// Strings are equalvar s = &quot;foo&quot;;Object.is(s, &quot;foo&quot;); //&gt; true// 0 and -0 are not equalObject.is(0, -0); //&gt;false// NaN and NaN are equalObject.is(NaN, NaN); //&gt; true// Two object references are not equalObject.is({}, {}); //&gt; false// Two vars referencing one object are equalvar a = {}, b = a;Object.is(a, b); //&gt; true</pre>
+    <pre class="sunlight-highlight-javascript">// Strings are equal
+var s = &quot;foo&quot;;
+Object.is(s, &quot;foo&quot;); //&gt; true
+
+// 0 and -0 are not equal
+Object.is(0, -0); //&gt;false
+
+// NaN and NaN are equal
+Object.is(NaN, NaN); //&gt; true
+
+// Two object references are not equal
+Object.is({}, {}); //&gt; false
+
+// Two vars referencing one object are equal
+var a = {}, b = a;
+Object.is(a, b); //&gt; true</pre>
 
 
     
@@ -1067,7 +1116,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:16+08:00 using the <a
+		on 2017-01-16T10:03:05+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

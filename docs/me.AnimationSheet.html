@@ -126,10 +126,6 @@
 						</li>
 						
 						<li>
-							<a href="me.input.KEY.html">me.input.KEY</a>
-						</li>
-						
-						<li>
 							<a href="me.levelDirector.html">me.levelDirector</a>
 						</li>
 						
@@ -197,10 +193,6 @@
 						
 						<li>
 							<a href="me.BitmapFont.html">me.BitmapFont</a>
-						</li>
-						
-						<li>
-							<a href="me.BitmapFontData.html">me.BitmapFontData</a>
 						</li>
 						
 						<li>
@@ -273,10 +265,6 @@
 						
 						<li>
 							<a href="me.Font.html">me.Font</a>
-						</li>
-						
-						<li>
-							<a href="me.Glyph.html">me.Glyph</a>
 						</li>
 						
 						<li>
@@ -635,9 +623,6 @@
             <td class="type">
             
                 
-<span class="param-type">me.video.renderer.Texture</span>
-|
-
 <span class="param-type">Image</span>
 |
 
@@ -663,7 +648,7 @@
                 </td>
             
 
-            <td class="description last">reference to a spritesheet image or to a texture atlas</td>
+            <td class="description last">Image to use for the animation</td>
         </tr>
 
 	
@@ -842,7 +827,13 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// standalone image, with anchor in the centervar animationSheet = new me.AnimationSheet(0, 0, {    image : &quot;animationsheet&quot;,    framewidth : 64,    frameheight : 64,    anchorPoint : new me.Vector2d(0.5, 0.5)});</pre>
+    <pre class="sunlight-highlight-javascript">// standalone image, with anchor in the center
+var animationSheet = new me.AnimationSheet(0, 0, {
+    image : &quot;animationsheet&quot;,
+    framewidth : 64,
+    frameheight : 64,
+    anchorPoint : new me.Vector2d(0.5, 0.5)
+});</pre>
 
 
     
@@ -880,7 +871,8 @@
 <dd>
     
     <div class="description">
-        Define the renderable opacity<br>Set to zero if you do not wish an object to be drawn
+        Define the renderable opacity<br>
+Set to zero if you do not wish an object to be drawn
     </div>
     
 
@@ -937,7 +929,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 152
+    renderable.js, line 110
 	</dd>
 	
 
@@ -971,7 +963,8 @@
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,or undefined if it has not been added to one.
+        a reference to the Container object that contains this renderable,
+or undefined if it has not been added to one.
     </div>
     
 
@@ -1028,7 +1021,90 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 164
+    renderable.js, line 122
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="angle"><span class="type-signature"></span>angle<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Set the angle (in Radians) of a sprite to rotate it <br>
+WARNING: rotating sprites decreases performance with Canvas Renderer
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="me.Sprite.html#angle">me.Sprite#angle</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>0</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    sprite.js, line 65
 	</dd>
 	
 
@@ -1053,7 +1129,8 @@
 <dd>
     
     <div class="description">
-        pause and resume animation<br>default value : false;
+        pause and resume animation<br>
+default value : false;
     </div>
     
 
@@ -1119,7 +1196,8 @@
 <dd>
     
     <div class="description">
-        animation cycling speed (delay between frame in ms)<br>default value : 100ms;
+        animation cycling speed (delay between frame in ms)<br>
+default value : 100ms;
     </div>
     
 
@@ -1192,7 +1270,10 @@
 
     
     <div class="description">
-        add an animation <br>For fixed-sized cell sprite sheet, the index list must follow thelogic as per the following example :<br><img src="images/spritesheet_grid.png"/>
+        add an animation <br>
+For fixed-sized cell sprite sheet, the index list must follow the
+logic as per the following example :<br>
+<img src="images/spritesheet_grid.png"/>
     </div>
     
 
@@ -1289,7 +1370,8 @@
 
             
 
-            <td class="description last">list of sprite index or namedefining the animation. Can also use objects to specify delay for each frame, see below</td>
+            <td class="description last">list of sprite index or name
+defining the animation. Can also use objects to specify delay for each frame, see below</td>
         </tr>
 
 	
@@ -1322,7 +1404,8 @@
 
             
 
-            <td class="description last">cycling speed for animation in ms(delay between each frame).</td>
+            <td class="description last">cycling speed for animation in ms
+(delay between each frame).</td>
         </tr>
 
 	
@@ -1356,7 +1439,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 95
+    animationsheet.js, line 93
 	</dd>
 	
 
@@ -1388,7 +1471,20 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// walking animationthis.addAnimation(&quot;walk&quot;, [ 0, 1, 2, 3, 4, 5 ]);// eating animationthis.addAnimation(&quot;eat&quot;, [ 6, 6 ]);// rolling animationthis.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ]);// slower animationthis.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ], 200);// or get more specific with delay for each frame. Good solution instead of repeating:this.addAnimation(&quot;turn&quot;, [{ name: 0, delay: 200 }, { name: 1, delay: 100 }])// can do this with atlas values as well:this.addAnimation(&quot;turn&quot;, [{ name: &quot;turnone&quot;, delay: 200 }, { name: &quot;turntwo&quot;, delay: 100 }])// define an dying animation that stop on the last framethis.addAnimation(&quot;die&quot;, [{ name: 3, delay: 200 }, { name: 4, delay: 100 }, { name: 5, delay: Infinity }])</pre>
+    <pre class="sunlight-highlight-javascript">// walking animation
+this.addAnimation(&quot;walk&quot;, [ 0, 1, 2, 3, 4, 5 ]);
+// eating animation
+this.addAnimation(&quot;eat&quot;, [ 6, 6 ]);
+// rolling animation
+this.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ]);
+// slower animation
+this.addAnimation(&quot;roll&quot;, [ 7, 8, 9, 10 ], 200);
+// or get more specific with delay for each frame. Good solution instead of repeating:
+this.addAnimation(&quot;turn&quot;, [{ name: 0, delay: 200 }, { name: 1, delay: 100 }])
+// can do this with atlas values as well:
+this.addAnimation(&quot;turn&quot;, [{ name: &quot;turnone&quot;, delay: 200 }, { name: &quot;turntwo&quot;, delay: 100 }])
+// define an dying animation that stop on the last frame
+this.addAnimation(&quot;die&quot;, [{ name: 3, delay: 200 }, { name: 4, delay: 100 }, { name: 5, delay: Infinity }])</pre>
 
 
     
@@ -1440,7 +1536,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 286
+    animationsheet.js, line 284
 	</dd>
 	
 
@@ -1534,7 +1630,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 275
+    animationsheet.js, line 273
 	</dd>
 	
 
@@ -1677,7 +1773,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 237
+    animationsheet.js, line 235
 	</dd>
 	
 
@@ -1721,7 +1817,9 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">if (!this.isCurrentAnimation(&quot;walk&quot;)) {    // do something funny...}</pre>
+    <pre class="sunlight-highlight-javascript">if (!this.isCurrentAnimation(&quot;walk&quot;)) {
+    // do something funny...
+}</pre>
 
 
     
@@ -1842,7 +1940,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 253
+    animationsheet.js, line 251
 	</dd>
 	
 
@@ -1867,7 +1965,8 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// reset the current animation to the first framethis.setAnimationFrame();</pre>
+    <pre class="sunlight-highlight-javascript">// reset the current animation to the first frame
+this.setAnimationFrame();</pre>
 
 
     
@@ -1884,7 +1983,8 @@
 
     
     <div class="description">
-        set the current animationthis will always change the animation & set the frame to zero
+        set the current animation
+this will always change the animation & set the frame to zero
     </div>
     
 
@@ -1980,7 +2080,8 @@
 
             
 
-            <td class="description last">animation id to switch to whencomplete, or callback</td>
+            <td class="description last">animation id to switch to when
+complete, or callback</td>
         </tr>
 
 	
@@ -2014,7 +2115,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 185
+    animationsheet.js, line 183
 	</dd>
 	
 
@@ -2039,7 +2140,34 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set &quot;walk&quot; animationthis.setCurrentAnimation(&quot;walk&quot;);// set &quot;walk&quot; animation if it is not the current animationif (this.isCurrentAnimation(&quot;walk&quot;)) {    this.setCurrentAnimation(&quot;walk&quot;);}// set &quot;eat&quot; animation, and switch to &quot;walk&quot; when completethis.setCurrentAnimation(&quot;eat&quot;, &quot;walk&quot;);// set &quot;die&quot; animation, and remove the object when finishedthis.setCurrentAnimation(&quot;die&quot;, (function () {   me.game.world.removeChild(this);   return false; // do not reset to first frame}).bind(this));// set &quot;attack&quot; animation, and pause for a short durationthis.setCurrentAnimation(&quot;die&quot;, (function () {   this.animationpause = true;   // back to &quot;standing&quot; animation after 1 second   setTimeout(function () {       this.setCurrentAnimation(&quot;standing&quot;);   }, 1000);   return false; // do not reset to first frame}).bind(this));</pre>
+    <pre class="sunlight-highlight-javascript">// set &quot;walk&quot; animation
+this.setCurrentAnimation(&quot;walk&quot;);
+
+// set &quot;walk&quot; animation if it is not the current animation
+if (this.isCurrentAnimation(&quot;walk&quot;)) {
+    this.setCurrentAnimation(&quot;walk&quot;);
+}
+
+// set &quot;eat&quot; animation, and switch to &quot;walk&quot; when complete
+this.setCurrentAnimation(&quot;eat&quot;, &quot;walk&quot;);
+
+// set &quot;die&quot; animation, and remove the object when finished
+this.setCurrentAnimation(&quot;die&quot;, (function () {
+   me.game.world.removeChild(this);
+   return false; // do not reset to first frame
+}).bind(this));
+
+// set &quot;attack&quot; animation, and pause for a short duration
+this.setCurrentAnimation(&quot;die&quot;, (function () {
+   this.animationpause = true;
+
+   // back to &quot;standing&quot; animation after 1 second
+   setTimeout(function () {
+       this.setCurrentAnimation(&quot;standing&quot;);
+   }, 1000);
+
+   return false; // do not reset to first frame
+}).bind(this));</pre>
 
 
     
@@ -2056,7 +2184,8 @@
 
     
     <div class="description">
-        update the animation<br>this is automatically called by the game manager <a href="me.game.html">me.game</a>
+        update the animation<br>
+this is automatically called by the game manager <a href="me.game.html">me.game</a>
     </div>
     
 
@@ -2140,7 +2269,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    animationsheet.js, line 298
+    animationsheet.js, line 296
 	</dd>
 	
 
@@ -2191,7 +2320,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-09-06T21:10:01+08:00 using the <a
+		on 2016-03-07T13:16:36+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

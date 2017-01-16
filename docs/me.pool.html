@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -490,7 +506,18 @@
 
     
         
-            <div class="description">A pool of Object entity <br>This object is used for object pooling - a technique that might speed up your gameif used properly. <br>If some of your classes will be instantiated and removed a lot at a time, it is agood idea to add the class to this entity pool. A separate pool for that classwill be created, which will reuse objects of the class. That way they won't be instantiatedeach time you need a new one (slowing your game), but stored into that pool and taking onealready instantiated when you need it.<br><br>This object is also used by the engine to instantiate objects defined in the map,which means, that on level loading the engine will try to instantiate every objectfound in the map, based on the user defined name in each Object Properties<br><img src="images/object_properties.png"/><br></div>
+            <div class="description">A pool of Object entity <br>
+This object is used for object pooling - a technique that might speed up your game
+if used properly. <br>
+If some of your classes will be instantiated and removed a lot at a time, it is a
+good idea to add the class to this entity pool. A separate pool for that class
+will be created, which will reuse objects of the class. That way they won't be instantiated
+each time you need a new one (slowing your game), but stored into that pool and taking one
+already instantiated when you need it.<br><br>
+This object is also used by the engine to instantiate objects defined in the map,
+which means, that on level loading the engine will try to instantiate every object
+found in the map, based on the user defined name in each Object Properties<br>
+<img src="images/object_properties.png"/><br></div>
         
 
         
@@ -644,7 +671,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pooling.js, line 179
+    pooling.js, line 183
 	</dd>
 	
 
@@ -825,7 +852,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pooling.js, line 79
+    pooling.js, line 83
 	</dd>
 	
 
@@ -873,9 +900,23 @@
     
         <h5>Examples</h5>
         
-    <pre class="sunlight-highlight-javascript">me.pool.register(&quot;player&quot;, PlayerEntity);var player = me.pool.pull(&quot;player&quot;);</pre>
+    <pre class="sunlight-highlight-javascript">me.pool.register(&quot;player&quot;, PlayerEntity);
+var player = me.pool.pull(&quot;player&quot;);</pre>
 
-    <pre class="sunlight-highlight-javascript">me.pool.register(&quot;bullet&quot;, BulletEntity, true);me.pool.register(&quot;enemy&quot;, EnemyEntity, true);// ...// when we need to manually create a new bullet:var bullet = me.pool.pull(&quot;bullet&quot;, x, y, direction);// ...// params aren&#x27;t a fixed number// when we need new enemy we can add more params, that the object construct requires:var enemy = me.pool.pull(&quot;enemy&quot;, x, y, direction, speed, power, life);// ...// when we want to destroy existing object, the remove// function will ensure the object can then be reallocated laterme.game.world.removeChild(enemy);me.game.world.removeChild(bullet);</pre>
+    <pre class="sunlight-highlight-javascript">me.pool.register(&quot;bullet&quot;, BulletEntity, true);
+me.pool.register(&quot;enemy&quot;, EnemyEntity, true);
+// ...
+// when we need to manually create a new bullet:
+var bullet = me.pool.pull(&quot;bullet&quot;, x, y, direction);
+// ...
+// params aren&#x27;t a fixed number
+// when we need new enemy we can add more params, that the object construct requires:
+var enemy = me.pool.pull(&quot;enemy&quot;, x, y, direction, speed, power, life);
+// ...
+// when we want to destroy existing object, the remove
+// function will ensure the object can then be reallocated later
+me.game.world.removeChild(enemy);
+me.game.world.removeChild(bullet);</pre>
 
 
     
@@ -892,7 +933,9 @@
 
     
     <div class="description">
-        purge the entity pool from any inactive object <br>Object pooling must be enabled for this function to work<br>note: this will trigger the garbage collector
+        purge the entity pool from any inactive object <br>
+Object pooling must be enabled for this function to work<br>
+note: this will trigger the garbage collector
     </div>
     
 
@@ -927,7 +970,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pooling.js, line 141
+    pooling.js, line 145
 	</dd>
 	
 
@@ -963,7 +1006,10 @@
 
     
     <div class="description">
-        Push back an object instance into the entity pool <br>Object pooling for the object class must be enabled,and object must have been instantiated using me.pool#pull,otherwise this function won't work
+        Push back an object instance into the entity pool <br>
+Object pooling for the object class must be enabled,
+and object must have been instantiated using me.pool#pull,
+otherwise this function won't work
     </div>
     
 
@@ -1047,7 +1093,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pooling.js, line 158
+    pooling.js, line 162
 	</dd>
 	
 
@@ -1083,7 +1129,10 @@
 
     
     <div class="description">
-        register an object to the pool. <br>Pooling must be set to true if more than one such objects will be created. <br>(note) If pooling is enabled, you shouldn't instantiate objects with `new`.See examples in me.pool#pull
+        register an object to the pool. <br>
+Pooling must be set to true if more than one such objects will be created. <br>
+(note) If pooling is enabled, you shouldn't instantiate objects with `new`.
+See examples in me.pool#pull
     </div>
     
 
@@ -1223,7 +1272,8 @@
                 </td>
             
 
-            <td class="description last">enables object pooling for the specified class- speeds up the game by reusing existing objects</td>
+            <td class="description last">enables object pooling for the specified class
+- speeds up the game by reusing existing objects</td>
         </tr>
 
 	
@@ -1282,7 +1332,11 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// add our users defined entities in the entity poolme.pool.register(&quot;playerspawnpoint&quot;, PlayerEntity);me.pool.register(&quot;cherryentity&quot;, CherryEntity, true);me.pool.register(&quot;heartentity&quot;, HeartEntity, true);me.pool.register(&quot;starentity&quot;, StarEntity, true);</pre>
+    <pre class="sunlight-highlight-javascript">// add our users defined entities in the entity pool
+me.pool.register(&quot;playerspawnpoint&quot;, PlayerEntity);
+me.pool.register(&quot;cherryentity&quot;, CherryEntity, true);
+me.pool.register(&quot;heartentity&quot;, HeartEntity, true);
+me.pool.register(&quot;starentity&quot;, StarEntity, true);</pre>
 
 
     
@@ -1314,7 +1368,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:06+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

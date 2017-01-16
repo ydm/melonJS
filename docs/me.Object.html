@@ -384,6 +384,14 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXIsometricRenderer.html">me.TMXIsometricRenderer</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXLayer.html">me.TMXLayer</a>
 						</li>
 						
@@ -393,6 +401,14 @@
 						
 						<li>
 							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXOrthogonalRenderer.html">me.TMXOrthogonalRenderer</a>
+						</li>
+						
+						<li>
+							<a href="me.TMXRenderer.html">me.TMXRenderer</a>
 						</li>
 						
 						<li>
@@ -499,7 +515,8 @@
 
     
     <div class="description">
-        The base class from which all melonJS objects inherit.See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyte/jay-extend</a>
+        The base class from which all melonJS objects inherit.
+See: <a href="https://github.com/parasyte/jay-extend">https://github.com/parasyte/jay-extend</a>
     </div>
     
 
@@ -534,7 +551,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 317
+    object.js, line 316
 	</dd>
 	
 
@@ -594,7 +611,8 @@
 
     
     <div class="description">
-        Extend a class prototype with the provided mixin descriptors.Designed as a faster replacement for John Resig's Simple Inheritance.
+        Extend a class prototype with the provided mixin descriptors.
+Designed as a faster replacement for John Resig's Simple Inheritance.
     </div>
     
 
@@ -644,7 +662,9 @@
 
             
 
-            <td class="description last">Each mixin is a dictionary of functions, or apreviously extended class whose methods will be applied to the target classprototype.</td>
+            <td class="description last">Each mixin is a dictionary of functions, or a
+previously extended class whose methods will be applied to the target class
+prototype.</td>
         </tr>
 
 	
@@ -678,7 +698,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 154
+    object.js, line 153
 	</dd>
 	
 
@@ -722,7 +742,56 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var Person = me.Object.extend({    &quot;init&quot; : function (isDancing) {        this.dancing = isDancing;    },    &quot;dance&quot; : function () {        return this.dancing;    }});var Ninja = Person.extend({    &quot;init&quot; : function () {        // Call the super constructor, passing a single argument        this._super(Person, &quot;init&quot;, [false]);    },    &quot;dance&quot; : function () {        // Call the overridden dance() method        return this._super(Person, &quot;dance&quot;);    },    &quot;swingSword&quot; : function () {        return true;    }});var Pirate = Person.extend(Ninja, {    &quot;init&quot; : function () {        // Call the super constructor, passing a single argument        this._super(Person, &quot;init&quot;, [true]);    }});var p = new Person(true);console.log(p.dance()); // =&gt; truevar n = new Ninja();console.log(n.dance()); // =&gt; falseconsole.log(n.swingSword()); // =&gt; truevar r = new Pirate();console.log(r.dance()); // =&gt; trueconsole.log(r.swingSword()); // =&gt; trueconsole.log(    p instanceof Person &amp;&amp;    n instanceof Ninja &amp;&amp;    n instanceof Person &amp;&amp;    r instanceof Pirate &amp;&amp;    r instanceof Person); // =&gt; trueconsole.log(r instanceof Ninja); // =&gt; false</pre>
+    <pre class="sunlight-highlight-javascript">var Person = me.Object.extend({
+    &quot;init&quot; : function (isDancing) {
+        this.dancing = isDancing;
+    },
+    &quot;dance&quot; : function () {
+        return this.dancing;
+    }
+});
+
+var Ninja = Person.extend({
+    &quot;init&quot; : function () {
+        // Call the super constructor, passing a single argument
+        this._super(Person, &quot;init&quot;, [false]);
+    },
+    &quot;dance&quot; : function () {
+        // Call the overridden dance() method
+        return this._super(Person, &quot;dance&quot;);
+    },
+    &quot;swingSword&quot; : function () {
+        return true;
+    }
+});
+
+var Pirate = Person.extend(Ninja, {
+    &quot;init&quot; : function () {
+        // Call the super constructor, passing a single argument
+        this._super(Person, &quot;init&quot;, [true]);
+    }
+});
+
+var p = new Person(true);
+console.log(p.dance()); // =&gt; true
+
+var n = new Ninja();
+console.log(n.dance()); // =&gt; false
+console.log(n.swingSword()); // =&gt; true
+
+var r = new Pirate();
+console.log(r.dance()); // =&gt; true
+console.log(r.swingSword()); // =&gt; true
+
+console.log(
+    p instanceof Person &amp;&amp;
+    n instanceof Ninja &amp;&amp;
+    n instanceof Person &amp;&amp;
+    r instanceof Pirate &amp;&amp;
+    r instanceof Person
+); // =&gt; true
+
+console.log(r instanceof Ninja); // =&gt; false</pre>
 
 
     
@@ -754,7 +823,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2016-11-29T10:46:17+08:00 using the <a
+		on 2017-01-16T10:03:06+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
