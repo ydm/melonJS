@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -626,7 +626,7 @@ RIGHT : constant for right button
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 593
+    pointerevent.js, line 456
 	</dd>
 	
 
@@ -651,8 +651,7 @@ RIGHT : constant for right button
 <dd>
     
     <div class="description">
-        Global flag to specify if melonJS should prevent default browser action on registered key events <br>
-This is also configurable per key through the bindKey function
+        Global flag to specify if melonJS should prevent all default browser action on registered events.
 default : true
     </div>
     
@@ -762,7 +761,7 @@ set to 0 ms to disable the feature
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 614
+    pointerevent.js, line 477
 	</dd>
 	
 
@@ -857,10 +856,7 @@ set to 0 ms to disable the feature
             <td class="type">
             
                 
-<span class="param-type"><a href="me.input.GAMEPAD.html#BUTTONS">me.input.GAMEPAD.BUTTONS</a></span>
-|
-
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -870,7 +866,7 @@ set to 0 ms to disable the feature
 
             
 
-            <td class="description last">id (deprecated) or definition as below
+            <td class="description last">Button/Axis definition
                 <h6>Properties</h6>
                 
 
@@ -887,6 +883,8 @@ set to 0 ms to disable the feature
 		<th>Argument</th>
 		
 
+		
+		<th>Default</th>
 		
 
 		<th class="last">Description</th>
@@ -920,6 +918,10 @@ set to 0 ms to disable the feature
                 </td>
             
 
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">"buttons" or "axes"</td>
@@ -955,6 +957,10 @@ set to 0 ms to disable the feature
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">button or axis code id</td>
         </tr>
@@ -969,7 +975,7 @@ set to 0 ms to disable the feature
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Number</span>
 
 
             
@@ -987,6 +993,12 @@ set to 0 ms to disable the feature
                 </td>
             
 
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
             
 
             <td class="description last">value indicating when the axis should trigger the keycode (e.g. -0.5 or 0.5)</td>
@@ -1053,7 +1065,7 @@ set to 0 ms to disable the feature
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 368
+    gamepad.js, line 375
 	</dd>
 	
 
@@ -1081,8 +1093,6 @@ set to 0 ms to disable the feature
     <pre class="sunlight-highlight-javascript">// enable the keyboard
 me.input.bindKey(me.input.KEY.X, &quot;shoot&quot;);
 ...
-// map the lower face button on the first gamepad to the X key (deprecated use)
-me.input.bindGamepad(0, me.input.GAMEPAD.BUTTONS.FACE_1, me.input.KEY.X);
 // map the lower face button on the first gamepad to the X key
 me.input.bindGamepad(0, {type:&quot;buttons&quot;, code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.X);
 // map the left axis value on the first gamepad to the LEFT key
@@ -1316,7 +1326,7 @@ me.input.bindGamepad(0, {type:&quot;axes&quot;, code: me.input.GAMEPAD.AXES.LX, 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 389
+    keyboard.js, line 391
 	</dd>
 	
 
@@ -1504,7 +1514,7 @@ Right button – 2
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 657
+    pointerevent.js, line 520
 	</dd>
 	
 
@@ -1710,7 +1720,7 @@ coordinate to local (viewport) relative coordinate.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 625
+    pointerevent.js, line 488
 	</dd>
 	
 
@@ -1758,9 +1768,9 @@ coordinate to local (viewport) relative coordinate.
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">onMouseEvent : function (e) {
+    <pre class="sunlight-highlight-javascript">onMouseEvent : function (pointer) {
    // convert the given into local (viewport) relative coordinates
-   var pos = me.input.globalToLocal(e.clientX, e,clientY);
+   var pos = me.input.globalToLocal(pointer.clientX, pointer.clientY);
    // do something with pos !
 };</pre>
 
@@ -1863,7 +1873,7 @@ coordinate to local (viewport) relative coordinate.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 324
+    keyboard.js, line 326
 	</dd>
 	
 
@@ -2019,7 +2029,7 @@ else if (me.input.isKeyPressed(&#x27;right&#x27;))
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 353
+    keyboard.js, line 355
 	</dd>
 	
 
@@ -2079,7 +2089,7 @@ else if (me.input.isKeyPressed(&#x27;right&#x27;))
     
     <div class="description">
         allows registration of event listeners on the object target. <br>
-melonJS defines the additional `gameX` and `gameY` properties when passing the Event object to the defined callback (see below)<br>
+melonJS will pass a me.Pointer object to the defined callback.
     </div>
     
 
@@ -2139,7 +2149,6 @@ melonJS currently supports: <br>
   <li><code>"pointerleave"</code></li>
   <li><code>"pointercancel"</code></li>
   <li><code>"wheel"</code></li>
-  <li><code>"mousewheel"</code> (Deprecated)</li>
 </ul></td>
         </tr>
 
@@ -2230,7 +2239,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 709
+    pointerevent.js, line 573
 	</dd>
 	
 
@@ -2240,7 +2249,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
 		<ul>
-			<li><a href="external-Event.html">external:Event</a></li>
+			<li><a href="me.Pointer.html">me.Pointer</a></li>
 			
 			<li><a href="http://www.w3.org/TR/pointerevents/#list-of-pointer-events">W3C Pointer Event list</a></li>
 			</ul>
@@ -2271,7 +2280,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
  },
 
  // pointerDown event callback
- pointerDown: function (event) {
+ pointerDown: function (pointer) {
    // do something
    ....
    // don&quot;t propagate the event to other objects
@@ -2476,7 +2485,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 782
+    pointerevent.js, line 642
 	</dd>
 	
 
@@ -2611,7 +2620,7 @@ The default deadzone is 0.1 (10%) Analog values less than this will be ignored
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 455
+    gamepad.js, line 462
 	</dd>
 	
 
@@ -2712,7 +2721,7 @@ see below for the default mapping : <br>
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -2912,7 +2921,7 @@ see below for the default mapping : <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 468
+    gamepad.js, line 475
 	</dd>
 	
 
@@ -3114,7 +3123,7 @@ me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 367
+    keyboard.js, line 369
 	</dd>
 	
 
@@ -3264,7 +3273,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    gamepad.js, line 437
+    gamepad.js, line 444
 	</dd>
 	
 
@@ -3390,7 +3399,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 440
+    keyboard.js, line 442
 	</dd>
 	
 
@@ -3536,7 +3545,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 690
+    pointerevent.js, line 554
 	</dd>
 	
 
@@ -3662,7 +3671,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    keyboard.js, line 423
+    keyboard.js, line 425
 	</dd>
 	
 
@@ -3886,13 +3895,13 @@ if (!this.falling &amp;&amp; !this.jumping) {
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:40+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:03+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

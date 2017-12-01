@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -780,7 +780,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 68
+    renderable.js, line 78
 	</dd>
 	
 
@@ -856,7 +856,7 @@ a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the cent
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 109
+    renderable.js, line 119
 	</dd>
 	
 
@@ -881,8 +881,8 @@ a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the cent
 <dd>
     
     <div class="description">
-        [EXPERIMENTAL] when enabled, an object container will automatically
-apply any defined transformation before calling the child draw method.
+        When enabled, an object container will automatically apply
+any defined transformation before calling the child draw method.
     </div>
     
 
@@ -920,7 +920,7 @@ apply any defined transformation before calling the child draw method.
 	<dt class="tag-default">Default Value:</dt>
 	<dd class="tag-default">
 		<ul class="dummy">
-			<li>false</li>
+			<li>true</li>
 		</ul>
 	</dd>
 	
@@ -930,7 +930,7 @@ apply any defined transformation before calling the child draw method.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 122
+    renderable.js, line 132
 	</dd>
 	
 
@@ -1018,7 +1018,7 @@ update : function (dt) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 33
+    renderable.js, line 43
 	</dd>
 	
 
@@ -1092,7 +1092,7 @@ or the world coordinates (not floating)<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 98
+    renderable.js, line 108
 	</dd>
 	
 
@@ -1160,7 +1160,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 46
+    renderable.js, line 56
 	</dd>
 	
 
@@ -1226,7 +1226,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 415
+    renderable.js, line 509
 	</dd>
 	
 
@@ -1299,7 +1299,80 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 57
+    renderable.js, line 67
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="isKinematic"><span class="type-signature">&lt;static> </span>isKinematic<span class="type-signature"> :me.Boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        If true then collisions and input events will no more impact this renderable
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">me.Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>false</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 33
 	</dd>
 	
 
@@ -1372,7 +1445,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 88
+    renderable.js, line 98
 	</dd>
 	
 
@@ -1438,7 +1511,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 201
+    renderable.js, line 211
 	</dd>
 	
 
@@ -1511,7 +1584,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 78
+    renderable.js, line 88
 	</dd>
 	
 
@@ -1577,7 +1650,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 391
+    renderable.js, line 485
 	</dd>
 	
 
@@ -1651,7 +1724,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 151
+    renderable.js, line 161
 	</dd>
 	
 
@@ -1734,7 +1807,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 163
+    renderable.js, line 173
 	</dd>
 	
 
@@ -1766,8 +1839,8 @@ or undefined if it has not been added to one.
 
     
     <div class="description">
-        object draw
-called by the game manager on each game loop
+        object draw. <br>
+automatically called by the game manager <a href="me.game.html">me.game</a>
     </div>
     
 
@@ -1854,12 +1927,266 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 356
+    renderable.js, line 436
 	</dd>
 	
 
 	
 
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="flipX"><span class="type-signature">&lt;static> </span>flipX<span class="signature">(flip)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        flip the renderable on the horizontal axis, using negative transform scale
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>flip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">enable/disable flip</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 278
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="me.Matrix2d.html#scaleX">me.Matrix2d.scaleX</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="flipY"><span class="type-signature">&lt;static> </span>flipY<span class="signature">(flip)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        flip the renderable on the vertical axis, using negative transform scale
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>flip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">enable/disable flip</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 294
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="me.Matrix2d.html#scaleY">me.Matrix2d.scaleY</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -1925,7 +2252,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 223
+    renderable.js, line 239
 	</dd>
 	
 
@@ -2019,7 +2346,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 234
+    renderable.js, line 250
 	</dd>
 	
 
@@ -2114,7 +2441,256 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 379
+    renderable.js, line 473
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="postDraw"><span class="type-signature">&lt;protected, static> </span>postDraw<span class="signature">(renderer)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        restore the rendering context after drawing. <br>
+automatically called by the game manager <a href="me.game.html">me.game</a>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>renderer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.CanvasRenderer.html">me.CanvasRenderer</a></span>
+|
+
+<span class="param-type"><a href="me.WebGLRenderer.html">me.WebGLRenderer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a renderer object</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 449
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="preDraw"><span class="type-signature">&lt;protected, static> </span>preDraw<span class="signature">(renderer)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        prepare the rendering context before drawing
+(apply defined transforms, anchor point). <br>
+automatically called by the game manager <a href="me.game.html">me.game</a>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>renderer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.CanvasRenderer.html">me.CanvasRenderer</a></span>
+|
+
+<span class="param-type"><a href="me.WebGLRenderer.html">me.WebGLRenderer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a renderer object</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 404
 	</dd>
 	
 
@@ -2289,7 +2865,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 279
+    renderable.js, line 327
 	</dd>
 	
 
@@ -2432,7 +3008,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 299
+    renderable.js, line 347
 	</dd>
 	
 
@@ -2575,7 +3151,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 245
+    renderable.js, line 261
 	</dd>
 	
 
@@ -2695,7 +3271,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 262
+    renderable.js, line 310
 	</dd>
 	
 
@@ -2761,8 +3337,8 @@ Called by engine before deleting the object
 
     
     <div class="description">
-        update function
-called by the game manager on each game loop
+        update function. <br>
+automatically called by the game manager <a href="me.game.html">me.game</a>
     </div>
     
 
@@ -2846,7 +3422,7 @@ called by the game manager on each game loop
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 312
+    renderable.js, line 360
 	</dd>
 	
 
@@ -2902,13 +3478,13 @@ called by the game manager on each game loop
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:41+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:03+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

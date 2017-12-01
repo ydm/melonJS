@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -716,72 +716,6 @@
         <h3 class="subsection-title">Members</h3>
 
         <dl>
-            
-<dt>
-    <h4 class="name toc-target" id="_bounds"><span class="type-signature">&lt;private, static> </span>_bounds<span class="type-signature"> :<a href="me.Rect.html">me.Rect</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The bounding rectangle for this shape
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="me.Rect.html">me.Rect</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    ellipse.js, line 33
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
             
 <dt>
     <h4 class="name toc-target" id="pos"><span class="type-signature">&lt;static> </span>pos<span class="type-signature"> :<a href="me.Vector2d.html">me.Vector2d</a></span></h4>
@@ -1760,6 +1694,149 @@
         
             
 <dt>
+    <h4 class="name toc-target" id="scale"><span class="type-signature">&lt;static> </span>scale<span class="signature">(v)</span><span class="type-signature"> &rarr; {<a href="me.Ellipse.html">me.Ellipse</a>}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Scale this Ellipse by the specified vector.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>v</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    ellipse.js, line 138
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Reference to this object for method chaining
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="me.Ellipse.html">me.Ellipse</a></span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name toc-target" id="scale"><span class="type-signature">&lt;static> </span>scale<span class="signature">(x, <span class="optional">y</span>)</span><span class="type-signature"> &rarr; {<a href="me.Ellipse.html">me.Ellipse</a>}</span></h4>
 
     
@@ -1908,149 +1985,6 @@
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
     ellipse.js, line 119
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    Reference to this object for method chaining
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="me.Ellipse.html">me.Ellipse</a></span>
-
-
-	</dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="scale"><span class="type-signature">&lt;static> </span>scale<span class="signature">(v)</span><span class="type-signature"> &rarr; {<a href="me.Ellipse.html">me.Ellipse</a>}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Scale this Ellipse by the specified vector.
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>v</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    ellipse.js, line 138
 	</dd>
 	
 
@@ -2853,13 +2787,13 @@
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:40+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:03+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

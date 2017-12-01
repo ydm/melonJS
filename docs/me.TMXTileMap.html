@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -579,7 +579,7 @@ Tiled QT +0.7.x format
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -623,7 +623,7 @@ Tiled QT +0.7.x format
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 160
+    TMXTiledMap.js, line 125
 	</dd>
 	
 
@@ -730,7 +730,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 178
+    TMXTiledMap.js, line 143
 	</dd>
 	
 
@@ -796,7 +796,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 164
+    TMXTiledMap.js, line 129
 	</dd>
 	
 
@@ -862,7 +862,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 185
+    TMXTiledMap.js, line 150
 	</dd>
 	
 
@@ -928,7 +928,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 201
+    TMXTiledMap.js, line 166
 	</dd>
 	
 
@@ -994,7 +994,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 193
+    TMXTiledMap.js, line 158
 	</dd>
 	
 
@@ -1018,7 +1018,7 @@ level.addTo(me.game.world, true);</pre>
         <dl>
             
 <dt>
-    <h4 class="name toc-target" id="getRenderer"><span class="type-signature">&lt;static> </span>getRenderer<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="me.TMXRenderer.html">me.TMXRenderer</a>}</span></h4>
+    <h4 class="name toc-target" id="getRenderer"><span class="type-signature">&lt;static> </span>getRenderer<span class="signature">(<span class="optional">layer</span>)</span><span class="type-signature"> &rarr; {<a href="me.TMXRenderer.html">me.TMXRenderer</a>}</span></h4>
 
     
 </dt>
@@ -1033,6 +1033,67 @@ level.addTo(me.game.world, true);</pre>
     
 
     
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>layer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.TMXLayer.html">me.TMXLayer</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">a layer object</td>
+        </tr>
+
+	
+	</tbody>
+</table>
 
     
 
@@ -1061,7 +1122,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 253
+    TMXTiledMap.js, line 218
 	</dd>
 	
 
@@ -1086,7 +1147,7 @@ level.addTo(me.game.world, true);</pre>
     
             
 <div class="param-desc">
-    renderer
+    a TMX renderer
 </div>
 
 
@@ -1227,7 +1288,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 343
+    TMXTiledMap.js, line 323
 	</dd>
 	
 
@@ -1307,7 +1368,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 508
+    TMXTiledMap.js, line 503
 	</dd>
 	
 
@@ -1378,7 +1439,7 @@ level.addTo(me.game.world, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 495
+    TMXTiledMap.js, line 490
 	</dd>
 	
 
@@ -1522,7 +1583,7 @@ ignoring all defined groups (no sub containers will be created)</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    TMXTiledMap.js, line 382
+    TMXTiledMap.js, line 362
 	</dd>
 	
 
@@ -1590,13 +1651,13 @@ ignoring all defined groups (no sub containers will be created)</td>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:41+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:03+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

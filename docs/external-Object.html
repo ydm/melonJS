@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -573,7 +573,7 @@
         <dl>
             
 <dt>
-    <h4 class="name toc-target" id="assign"><span class="type-signature"></span>assign<span class="signature">(target, sources)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name toc-target" id="assign"><span class="type-signature"></span>assign<span class="signature">(target, sources)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 </dt>
@@ -626,7 +626,7 @@ For copying propertiy definitions, including their enumerability, into prototype
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -649,7 +649,7 @@ For copying propertiy definitions, including their enumerability, into prototype
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;<a href="Object.html">Object</a>></span>
+<span class="param-type">Array.&lt;Object></span>
 
 
             
@@ -693,7 +693,7 @@ For copying propertiy definitions, including their enumerability, into prototype
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 106
+    object.js, line 65
 	</dd>
 	
 
@@ -736,7 +736,7 @@ For copying propertiy definitions, including their enumerability, into prototype
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
 	</dd>
@@ -756,145 +756,6 @@ var o3 = { c: 3 };
 var obj = Object.assign(o1, o2, o3);
 console.log(obj);
 // { a: 1, b: 2, c: 3 }</pre>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="create"><span class="type-signature"></span>create<span class="signature">(o)</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Prototypal Inheritance Create Helper
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>o</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    object.js, line 41
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create</a></li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">// declare oldObject
-oldObject = new Object();
-// make some crazy stuff with oldObject (adding functions, etc...)
-// ...
-
-// make newObject inherits from oldObject
-newObject = Object.create(oldObject);</pre>
 
 
     
@@ -951,7 +812,7 @@ newObject = Object.create(oldObject);</pre>
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -974,7 +835,7 @@ newObject = Object.create(oldObject);</pre>
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -1018,7 +879,7 @@ newObject = Object.create(oldObject);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    object.js, line 65
+    object.js, line 24
 	</dd>
 	
 
@@ -1110,13 +971,13 @@ Object.is(a, b); //&gt; true</pre>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:40+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:02+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

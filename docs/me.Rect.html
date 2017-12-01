@@ -36,10 +36,6 @@
 						</li>
 						
 						<li>
-							<a href="external-Event.html">Event</a>
-						</li>
-						
-						<li>
 							<a href="external-Float32Array.html">Float32Array</a>
 						</li>
 						
@@ -344,6 +340,10 @@
 						</li>
 						
 						<li>
+							<a href="me.Pointer.html">me.Pointer</a>
+						</li>
+						
+						<li>
 							<a href="me.Polygon.html">me.Polygon</a>
 						</li>
 						
@@ -384,6 +384,10 @@
 						</li>
 						
 						<li>
+							<a href="me.TMXGroup.html">me.TMXGroup</a>
+						</li>
+						
+						<li>
 							<a href="me.TMXHexagonalRenderer.html">me.TMXHexagonalRenderer</a>
 						</li>
 						
@@ -397,10 +401,6 @@
 						
 						<li>
 							<a href="me.TMXObject.html">me.TMXObject</a>
-						</li>
-						
-						<li>
-							<a href="me.TMXObjectGroup.html">me.TMXObjectGroup</a>
 						</li>
 						
 						<li>
@@ -766,7 +766,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 328
+    rectangle.js, line 332
 	</dd>
 	
 
@@ -832,7 +832,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 371
+    rectangle.js, line 375
 	</dd>
 	
 
@@ -898,7 +898,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 276
+    rectangle.js, line 280
 	</dd>
 	
 
@@ -964,7 +964,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 293
+    rectangle.js, line 297
 	</dd>
 	
 
@@ -1030,7 +1030,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 311
+    rectangle.js, line 315
 	</dd>
 	
 
@@ -1096,7 +1096,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 346
+    rectangle.js, line 350
 	</dd>
 	
 
@@ -1163,7 +1163,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 136
+    rectangle.js, line 140
 	</dd>
 	
 
@@ -1306,7 +1306,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 225
+    rectangle.js, line 229
 	</dd>
 	
 
@@ -1472,7 +1472,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 242
+    rectangle.js, line 246
 	</dd>
 	
 
@@ -1615,7 +1615,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 147
+    rectangle.js, line 151
 	</dd>
 	
 
@@ -1709,7 +1709,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 79
+    rectangle.js, line 83
 	</dd>
 	
 
@@ -1852,7 +1852,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 208
+    rectangle.js, line 212
 	</dd>
 	
 
@@ -2018,7 +2018,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 64
+    rectangle.js, line 68
 	</dd>
 	
 
@@ -2161,7 +2161,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 90
+    rectangle.js, line 94
 	</dd>
 	
 
@@ -2212,7 +2212,7 @@
         
             
 <dt>
-    <h4 class="name toc-target" id="setShape"><span class="type-signature">&lt;static> </span>setShape<span class="signature">(x, y, w, h)</span><span class="type-signature"> &rarr; {<a href="me.Rect.html">me.Rect</a>}</span></h4>
+    <h4 class="name toc-target" id="setShape"><span class="type-signature">&lt;static> </span>setShape<span class="signature">(x, y, w|points, <span class="optional">h</span>)</span><span class="type-signature"> &rarr; {<a href="me.Rect.html">me.Rect</a>}</span></h4>
 
     
 </dt>
@@ -2242,6 +2242,8 @@
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
 		
 
@@ -2267,6 +2269,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -2290,6 +2300,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -2300,23 +2318,34 @@
 
         <tr>
             
-                <td class="name"><code>w</code></td>
+                <td class="name"><code>w|points</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">Number</span>
+|
+
+<span class="param-type">Array</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">width of the rectangle</td>
+            <td class="description last">width of the rectangle, or an array of vector defining the rectangle</td>
         </tr>
 
 	
@@ -2336,10 +2365,20 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">height of the rectangle</td>
+            <td class="description last">height of the rectangle, if a numeral width parameter is specified</td>
         </tr>
 
 	
@@ -2467,7 +2506,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 260
+    rectangle.js, line 264
 	</dd>
 	
 
@@ -2633,7 +2672,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 159
+    rectangle.js, line 163
 	</dd>
 	
 
@@ -2776,7 +2815,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 174
+    rectangle.js, line 178
 	</dd>
 	
 
@@ -2919,7 +2958,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 186
+    rectangle.js, line 190
 	</dd>
 	
 
@@ -3013,7 +3052,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    rectangle.js, line 125
+    rectangle.js, line 129
 	</dd>
 	
 
@@ -3081,13 +3120,13 @@
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+		Copyright &copy; 2011 - 2017 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-		on 2017-02-28T11:37:41+08:00 using the <a
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+		on 2017-12-01T14:31:03+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
