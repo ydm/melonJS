@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -780,7 +818,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 78
+    renderable.js, line 93
 	</dd>
 	
 
@@ -798,7 +836,7 @@
         
             
 <dt>
-    <h4 class="name toc-target" id="anchorPoint"><span class="type-signature">&lt;static> </span>anchorPoint<span class="type-signature"> :<a href="me.Vector2d.html">me.Vector2d</a></span></h4>
+    <h4 class="name toc-target" id="anchorPoint"><span class="type-signature">&lt;static> </span>anchorPoint<span class="type-signature"> :<a href="me.ObservableVector2d.html">me.ObservableVector2d</a></span></h4>
 
     
 </dt>
@@ -817,7 +855,7 @@ a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the cent
         <ul>
             <li>
                 
-<span class="param-type"><a href="me.Vector2d.html">me.Vector2d</a></span>
+<span class="param-type"><a href="me.ObservableVector2d.html">me.ObservableVector2d</a></span>
 
 
             </li>
@@ -856,7 +894,7 @@ a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the cent
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 119
+    renderable.js, line 134
 	</dd>
 	
 
@@ -930,7 +968,7 @@ any defined transformation before calling the child draw method.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 132
+    renderable.js, line 151
 	</dd>
 	
 
@@ -962,6 +1000,82 @@ update : function (dt) {
     ....
     return this._super(me.Entity, &#x27;update&#x27;, [dt]);
 },</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="body"><span class="type-signature">&lt;static> </span>body<span class="type-signature"> :<a href="me.Body.html">me.Body</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        the renderable physic body
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="me.Body.html">me.Body</a></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    renderable.js, line 43
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// add a physic body on this renderable
+myRenderable.body = new me.Body(this);
+myRenderable.body.setShape(new me.Rect(0, 0, width, height));
+// enable physic collision (off by default for basic me.Renderable)
+myRenderable.isKinematic = false;</pre>
 
 
     
@@ -1018,7 +1132,7 @@ update : function (dt) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 43
+    renderable.js, line 58
 	</dd>
 	
 
@@ -1092,7 +1206,7 @@ or the world coordinates (not floating)<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 108
+    renderable.js, line 123
 	</dd>
 	
 
@@ -1160,7 +1274,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 56
+    renderable.js, line 71
 	</dd>
 	
 
@@ -1226,7 +1340,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 509
+    renderable.js, line 546
 	</dd>
 	
 
@@ -1299,7 +1413,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 67
+    renderable.js, line 82
 	</dd>
 	
 
@@ -1317,14 +1431,14 @@ to an object container (including the `me.game.world` container)
         
             
 <dt>
-    <h4 class="name toc-target" id="isKinematic"><span class="type-signature">&lt;static> </span>isKinematic<span class="type-signature"> :me.Boolean</span></h4>
+    <h4 class="name toc-target" id="isKinematic"><span class="type-signature">&lt;static> </span>isKinematic<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        If true then collisions and input events will no more impact this renderable
+        If true then physic collision and input events will not impact this renderable
     </div>
     
 
@@ -1333,7 +1447,7 @@ to an object container (including the `me.game.world` container)
         <ul>
             <li>
                 
-<span class="param-type">me.Boolean</span>
+<span class="param-type">Boolean</span>
 
 
             </li>
@@ -1362,7 +1476,7 @@ to an object container (including the `me.game.world` container)
 	<dt class="tag-default">Default Value:</dt>
 	<dd class="tag-default">
 		<ul class="dummy">
-			<li>false</li>
+			<li>true</li>
 		</ul>
 	</dd>
 	
@@ -1445,7 +1559,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 98
+    renderable.js, line 113
 	</dd>
 	
 
@@ -1511,7 +1625,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 211
+    renderable.js, line 230
 	</dd>
 	
 
@@ -1584,7 +1698,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 88
+    renderable.js, line 103
 	</dd>
 	
 
@@ -1650,7 +1764,7 @@ to an object container (including the `me.game.world` container)
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 485
+    renderable.js, line 522
 	</dd>
 	
 
@@ -1724,7 +1838,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 161
+    renderable.js, line 180
 	</dd>
 	
 
@@ -1751,14 +1865,14 @@ Set to zero if you do not wish an object to be drawn
         
             
 <dt>
-    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
+    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a>|<a href="me.Entity.html">me.Entity</a></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
+        a reference to the parent object that contains this renderable,
 or undefined if it has not been added to one.
     </div>
     
@@ -1769,6 +1883,9 @@ or undefined if it has not been added to one.
             <li>
                 
 <span class="param-type"><a href="me.Container.html">me.Container</a></span>
+|
+
+<span class="param-type"><a href="me.Entity.html">me.Entity</a></span>
 
 
             </li>
@@ -1807,7 +1924,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 173
+    renderable.js, line 192
 	</dd>
 	
 
@@ -1927,7 +2044,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 436
+    renderable.js, line 466
 	</dd>
 	
 
@@ -2047,7 +2164,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 278
+    renderable.js, line 297
 	</dd>
 	
 
@@ -2174,7 +2291,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 294
+    renderable.js, line 313
 	</dd>
 	
 
@@ -2252,7 +2369,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 239
+    renderable.js, line 258
 	</dd>
 	
 
@@ -2346,7 +2463,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 250
+    renderable.js, line 269
 	</dd>
 	
 
@@ -2441,7 +2558,7 @@ Called by engine before deleting the object
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 473
+    renderable.js, line 510
 	</dd>
 	
 
@@ -2565,7 +2682,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 449
+    renderable.js, line 479
 	</dd>
 	
 
@@ -2690,7 +2807,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 404
+    renderable.js, line 434
 	</dd>
 	
 
@@ -2865,7 +2982,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 327
+    renderable.js, line 346
 	</dd>
 	
 
@@ -3008,7 +3125,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 347
+    renderable.js, line 366
 	</dd>
 	
 
@@ -3151,7 +3268,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 261
+    renderable.js, line 280
 	</dd>
 	
 
@@ -3271,7 +3388,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 310
+    renderable.js, line 329
 	</dd>
 	
 
@@ -3422,7 +3539,7 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 360
+    renderable.js, line 379
 	</dd>
 	
 
@@ -3478,13 +3595,13 @@ automatically called by the game manager <a href="me.game.html">me.game</a>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:03+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -648,7 +686,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 71
+    pointer.js, line 73
 	</dd>
 	
 
@@ -721,7 +759,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 81
+    pointer.js, line 83
 	</dd>
 	
 
@@ -746,7 +784,7 @@
         
             
 <dt>
-    <h4 class="name toc-target" id="event"><span class="type-signature">&lt;static> </span>event<span class="type-signature"> :Event</span></h4>
+    <h4 class="name toc-target" id="event"><span class="type-signature">&lt;static> </span>event<span class="type-signature"> :PointerEvent|TouchEvent|MouseEvent</span></h4>
 
     
 </dt>
@@ -762,7 +800,13 @@
         <ul>
             <li>
                 
-<span class="param-type">Event</span>
+<span class="param-type">PointerEvent</span>
+|
+
+<span class="param-type">TouchEvent</span>
+|
+
+<span class="param-type">MouseEvent</span>
 
 
             </li>
@@ -804,7 +848,11 @@
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
 		<ul>
-			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">https://developer.mozilla.org/en-US/docs/Web/API/Event</a></li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent">https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent</a></li>
+			
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent">https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent</a></li>
+			
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent</a></li>
 			</ul>
 	</dd>
 	
@@ -867,7 +915,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 147
+    pointer.js, line 149
 	</dd>
 	
 
@@ -933,7 +981,73 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 156
+    pointer.js, line 158
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="gameScreenX"><span class="type-signature">&lt;static> </span>gameScreenX<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Event X coordinate relative to the viewport
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    pointer.js, line 113
 	</dd>
 	
 
@@ -999,7 +1113,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 120
+    pointer.js, line 122
 	</dd>
 	
 
@@ -1065,7 +1179,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 129
+    pointer.js, line 131
 	</dd>
 	
 
@@ -1131,7 +1245,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 138
+    pointer.js, line 140
 	</dd>
 	
 
@@ -1198,7 +1312,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 91
+    pointer.js, line 93
 	</dd>
 	
 
@@ -1265,7 +1379,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 101
+    pointer.js, line 103
 	</dd>
 	
 
@@ -1331,7 +1445,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 165
+    pointer.js, line 167
 	</dd>
 	
 
@@ -1341,7 +1455,7 @@
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
 		<ul>
-			<li><a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh466123.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh466123.aspx</a></li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/pointerId">https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/pointerId</a></li>
 			</ul>
 	</dd>
 	
@@ -1404,7 +1518,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 40
+    pointer.js, line 42
 	</dd>
 	
 
@@ -1477,7 +1591,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 61
+    pointer.js, line 63
 	</dd>
 	
 
@@ -1550,7 +1664,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointer.js, line 51
+    pointer.js, line 53
 	</dd>
 	
 
@@ -1594,13 +1708,13 @@
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:03+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

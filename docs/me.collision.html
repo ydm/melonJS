@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -535,7 +573,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 187
+    collision.js, line 194
 	</dd>
 	
 
@@ -615,7 +653,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 231
+    collision.js, line 240
 	</dd>
 	
 
@@ -633,14 +671,14 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
         
             
 <dt>
-    <h4 class="name toc-target" id="maxChildren"><span class="type-signature">&lt;static> </span>maxChildren<span class="type-signature"> :boolean</span></h4>
+    <h4 class="name toc-target" id="maxChildren"><span class="type-signature">&lt;static> </span>maxChildren<span class="type-signature"> :Number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        The maximum number of children that a quadtree node can contain before it is split into sub-nodes. Default is 8.
+        The maximum number of children that a quadtree node can contain before it is split into sub-nodes.
     </div>
     
 
@@ -649,7 +687,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
         <ul>
             <li>
                 
-<span class="param-type">boolean</span>
+<span class="param-type">Number</span>
 
 
             </li>
@@ -675,13 +713,20 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 	
 
 	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>8</li>
+		</ul>
+	</dd>
+	
 
 
 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 221
+    collision.js, line 229
 	</dd>
 	
 
@@ -706,14 +751,14 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
         
             
 <dt>
-    <h4 class="name toc-target" id="maxDepth"><span class="type-signature">&lt;static> </span>maxDepth<span class="type-signature"> :number</span></h4>
+    <h4 class="name toc-target" id="maxDepth"><span class="type-signature">&lt;static> </span>maxDepth<span class="type-signature"> :Number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        The maximum number of levels that the quadtree will create. Default is 4.
+        The maximum number of levels that the quadtree will create.
     </div>
     
 
@@ -722,7 +767,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
         <ul>
             <li>
                 
-<span class="param-type">number</span>
+<span class="param-type">Number</span>
 
 
             </li>
@@ -748,13 +793,20 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 	
 
 	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>4</li>
+		</ul>
+	</dd>
+	
 
 
 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 210
+    collision.js, line 217
 	</dd>
 	
 
@@ -827,7 +879,7 @@ Based on the Separating Axis Theorem and supports detecting collisions between s
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 201
+    collision.js, line 208
 	</dd>
 	
 
@@ -894,7 +946,7 @@ this object will be reused amongst collision detection call if not user-defined 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 368
+    collision.js, line 377
 	</dd>
 	
 
@@ -1196,7 +1248,7 @@ this object will be reused amongst collision detection call if not user-defined 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 320
+    collision.js, line 329
 	</dd>
 	
 
@@ -1478,7 +1530,7 @@ this object will be reused amongst collision detection call if not user-defined 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 240
+    collision.js, line 249
 	</dd>
 	
 
@@ -1690,7 +1742,7 @@ myPlayerEntity.body.setCollisionMask(
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 398
+    collision.js, line 407
 	</dd>
 	
 
@@ -1759,6 +1811,213 @@ onCollision : function (response) {
     // Make the object solid
     return true;
 },</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="rayCast"><span class="type-signature">&lt;static> </span>rayCast<span class="signature">(line, <span class="optional">result</span>)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="me.Entity.html">me.Entity</a>>}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Checks for object colliding with the given line
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>line</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.Line.html">me.Line</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">line to be tested for collision</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>result</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="me.Entity.html">me.Entity</a>></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">a user defined array that will be populated with intersecting entities.</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    collision.js, line 504
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    an Array of intersecting entities
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Array.&lt;<a href="me.Entity.html">me.Entity</a>></span>
+
+
+	</dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// define a line accross the viewport
+   var ray = new me.Line(
+       // absolute position of the line
+       0, 0, [
+       // starting point relative to the initial position
+       new me.Vector2d(0, 0),
+       // ending point
+       new me.Vector2d(me.game.viewport.width, me.game.viewport.height)
+   ]);
+
+   // check for collition
+   result = me.collision.rayCast(ray);
+
+   if (result.length &gt; 0) {
+       // ...
+   }</pre>
 
 
     
@@ -1883,7 +2142,7 @@ you can redefine this function if you need any specific rules over what should c
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    collision.js, line 378
+    collision.js, line 387
 	</dd>
 	
 
@@ -1951,13 +2210,13 @@ you can redefine this function if you need any specific rules over what should c
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:02+08:00 using the <a
+		on 2018-01-21T15:15:25+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

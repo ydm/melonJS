@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -507,7 +545,7 @@
     
         
 <dt>
-    <h4 class="name toc-target" id="Body"><span class="type-signature"></span>new Body<span class="signature">(entity, <span class="optional">shapes</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name toc-target" id="Body"><span class="type-signature"></span>new Body<span class="signature">(ancestor, <span class="optional">shapes</span>, <span class="optional">onBodyUpdate</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -551,13 +589,13 @@
 
         <tr>
             
-                <td class="name"><code>entity</code></td>
+                <td class="name"><code>ancestor</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="me.Entity.html">me.Entity</a></span>
+<span class="param-type"><a href="me.Renderable.html">me.Renderable</a></span>
 
 
             
@@ -575,7 +613,7 @@
 
             
 
-            <td class="description last">the parent entity</td>
+            <td class="description last">the parent object this body is attached to</td>
         </tr>
 
 	
@@ -621,6 +659,39 @@
         </tr>
 
 	
+
+        <tr>
+            
+                <td class="name"><code>onBodyUpdate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">callback for when the body is updated (e.g. add/remove shapes)</td>
+        </tr>
+
+	
 	</tbody>
 </table>
 
@@ -651,7 +722,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 19
+    body.js, line 20
 	</dd>
 	
 
@@ -715,7 +786,7 @@
 <dd>
     
     <div class="description">
-        entity current acceleration<br>
+        body acceleration
     </div>
     
 
@@ -763,7 +834,81 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 79
+    body.js, line 84
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="bounce"><span class="type-signature">&lt;static> </span>bounce<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        the body bouciness level when colliding with other solid bodies :
+a value of 0 will not bounce, a value of 1 will fully rebound.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>0</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    body.js, line 110
 	</dd>
 	
 
@@ -836,7 +981,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 52
+    body.js, line 57
 	</dd>
 	
 
@@ -858,7 +1003,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// set the entity body collision type
+    <pre class="sunlight-highlight-javascript">// set the body collision type
 myEntity.body.collisionType = me.collision.types.PLAYER_OBJECT;</pre>
 
 
@@ -875,7 +1020,7 @@ myEntity.body.collisionType = me.collision.types.PLAYER_OBJECT;</pre>
 <dd>
     
     <div class="description">
-        falling state of the object<br>
+        falling state of the body<br>
 true if the object is falling<br>
 false if the object is standing on something<br>
     </div>
@@ -925,7 +1070,7 @@ false if the object is standing on something<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 131
+    body.js, line 147
 	</dd>
 	
 
@@ -950,7 +1095,7 @@ false if the object is standing on something<br>
 <dd>
     
     <div class="description">
-        entity current friction<br>
+        body friction
     </div>
     
 
@@ -998,7 +1143,7 @@ false if the object is standing on something<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 92
+    body.js, line 97
 	</dd>
 	
 
@@ -1023,7 +1168,7 @@ false if the object is standing on something<br>
 <dd>
     
     <div class="description">
-        Default gravity value of the entity<br>
+        Default gravity value for this body<br>
 to be set to 0 for RPG, shooter, etc...<br>
 Note: Gravity can also globally be defined through me.sys.gravity
     </div>
@@ -1073,7 +1218,7 @@ Note: Gravity can also globally be defined through me.sys.gravity
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 118
+    body.js, line 134
 	</dd>
 	
 
@@ -1105,8 +1250,8 @@ Note: Gravity can also globally be defined through me.sys.gravity
 <dd>
     
     <div class="description">
-        jumping state of the object<br>
-equal true if the entity is jumping<br>
+        jumping state of the body<br>
+equal true if the body is jumping<br>
     </div>
     
 
@@ -1154,7 +1299,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 144
+    body.js, line 160
 	</dd>
 	
 
@@ -1179,7 +1324,7 @@ equal true if the entity is jumping<br>
 <dd>
     
     <div class="description">
-        max velocity (to limit entity velocity)<br>
+        max velocity (to limit body velocity)
     </div>
     
 
@@ -1227,7 +1372,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 105
+    body.js, line 121
 	</dd>
 	
 
@@ -1252,7 +1397,7 @@ equal true if the entity is jumping<br>
 <dd>
     
     <div class="description">
-        entity current velocity<br>
+        body velocity
     </div>
     
 
@@ -1300,7 +1445,81 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 66
+    body.js, line 71
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Renderable.html">me.Renderable</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        a reference to the parent object that contains this bodt,
+or undefined if it has not been added to one.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="me.Renderable.html">me.Renderable</a></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>undefined</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    body.js, line 26
 	</dd>
 	
 
@@ -1332,7 +1551,7 @@ equal true if the entity is jumping<br>
 
     
     <div class="description">
-        add a collision shape to this entity <br>
+        add a collision shape to this body <br>
 (note: me.Rect objects will be converted to me.Polygon before being added)
     </div>
     
@@ -1426,7 +1645,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 173
+    body.js, line 196
 	</dd>
 	
 
@@ -1485,7 +1704,7 @@ equal true if the entity is jumping<br>
 
     
     <div class="description">
-        add collision shapes based on the given PhysicsEditor JSON object
+        add collision mesh based on a given Physics Editor JSON object
     </div>
     
 
@@ -1551,7 +1770,7 @@ equal true if the entity is jumping<br>
                 </td>
             
 
-            <td class="description last">a JSON object as exported from the PhysicsEditor tool</td>
+            <td class="description last">a JSON object as exported from the a Physics Editor tool</td>
         </tr>
 
 	
@@ -1659,7 +1878,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 200
+    body.js, line 223
 	</dd>
 	
 
@@ -1710,6 +1929,12 @@ equal true if the entity is jumping<br>
 
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">this.body.addShapesFromJSON(me.loader.getJSON(&quot;shapesdef1&quot;), settings.banana);</pre>
+
 
     
 </dd>
@@ -1829,7 +2054,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 278
+    body.js, line 303
 	</dd>
 	
 
@@ -1984,7 +2209,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 291
+    body.js, line 316
 	</dd>
 	
 
@@ -2127,7 +2352,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 310
+    body.js, line 335
 	</dd>
 	
 
@@ -2270,7 +2495,7 @@ equal true if the entity is jumping<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 344
+    body.js, line 369
 	</dd>
 	
 
@@ -2392,7 +2617,7 @@ control over which entities can collide with each other.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 323
+    body.js, line 348
 	</dd>
 	
 
@@ -2445,7 +2670,7 @@ myEntity.body.setCollisionMask(me.collision.types.NO_OBJECT);</pre>
 
     
     <div class="description">
-        set the entity default friction<br>
+        set the body default friction
     </div>
     
 
@@ -2552,7 +2777,7 @@ myEntity.body.setCollisionMask(me.collision.types.NO_OBJECT);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 434
+    body.js, line 467
 	</dd>
 	
 
@@ -2588,7 +2813,7 @@ myEntity.body.setCollisionMask(me.collision.types.NO_OBJECT);</pre>
 
     
     <div class="description">
-        cap the entity velocity to the specified value<br>
+        cap the body velocity to the specified value<br>
     </div>
     
 
@@ -2695,7 +2920,7 @@ myEntity.body.setCollisionMask(me.collision.types.NO_OBJECT);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 420
+    body.js, line 453
 	</dd>
 	
 
@@ -2731,7 +2956,7 @@ myEntity.body.setCollisionMask(me.collision.types.NO_OBJECT);</pre>
 
     
     <div class="description">
-        set the entity default velocity<br>
+        set the body default velocity<br>
 note : velocity is by default limited to the same value, see
 setMaxVelocity if needed<br>
     </div>
@@ -2840,7 +3065,7 @@ setMaxVelocity if needed<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 401
+    body.js, line 434
 	</dd>
 	
 
@@ -2911,7 +3136,7 @@ setMaxVelocity if needed<br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    body.js, line 500
+    body.js, line 533
 	</dd>
 	
 
@@ -2979,13 +3204,13 @@ setMaxVelocity if needed<br>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:02+08:00 using the <a
+		on 2018-01-21T15:15:25+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

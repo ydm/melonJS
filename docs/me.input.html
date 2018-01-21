@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -626,7 +664,7 @@ RIGHT : constant for right button
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 456
+    pointerevent.js, line 492
 	</dd>
 	
 
@@ -761,7 +799,7 @@ set to 0 ms to disable the feature
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 477
+    pointerevent.js, line 513
 	</dd>
 	
 
@@ -1514,7 +1552,7 @@ Right button – 2
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 520
+    pointerevent.js, line 571
 	</dd>
 	
 
@@ -1720,7 +1758,7 @@ coordinate to local (viewport) relative coordinate.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 488
+    pointerevent.js, line 524
 	</dd>
 	
 
@@ -2146,6 +2184,7 @@ melonJS currently supports: <br>
   <li><code>"pointerdown"</code></li>
   <li><code>"pointerup"</code></li>
   <li><code>"pointerenter"</code></li>
+  <li><code>"pointerover"</code></li>
   <li><code>"pointerleave"</code></li>
   <li><code>"pointercancel"</code></li>
   <li><code>"wheel"</code></li>
@@ -2239,7 +2278,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 573
+    pointerevent.js, line 624
 	</dd>
 	
 
@@ -2485,7 +2524,7 @@ Returning `false` from the defined callback will prevent the event to be propaga
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 642
+    pointerevent.js, line 694
 	</dd>
 	
 
@@ -2969,6 +3008,189 @@ me.input.setGamepadMapping(&quot;Generic Analog Controller&quot;, {
   }
 });</pre>
 
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="setTouchAction"><span class="type-signature">&lt;static> </span>setTouchAction<span class="signature">(element, <span class="optional">value</span>)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        enable/disable all gestures on the given element.<br>
+by default melonJS will disable browser handling of all panning and zooming gestures.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+		<th>Default</th>
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLCanvasElement</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    "none"
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    pointerevent.js, line 556
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action">https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -3545,7 +3767,7 @@ me.input.triggerKeyEvent(me.input.KEY.LEFT, true);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    pointerevent.js, line 554
+    pointerevent.js, line 605
 	</dd>
 	
 
@@ -3895,13 +4117,13 @@ if (!this.falling &amp;&amp; !this.jumping) {
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:03+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

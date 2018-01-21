@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -581,9 +619,9 @@ There is no constructor function for me.input.</div>
 <dd>
     
     <div class="description">
-        crossOrigin attribute to configure the CORS requests for Image data element.<br>
-By default (that is, when the attribute is not specified), CORS is not used at all. <br>
-The "anonymous" keyword means that there will be no exchange of user credentials via cookies, <br>
+        crossOrigin attribute to configure the CORS requests for Image data element.
+By default (that is, when the attribute is not specified), CORS is not used at all.
+The "anonymous" keyword means that there will be no exchange of user credentials via cookies,
 client-side SSL certificates or HTTP authentication as described in the Terminology section of the CORS specification.<br>
     </div>
     
@@ -619,6 +657,13 @@ client-side SSL certificates or HTTP authentication as described in the Terminol
 	
 
 	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>undefined</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -649,6 +694,97 @@ client-side SSL certificates or HTTP authentication as described in the Terminol
         
     <pre class="sunlight-highlight-javascript">// allow for cross-origin texture loading in WebGL
 me.loader.crossOrigin = &quot;anonymous&quot;;
+
+// set all ressources to be loaded
+me.loader.preload(game.resources, this.loaded.bind(this));</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="withCredentials"><span class="type-signature">&lt;static> </span>withCredentials<span class="type-signature"> :Boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies,
+authorization headers or TLS client certificates. Setting withCredentials has no effect on same-site requests.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>false</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    loader.js, line 305
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// enable withCredentials
+me.loader.withCredentials = true;
 
 // set all ressources to be loaded
 me.loader.preload(game.resources, this.loaded.bind(this));</pre>
@@ -758,7 +894,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 640
+    loader.js, line 659
 	</dd>
 	
 
@@ -897,7 +1033,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 662
+    loader.js, line 681
 	</dd>
 	
 
@@ -1036,7 +1172,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 685
+    loader.js, line 704
 	</dd>
 	
 
@@ -1135,7 +1271,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 705
+    loader.js, line 724
 	</dd>
 	
 
@@ -1274,7 +1410,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 619
+    loader.js, line 638
 	</dd>
 	
 
@@ -1529,7 +1665,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 
             
 
-            <td class="description last">set to true if you don't have to wait for the audio file to be fully downloaded</td>
+            <td class="description last">Set to true to force HTML5 Audio, which allows not to wait for large file to be downloaded before playing.</td>
         </tr>
 
 	
@@ -1616,7 +1752,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 446
+    loader.js, line 465
 	</dd>
 	
 
@@ -1703,7 +1839,7 @@ me.loader.load({
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 258
+    loader.js, line 259
 	</dd>
 	
 
@@ -1783,7 +1919,7 @@ giving the actual progress [0 ... 1], as argument, and an object describing the 
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 270
+    loader.js, line 271
 	</dd>
 	
 
@@ -2039,7 +2175,7 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
 
             
 
-            <td class="description last">set to true if you don't have to wait for the audio file to be fully downloaded</td>
+            <td class="description last">Set to true to force HTML5 Audio, which allows not to wait for large file to be downloaded before playing.</td>
         </tr>
 
 	
@@ -2158,7 +2294,7 @@ me.loader.onProgress = this.updateProgress.bind(this);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 385
+    loader.js, line 404
 	</dd>
 	
 
@@ -2362,7 +2498,7 @@ me.loader.preload(game.resources, this.loaded.bind(this));</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 355
+    loader.js, line 374
 	</dd>
 	
 
@@ -2491,7 +2627,7 @@ me.loader.setBaseURL(&quot;*&quot;, &quot;http://myurl.com/&quot;)</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 507
+    loader.js, line 526
 	</dd>
 	
 
@@ -2591,7 +2727,7 @@ me.loader.setBaseURL(&quot;*&quot;, &quot;http://myurl.com/&quot;)</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    loader.js, line 564
+    loader.js, line 583
 	</dd>
 	
 
@@ -2642,13 +2778,13 @@ me.loader.setBaseURL(&quot;*&quot;, &quot;http://myurl.com/&quot;)</pre>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:03+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

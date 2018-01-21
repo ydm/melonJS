@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -848,7 +886,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 88
+    container.js, line 85
 	</dd>
 	
 
@@ -921,7 +959,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 78
+    container.js, line 75
 	</dd>
 	
 
@@ -987,7 +1025,7 @@
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 104
+    container.js, line 112
 	</dd>
 	
 
@@ -1061,7 +1099,7 @@ value : "x", "y", "z"
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 67
+    container.js, line 64
 	</dd>
 	
 
@@ -1144,7 +1182,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 161
+    renderable.js, line 180
 	</dd>
 	
 
@@ -1171,14 +1209,14 @@ Set to zero if you do not wish an object to be drawn
         
             
 <dt>
-    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
+    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a>|<a href="me.Entity.html">me.Entity</a></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
+        a reference to the parent object that contains this renderable,
 or undefined if it has not been added to one.
     </div>
     
@@ -1189,6 +1227,9 @@ or undefined if it has not been added to one.
             <li>
                 
 <span class="param-type"><a href="me.Container.html">me.Container</a></span>
+|
+
+<span class="param-type"><a href="me.Entity.html">me.Entity</a></span>
 
 
             </li>
@@ -1236,7 +1277,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 173
+    renderable.js, line 192
 	</dd>
 	
 
@@ -1396,7 +1437,7 @@ if auto-sort is disable, the object will be appended at the bottom of the list
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 118
+    container.js, line 129
 	</dd>
 	
 
@@ -1563,7 +1604,7 @@ if auto-sort is disable, the object will be appended at the bottom of the list
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 164
+    container.js, line 177
 	</dd>
 	
 
@@ -1753,7 +1794,7 @@ callback is invoked with three arguments: <br>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 202
+    container.js, line 217
 	</dd>
 	
 
@@ -1783,126 +1824,6 @@ me.game.world.forEach(function (child) {
    // do something with the child
 });</pre>
 
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name toc-target" id="getChildAt"><span class="type-signature">&lt;static> </span>getChildAt<span class="signature">(child)</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Returns the index of the Child
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>child</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="me.Renderable.html">me.Renderable</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-    container.js, line 280
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 </dd>
@@ -2002,7 +1923,127 @@ me.game.world.forEach(function (child) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 264
+    container.js, line 279
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="getChildAt"><span class="type-signature">&lt;static> </span>getChildAt<span class="signature">(child)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the index of the Child
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="me.Renderable.html">me.Renderable</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    container.js, line 295
 	</dd>
 	
 
@@ -2133,7 +2174,7 @@ it parses the whole object list each time
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 394
+    container.js, line 409
 	</dd>
 	
 
@@ -2288,7 +2329,7 @@ it parses the whole object list each time
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 378
+    container.js, line 393
 	</dd>
 	
 
@@ -2465,7 +2506,7 @@ it parses the whole object tree each time
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 303
+    container.js, line 318
 	</dd>
 	
 
@@ -2626,7 +2667,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 354
+    container.js, line 369
 	</dd>
 	
 
@@ -2769,7 +2810,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 291
+    container.js, line 306
 	</dd>
 	
 
@@ -2908,7 +2949,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 586
+    container.js, line 602
 	</dd>
 	
 
@@ -3028,7 +3069,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 618
+    container.js, line 634
 	</dd>
 	
 
@@ -3148,7 +3189,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 601
+    container.js, line 617
 	</dd>
 	
 
@@ -3268,7 +3309,127 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 571
+    container.js, line 587
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name toc-target" id="onChildChange"><span class="type-signature">&lt;static> </span>onChildChange<span class="signature">(index)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        a callback to be extended, triggered when a child is added or removed
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">added or removed child index</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+    container.js, line 95
 	</dd>
 	
 
@@ -3443,7 +3604,7 @@ var inViewport = me.game.world.getChildByProp(&quot;inViewport&quot;, true);</pr
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 499
+    container.js, line 514
 	</dd>
 	
 
@@ -3620,7 +3781,7 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 518
+    container.js, line 533
 	</dd>
 	
 
@@ -3830,7 +3991,7 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 552
+    container.js, line 568
 	</dd>
 	
 
@@ -3970,7 +4131,7 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 635
+    container.js, line 651
 	</dd>
 	
 
@@ -4113,7 +4274,7 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 238
+    container.js, line 253
 	</dd>
 	
 
@@ -4184,7 +4345,7 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    container.js, line 410
+    container.js, line 425
 	</dd>
 	
 
@@ -4252,13 +4413,13 @@ Never use keepalive=true with objects from <a href="me.pool.html">me.pool</a>. D
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:02+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -953,7 +991,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 211
+    audio.js, line 212
 	</dd>
 	
 
@@ -1024,7 +1062,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 434
+    audio.js, line 435
 	</dd>
 	
 
@@ -1118,7 +1156,7 @@ only useful if audio supported and previously disabled through
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 458
+    audio.js, line 459
 	</dd>
 	
 
@@ -1177,11 +1215,14 @@ only useful if audio supported and previously disabled through
 
     
     <div class="description">
-        configure and initialize the audio engine<br>
-melonJS will try to load audio files corresponding to the browser supported audio format(s)<br>
-below is the list of supported file extentions : <br>
-<i>"mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby", "flac" </i> <br>
-keep in mind that not all browsers can play all audio formats, and if no compatible codecs are detected, audio will be disabled.
+        Initialize and configure the audio support.<br>
+melonJS supports a wide array of audio codecs that have varying browser support :
+<i> ("mp3", "mpeg", opus", "ogg", "oga", "wav", "aac", "caf", "m4a", "mp4", "weba", "webm", "dolby", "flac")</i>.<br>
+For a maximum browser coverage the recommendation is to use at least two of them,
+typically default to webm and then fallback to mp3 for the best balance of small filesize and high quality,
+webm has nearly full browser coverage with a great combination of compression and quality, and mp3 will fallback gracefully for other browsers.
+It is important to remember that melonJS selects the first compatible sound based on the list of extensions and given order passed here.
+So if you want webm to be used before mp3, you need to put the audio format in that order.
     </div>
     
 
@@ -1333,10 +1374,8 @@ keep in mind that not all browsers can play all audio formats, and if no compati
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;mp3&quot; and &quot;ogg&quot; as desired audio format
-// i.e. on Safari, the loader will load all audio.mp3 files,
-// on Opera the loader will however load audio.ogg files
-if (!me.audio.init(&quot;mp3,ogg&quot;)) {
+    <pre class="sunlight-highlight-javascript">// initialize the &quot;sound engine&quot;, giving &quot;webm&quot; as default desired audio format, and &quot;mp3&quot; as a fallback
+if (!me.audio.init(&quot;webm,mp3&quot;)) {
     alert(&quot;Sorry but your browser does not support html 5 audio !&quot;);
     return;
 }</pre>
@@ -1532,7 +1571,7 @@ if (!me.audio.init(&quot;mp3,ogg&quot;)) {
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 470
+    audio.js, line 471
 	</dd>
 	
 
@@ -1610,7 +1649,7 @@ me.audio.mute(&quot;awesome_music&quot;);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 507
+    audio.js, line 508
 	</dd>
 	
 
@@ -1681,7 +1720,7 @@ me.audio.mute(&quot;awesome_music&quot;);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 529
+    audio.js, line 530
 	</dd>
 	
 
@@ -1868,7 +1907,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 304
+    audio.js, line 305
 	</dd>
 	
 
@@ -1945,7 +1984,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 397
+    audio.js, line 398
 	</dd>
 	
 
@@ -2202,7 +2241,7 @@ this function does not reset the currentTime property
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 167
+    audio.js, line 168
 	</dd>
 	
 
@@ -2415,7 +2454,7 @@ and keep track of the current sound being played.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 352
+    audio.js, line 353
 	</dd>
 	
 
@@ -2640,7 +2679,7 @@ and keep track of the current sound being played.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 257
+    audio.js, line 258
 	</dd>
 	
 
@@ -2823,7 +2862,7 @@ me.audio.rate(&quot;dst-gameforest&quot;, 2.0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 325
+    audio.js, line 326
 	</dd>
 	
 
@@ -2907,7 +2946,7 @@ me.audio.resume(&quot;myClip&quot;, id);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 413
+    audio.js, line 414
 	</dd>
 	
 
@@ -3114,7 +3153,7 @@ me.audio.resumeTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 232
+    audio.js, line 233
 	</dd>
 	
 
@@ -3254,7 +3293,7 @@ me.audio.seek(&quot;dst-gameforest&quot;, 0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 446
+    audio.js, line 447
 	</dd>
 	
 
@@ -3417,7 +3456,7 @@ me.audio.seek(&quot;dst-gameforest&quot;, 0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 282
+    audio.js, line 283
 	</dd>
 	
 
@@ -3494,7 +3533,7 @@ me.audio.seek(&quot;dst-gameforest&quot;, 0);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 376
+    audio.js, line 377
 	</dd>
 	
 
@@ -3630,7 +3669,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 541
+    audio.js, line 542
 	</dd>
 	
 
@@ -3730,7 +3769,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 569
+    audio.js, line 570
 	</dd>
 	
 
@@ -3899,7 +3938,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 494
+    audio.js, line 495
 	</dd>
 	
 
@@ -3970,7 +4009,7 @@ me.audio.stopTrack();</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    audio.js, line 518
+    audio.js, line 519
 	</dd>
 	
 
@@ -4015,13 +4054,13 @@ me.audio.stopTrack();</pre>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:02+08:00 using the <a
+		on 2018-01-21T15:15:25+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>

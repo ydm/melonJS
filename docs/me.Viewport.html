@@ -475,6 +475,44 @@
 					</ul>
 				</li>
 				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html">all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#catch">catch</a>
+						</li>
+						
+						<li>
+							<a href="global.html#finally">finally</a>
+						</li>
+						
+						<li>
+							<a href="global.html">race</a>
+						</li>
+						
+						<li>
+							<a href="global.html">reject</a>
+						</li>
+						
+						<li>
+							<a href="global.html">resolve</a>
+						</li>
+						
+						<li>
+							<a href="global.html#then">then</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -1016,7 +1054,7 @@ Set to zero if you do not wish an object to be drawn
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 161
+    renderable.js, line 180
 	</dd>
 	
 
@@ -1043,14 +1081,14 @@ Set to zero if you do not wish an object to be drawn
         
             
 <dt>
-    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a></span></h4>
+    <h4 class="name toc-target" id="ancestor"><span class="type-signature"></span>ancestor<span class="type-signature"> :<a href="me.Container.html">me.Container</a>|<a href="me.Entity.html">me.Entity</a></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        a reference to the Container object that contains this renderable,
+        a reference to the parent object that contains this renderable,
 or undefined if it has not been added to one.
     </div>
     
@@ -1061,6 +1099,9 @@ or undefined if it has not been added to one.
             <li>
                 
 <span class="param-type"><a href="me.Container.html">me.Container</a></span>
+|
+
+<span class="param-type"><a href="me.Entity.html">me.Entity</a></span>
 
 
             </li>
@@ -1108,7 +1149,7 @@ or undefined if it has not been added to one.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    renderable.js, line 173
+    renderable.js, line 192
 	</dd>
 	
 
@@ -1320,7 +1361,7 @@ fade to the specified color
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 405
+    viewport.js, line 408
 	</dd>
 	
 
@@ -1536,7 +1577,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 386
+    viewport.js, line 389
 	</dd>
 	
 
@@ -1652,7 +1693,7 @@ screen is filled with the specified color and slowly goes back to normal
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 448
+    viewport.js, line 451
 	</dd>
 	
 
@@ -1832,7 +1873,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 212
+    viewport.js, line 215
 	</dd>
 	
 
@@ -1903,7 +1944,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 437
+    viewport.js, line 440
 	</dd>
 	
 
@@ -1993,7 +2034,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 426
+    viewport.js, line 429
 	</dd>
 	
 
@@ -2132,7 +2173,7 @@ Vector to follow</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 463
+    viewport.js, line 466
 	</dd>
 	
 
@@ -2346,7 +2387,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 475
+    viewport.js, line 478
 	</dd>
 	
 
@@ -2508,7 +2549,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 251
+    viewport.js, line 254
 	</dd>
 	
 
@@ -2665,7 +2706,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 267
+    viewport.js, line 270
 	</dd>
 	
 
@@ -2851,7 +2892,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 121
+    viewport.js, line 124
 	</dd>
 	
 
@@ -2994,7 +3035,7 @@ me.game.viewport.move(0, -4);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 169
+    viewport.js, line 172
 	</dd>
 	
 
@@ -3207,7 +3248,7 @@ the viewport is bound to the given coordinates and cannot move/be scrolled outsi
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 195
+    viewport.js, line 198
 	</dd>
 	
 
@@ -3352,7 +3393,7 @@ the followed renderable can move without scrolling the viewport.
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 141
+    viewport.js, line 144
 	</dd>
 	
 
@@ -3645,7 +3686,7 @@ while shaking</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 361
+    viewport.js, line 364
 	</dd>
 	
 
@@ -3723,7 +3764,7 @@ me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);</pre>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 240
+    viewport.js, line 243
 	</dd>
 	
 
@@ -3918,7 +3959,7 @@ converted value</td>
 	
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source">
-    viewport.js, line 491
+    viewport.js, line 499
 	</dd>
 	
 
@@ -3982,13 +4023,13 @@ converted value</td>
 					
 					
 		<span class="copyright">
-		Copyright &copy; 2011 - 2017 Olivier Biot
+		Copyright &copy; 2011 - 2018 Olivier Biot
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
-		on 2017-12-01T14:31:03+08:00 using the <a
+		on 2018-01-21T15:15:26+08:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a> modified by <a href="https://github.com/codename-">codename-</a>.
 		</span>
 				</footer>
