@@ -5,25 +5,22 @@
  *
  */
 
- (function () {
+import Entity from "./entity";
 
-    /**
-     * @class
-     * @extends me.Entity
-     * @memberOf me
-     * @constructor
-     * @param {Number} x the x coordinates of the entity object
-     * @param {Number} y the y coordinates of the entity object
-     * @param {Object} settings See {@link me.Entity}
-     */
-    me.CollectableEntity = me.Entity.extend(
+/**
+ * @class
+ * @extends me.Entity
+ * @memberOf me
+ * @constructor
+ * @param {Number} x the x coordinates of the entity object
+ * @param {Number} y the y coordinates of the entity object
+ * @param {Object} settings See {@link me.Entity}
+ */
+export default class CollectableEntity extends Entity {
     /** @scope me.CollectableEntity.prototype */
-    {
-        /** @ignore */
-        init : function (x, y, settings) {
-            // call the super constructor
-            this._super(me.Entity, "init", [x, y, settings]);
-            this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
-        }
-    });
-})();
+    constructor(x, y, settings) {
+        // call the super constructor
+        super(x, y, settings);
+        this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+    }
+};

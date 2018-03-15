@@ -1,51 +1,50 @@
 /*
- * MelonJS Game Engine
- * Copyright (C) 2011 - 2018 Olivier Biot
- * http://www.melonjs.org
- *
- * A QuadTree implementation in JavaScript, a 2d spatial subdivision algorithm.
- * Based on the QuadTree Library by Timo Hausmann and released under the MIT license
- * https://github.com/timohausmann/quadtree-js/
+* MelonJS Game Engine
+* Copyright (C) 2011 - 2018 Olivier Biot
+* http://www.melonjs.org
+*
+* A QuadTree implementation in JavaScript, a 2d spatial subdivision algorithm.
+* Based on the QuadTree Library by Timo Hausmann and released under the MIT license
+* https://github.com/timohausmann/quadtree-js/
 **/
 
-(function () {
 
 
-    /**
-     * a pool of `QuadTree` objects
-     */
-    var QT_ARRAY = [];
+/**
+ * a pool of `QuadTree` objects
+ */
+let QT_ARRAY = [];
 
-    /**
-     * will pop a quadtree object from the array
-     * or create a new one if the array is empty
-     */
-    var QT_ARRAY_POP = function (bounds, max_objects, max_levels, level) {
-        if (QT_ARRAY.length > 0) {
-            var _qt =  QT_ARRAY.pop();
-            _qt.bounds = bounds;
-            _qt.max_objects = max_objects || 4;
-            _qt.max_levels  = max_levels || 4;
-            _qt.level = level || 0;
-            return _qt;
-        } else {
-            return new me.QuadTree(bounds, max_objects, max_levels, level);
-        }
-    };
+/**
+ * will pop a quadtree object from the array
+ * or create a new one if the array is empty
+ */
+let QT_ARRAY_POP = function (bounds, max_objects, max_levels, level) {
+    if (QT_ARRAY.length > 0) {
+        var _qt =  QT_ARRAY.pop();
+        _qt.bounds = bounds;
+        _qt.max_objects = max_objects || 4;
+        _qt.max_levels  = max_levels || 4;
+        _qt.level = level || 0;
+        return _qt;
+    } else {
+        return new me.QuadTree(bounds, max_objects, max_levels, level);
+    }
+};
 
-    /**
-     * Push back a quadtree back into the array
-     */
-    var QT_ARRAY_PUSH = function (qt) {
-        QT_ARRAY.push(qt);
-    };
+/**
+ * Push back a quadtree back into the array
+ */
+let QT_ARRAY_PUSH = function (qt) {
+    QT_ARRAY.push(qt);
+};
 
-    /**
-     * a temporary vector object to be reused
-     */
-    var QT_VECTOR = new me.Vector2d();
+/**
+ * a temporary vector object to be reused
+ */
+let QT_VECTOR = new me.Vector2d();
 
-
+export default class Quadtree {
     /**
      * Quadtree Constructor <br>
      * note: the global quadtree instance is available through `me.collision.quadTree`
@@ -60,7 +59,7 @@
      * @param {Number} [max_levels=4] total max levels inside root Quadtree
      * @param {Number} [level] deepth level, required for subnodes
      */
-    function Quadtree(bounds, max_objects, max_levels, level) {
+    constructor(bounds, max_objects, max_levels, level) {
         this.max_objects = max_objects || 4;
         this.max_levels  = max_levels || 4;
 
@@ -75,7 +74,7 @@
     /*
      * Split the node into 4 subnodes
      */
-    Quadtree.prototype.split = function () {
+    split() {
 
         var nextLevel = this.level + 1,
             subWidth  = ~~(0.5 + this.bounds.width / 2),
@@ -122,7 +121,7 @@
             width : subWidth,
             height : subHeight
         }, this.max_objects, this.max_levels, nextLevel);
-    };
+    }
 
 
     /*
@@ -130,7 +129,7 @@
      * @param {me.Rect} rect bounds of the area to be checked
      * @return Integer index of the subnode (0-3), or -1 if rect cannot completely fit within a subnode and is part of the parent node
      */
-    Quadtree.prototype.getIndex = function (item) {
+    getIndex(item) {
 
         var rect = item.getBounds(),
             pos = rect.pos;
@@ -169,7 +168,7 @@
         }
 
         return index;
-    };
+    }
 
     /**
      * Insert the given object container into the node.
@@ -178,7 +177,7 @@
      * @function
      * @param {me.Container} container group of objects to be added
      */
-    Quadtree.prototype.insertContainer = function (container) {
+    insertContainer(container) {
 
         for (var i = container.children.length, child; i--, (child = container.children[i]);) {
             if (child.isKinematic !== true) {
@@ -197,7 +196,7 @@
                 }
             }
         }
-    };
+    }
 
     /**
      * Insert the given object into the node. If the node
@@ -208,7 +207,7 @@
      * @function
      * @param {Object} item object to be added
      */
-    Quadtree.prototype.insert = function (item) {
+    insert(item) {
 
         var index = -1;
 
@@ -256,7 +255,7 @@
      * @param {Object} [function] a sorting function for the returned array
      * @return {Object[]} array with all detected objects
      */
-    Quadtree.prototype.retrieve = function (item, fn) {
+    retrieve(item, fn) {
 
         var returnObjects = this.objects;
 
@@ -292,7 +291,7 @@
      * @param {Object} object object to be removed
      * @return true if the item was found and removed.
      */
-     Quadtree.prototype.remove = function (item) {
+     remove(item) {
         var found = false;
 
         if (typeof (item.getBounds) === "undefined") {
@@ -332,7 +331,7 @@
      * @function
      * @return true if the node is prunable
      */
-    Quadtree.prototype.isPrunable = function () {
+    isPrunable() {
         return !(this.hasChildren() || (this.objects.length > 0));
     };
 
@@ -343,7 +342,7 @@
      * @function
      * @return true if the node has any children
      */
-    Quadtree.prototype.hasChildren = function () {
+    hasChildren() {
         for (var i = 0; i < this.nodes.length; i = i + 1) {
             var subnode = this.nodes[i];
             if (subnode.length > 0 || subnode.objects.length > 0) {
@@ -359,7 +358,7 @@
      * @memberOf me.QuadTree
      * @function
      */
-    Quadtree.prototype.clear = function (bounds) {
+    clear(bounds) {
 
         this.objects.length = 0;
 
@@ -377,7 +376,4 @@
         }
     };
 
-    //make Quadtree available in the me namespace
-    me.QuadTree = Quadtree;
-
-})();
+}
